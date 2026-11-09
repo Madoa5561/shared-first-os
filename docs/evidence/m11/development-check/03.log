@@ -1,0 +1,69 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src\lib.rs (target\debug\deps\shared_first_os-49c2a11fc1d0688d.exe)
+
+running 62 tests
+test frame::tests::peak_records_transient_allocations_and_resets_to_live_count ... ok
+test frame::tests::exhaustion_reuse_and_invalid_free ... ok
+test launch::tests::session_receives_separate_arguments_and_cleanup_keeps_only_owner ... ok
+test frame::tests::reservations_win_in_any_order_and_reclaimable_is_not_free ... ok
+test loader::tests::aggregate_code_and_fuel_limits_are_enforced ... ok
+test loader::tests::input_mutation_does_not_change_owned_code_and_clear_releases_logically ... ok
+test memory::tests::only_usable_is_available_including_future_types ... ok
+test frame::tests::inward_alignment_and_duplicate_usable_ranges ... ok
+test launch::tests::task_local_read_only_grants_reject_foreign_stale_and_bounds ... ok
+test loader::tests::all_truncations_and_trailing_data_rejected ... ok
+test loader::tests::headers_reservations_and_lengths_rejected ... ok
+test memory::tests::counter_overflow_is_transactional ... ok
+test launch::tests::rejected_session_and_early_drop_release_prepared_grants ... ok
+test memory::tests::preserves_unaligned_byte_counts_without_rounding_into_free_frames ... ok
+test object::tests::generation_and_reference_overflow_never_wrap ... ok
+test memory::tests::rejects_empty_regions ... ok
+test object::tests::attenuation_is_transitive_and_write_execute_are_denied ... ok
+test loader::tests::invalid_last_program_prevents_any_batch_publication ... ok
+test object::tests::mediated_reads_check_authority_bounds_tail_and_revocation ... ok
+test object::tests::cow_failure_preserves_source_and_mapping_without_leaks ... ok
+test object::tests::cow_copies_only_faulted_page_and_revokes_private_copies ... ok
+test object::tests::capacity_size_and_address_limits_do_not_change_state ... ok
+test object::tests::cow_views_are_independent_snapshots_even_with_the_same_capability ... ok
+test launch::tests::invalid_batch_busy_store_and_allocation_failure_are_atomic ... ok
+test object::tests::every_partial_map_failure_rolls_back_but_keeps_payload ... ok
+test memory::tests::rejects_wrapping_address_without_mutating_summary ... ok
+test object::tests::overlapping_map_failure_preserves_preexisting_mapping ... ok
+test object::tests::release_unmaps_only_its_views_and_last_reference_frees_once ... ok
+test object::tests::task_local_lookup_and_stale_reuse_cannot_reach_other_objects ... ok
+test object::tests::every_partial_create_failure_restores_ownership ... ok
+test frame::tests::rejects_malformed_maps_and_capacity_overflow ... ok
+test paging::tests::adjacent_mapping_survives_pruning_and_failed_expansion ... ok
+test paging::tests::malformed_addresses_do_not_allocate_tables ... ok
+test object::tests::shared_backing_zero_tail_and_sealed_before_mapping ... ok
+test object::tests::wire_handles_and_rights_reject_truncation_and_unknown_bits ... ok
+test paging::tests::partial_allocation_failure_rolls_back_all_new_tables ... ok
+test paging::tests::protect_flushes_permissions_without_allocating_or_changing_backing ... ok
+test policy::tests::codec_roundtrip_rejects_random_and_malformed_runs ... ok
+test sandbox::tests::arithmetic_scratch_and_halt_are_defined ... ok
+test policy::tests::compressed_dedup_and_restore_failure_keep_authoritative_bytes ... ok
+test policy::tests::dedup_is_not_object_identity_and_revoke_preserves_other_object ... ok
+test sandbox::tests::fuel_stops_loops_bulk_calls_and_cannot_reset_at_yield ... ok
+test paging::tests::map_permissions_duplicate_unmap_and_prune ... ok
+test paging::tests::user_roots_isolate_lower_half_and_borrow_only_supervisor_kernel ... ok
+test sandbox::tests::decoder_rejects_unknown_opcodes_registers_reserved_and_targets ... ok
+test policy::tests::pressure_pins_maps_and_private_pages_and_cow_rollback ... ok
+test sandbox::tests::scratch_is_private_between_contexts ... ok
+test sandbox::tests::scratch_oob_and_fallthrough_fail_closed ... ok
+test scheduler::tests::admission_limits_are_atomic_and_not_refunded ... ok
+test policy::tests::hash_collision_requires_full_comparison_and_backoff_is_bounded ... ok
+test scheduler::tests::all_four_tasks_rotate_and_yield_never_refills ... ok
+test policy::tests::threshold_rejection_and_capacity_do_not_leak ... ok
+test scheduler::tests::authority_is_rechecked_after_forced_suspension ... ok
+test scheduler::tests::non_yielding_loop_cannot_starve_peer_and_terminal_is_not_restarted ... ok
+test scheduler::tests::cancellation_shutdown_and_bounds_fault_clean_once ... ok
+test scheduler::tests::sliced_bulk_call_is_charged_before_host_and_uses_bound_identity ... ok
+test session::tests::invalid_configuration_does_not_adopt_host ... ok
+test session::tests::early_return_after_fault_cleans_other_tasks_once ... ok
+test session::tests::drop_before_start_cancels_all_and_unborrows_code ... ok
+test session::tests::normal_exit_cancel_and_drop_do_not_duplicate_cleanup ... ok
+test object::tests::repeated_lifecycles_and_drop_return_all_backing ... ok
+test frame::tests::deterministic_churn_matches_independent_ownership_model ... ok
+
+test result: ok. 62 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+

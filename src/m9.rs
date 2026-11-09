@@ -31,7 +31,7 @@ fn fingerprint(bytes: &[u8]) -> u64 {
 pub(super) fn run(store: &mut Bench) {
     let baseline = accounting();
     assert_eq!(store.stats().capabilities + store.stats().payload_frames, 0);
-    let module = match crate::boot::bytecode_module() {
+    let module = match crate::boot::bytecode_module(0) {
         Ok(module) => module,
         Err(error) => {
             serial::print(format_args!(

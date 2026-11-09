@@ -54,6 +54,15 @@ impl<'code, 'host, H: TaskHost> Session<'code, 'host, H> {
         host: &'host mut H,
         quantum: u32,
     ) -> Result<Self, SessionError> {
+        Self::with_arguments(batch, host, quantum, [0; crate::scheduler::CAPACITY])
+    }
+    /// Arguments are supplied by trusted launch policy, never package metadata.
+    pub fn with_arguments(
+        batch: &'code Batch,
+        host: &'host mut H,
+        quantum: u32,
+        arguments: [u64; crate::scheduler::CAPACITY],
+    ) -> Result<Self, SessionError> {
         if batch.count() == 0 {
             return Err(SessionError::Empty);
         }
@@ -61,13 +70,13 @@ impl<'code, 'host, H: TaskHost> Session<'code, 'host, H> {
         // the caller still owns all host resources and is responsible for them.
         let scheduler = Scheduler::new(quantum).map_err(SessionError::Admission)?;
         let mut session = Self { scheduler, host };
-        for index in 0..batch.count() {
+        for (index, argument) in arguments.into_iter().enumerate().take(batch.count()) {
             let (program, fuel) = batch.program(index).expect("validated batch index");
             // Batch quotas guarantee success for a fresh scheduler. If admission
             // ever becomes fallible here, Drop also cleans the admitted prefix.
             session
                 .scheduler
-                .admit(program, fuel)
+                .admit_with_argument(program, fuel, argument)
                 .map_err(SessionError::Admission)?;
         }
         Ok(session)

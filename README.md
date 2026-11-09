@@ -10,14 +10,14 @@ tasks. It runs a real `no_std` x86-64 kernel under QEMU, with hardware paging,
 task-local capabilities, and reproducible tests backed by serial logs.
 
 This is an early research preview. The current system executes finite test
-workloads, including restricted bytecode loaded from a separate boot module,
+workloads, including restricted bytecode loaded from separate boot modules,
 and exits automatically. There is no desktop, interactive shell,
 filesystem, network stack, general application loader, or physical-machine installer.
 
-**[Download the M10 research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/m10-preview)**
+**[Download the M11 research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/m11-preview)**
 · **[Build instructions](docs/BUILD.md)**
 · **[Architecture](docs/ARCHITECTURE.md)**
-· **[Verification report](docs/M10-VERIFICATION.md)**
+· **[Verification report](docs/M11-VERIFICATION.md)**
 
 ## What works
 
@@ -43,14 +43,17 @@ filesystem, network stack, general application loader, or physical-machine insta
   capabilities are granted by the package itself.
 - **Scoped execution:** code and the authority host stay borrowed by one session;
   leaving the scope cancels remaining tasks and releases their object references.
+- **Initial read capabilities:** a trusted kernel manifest gives two external
+  programs access to the same immutable 4 KiB object. A third program has no grant
+  and is denied. Launch arguments carry task-local handles, not global authority.
 
 Native tasks retain hardware isolation. The restricted interpreter is trusted
 kernel code; it accepts a small custom language, not arbitrary native code or WASM.
 
 ## Try the prebuilt image
 
-Download `shared-first-os-m10-preview.zip` from the
-[M10 release](https://github.com/Madoa5561/shared-first-os/releases/tag/m10-preview).
+Download `shared-first-os-m11-preview.zip` from the
+[M11 release](https://github.com/Madoa5561/shared-first-os/releases/tag/m11-preview).
 The ZIP contains the bootable ISO, kernel ELF, checksums, and license notices.
 The ISO is also available as a separate asset.
 
@@ -69,8 +72,9 @@ qemu-system-x86_64 \
   -device isa-debug-exit,iobase=0xf4,iosize=0x04
 ```
 
-Expect `Shared-First OS booted`, followed by `M1 PASS` through `M10 PASS`.
-The full run takes about 71–73 seconds in the recorded environment. QEMU exits with
+Expect `Shared-First OS booted`, followed by `M1 PASS` through `M11 PASS`.
+The full benchmark suite can take over 90 seconds under TCG; the test runner allows
+up to 180 seconds per boot. QEMU exits with
 **code 33 on success** through `isa-debug-exit`; this nonzero code is intentional.
 Code 35 indicates a kernel panic. Use QEMU only; physical-machine boot is untested.
 
@@ -104,6 +108,13 @@ The scripts enforce locked versions. An ISO's timestamp metadata is not fixed,
 so byte-for-byte reproducible ISO builds are not claimed.
 
 ## Verified results
+
+M11 adds trusted initial READ grants, argument delivery and launch cleanup.
+The final verification passed **63 Rust unit tests**, **3 documentation compile
+tests**, **54 Python tests**, and all **31 commands** covering static checks, QEMU
+at 128/256 MiB, six external-input variants, and failure paths. An initial 90-second
+timeout is recorded separately as a failure; the final run uses a 180-second limit.
+See [M11 verification](docs/M11-VERIFICATION.md) and [raw evidence](docs/evidence/m11).
 
 The M10 verification run includes **58 Rust unit tests**, **3 documentation compile tests**,
 and **51 Python tests**. QEMU tests cover 128/256 MiB,
@@ -157,6 +168,8 @@ superiority over Linux, seL4, WASM runtimes, or other operating systems.
   loader. No general native application loader or dynamic loading.
 - Compression and deduplication are opt-in experiments in a small policy domain.
 - The interpreter and its host adapter are part of the trusted computing base.
+- The initial read manifest is compiled into the kernel. Module order is trusted;
+  there is no signature check or code-identity authentication.
 - Session cleanup covers normal scope exit and early returns. It is not guaranteed
   on `panic=abort`, power loss, or deliberate `mem::forget` in trusted kernel code.
 - Physical hardware, KVM, Secure Boot, DMA isolation, side channels, and formal
@@ -174,7 +187,9 @@ superiority over Linux, seL4, WASM runtimes, or other operating systems.
 | `docs/M9-FORMAT.md` | External package format, quotas and trust boundary |
 | `examples/bytecode/demo.json` | Editable external bytecode example |
 | `docs/M10-DESIGN.md` | Code/authority lifetime and automatic cleanup |
-| `docs/M1-VERIFICATION.md` … `docs/M10-VERIFICATION.md` | Checkpoint reports |
+| `docs/M11-DESIGN.md` | Trusted initial grants and external shared reads |
+| `examples/bytecode/shared.json` | External shared-object readers and denied task |
+| `docs/M1-VERIFICATION.md` … `docs/M11-VERIFICATION.md` | Checkpoint reports |
 | `docs/evidence/` | Historical raw results, commands and source hashes |
 
 Detailed engineering documents are currently written in Japanese. Historical
@@ -183,6 +198,7 @@ recorded environment and are not prerequisites for building your checkout.
 M8 adds bounded bytecode scheduling; see its [design and limits](docs/M8-DESIGN.md).
 M9 loads externally packaged programs; see the [format and packer instructions](docs/M9-FORMAT.md).
 M10 binds external execution to one authority host and cleans up on scope exit.
+M11 adds a trusted read manifest and proves physical sharing by external programs.
 The historical v0.1.0 release remains the M7 checkpoint.
 
 ## Contributing

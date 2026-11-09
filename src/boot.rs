@@ -74,7 +74,7 @@ pub struct Module {
 
 /// Transport metadata is trusted Limine data. Contents are untrusted bytecode.
 /// Retain the original module pages and all response structures for this boot.
-pub fn bytecode_module() -> Result<Module, &'static str> {
+pub fn bytecode_module(index: usize) -> Result<Module, &'static str> {
     // SAFETY: sole CPU, Limine completed handoff; response storage is retained.
     let response = unsafe { ptr::read_volatile(ptr::addr_of!(MODULES.response)) };
     if response.is_null() {
@@ -82,11 +82,11 @@ pub fn bytecode_module() -> Result<Module, &'static str> {
     }
     // SAFETY: non-null trusted Limine response, mapped by M2 as kind 5.
     let response = unsafe { &*response };
-    if response.count != 1 || response.files.is_null() {
+    if response.count != 2 || index >= 2 || response.files.is_null() {
         return Err("count");
     }
-    // SAFETY: exactly one pointer in the retained Limine array.
-    let file = unsafe { response.files.read() };
+    // SAFETY: index checked within the two-pointer retained Limine array.
+    let file = unsafe { response.files.add(index).read() };
     if file.is_null() {
         return Err("file");
     }

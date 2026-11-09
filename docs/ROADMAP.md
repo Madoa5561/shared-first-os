@@ -1,14 +1,14 @@
 # Roadmap and gates
 
-## 現在の状態（M10）
+## 現在の状態（M11）
 
-M1〜M10のゲートを通過しました。M10の実行セッションと自動cleanupを実装・検証しました。
+M1〜M11のゲートを通過しました。M11の初期Capabilityと外部program共有を実装・検証しました。
 M7は脅威モデルに限定した言語隔離の研究試作です。
 実ring-3の共有・隔離・COW、任意の重複排除と圧力時圧縮、5方式のベースラインに加え、
 制限付きバイトコードの検証・燃料・Capability読取り・失効を実装しました。
 検証コマンドは `./tools/project.ps1 verify`、証跡と正確な結果は
-[M10-VERIFICATION.md](M10-VERIFICATION.md) に記録します。
-M10も固定容量の有限試作です。汎用OSや安全性証明の完成ではありません。
+[M11-VERIFICATION.md](M11-VERIFICATION.md) に記録します。
+M11も固定容量の有限試作です。汎用OSや安全性証明の完成ではありません。
 
 M4ではGDT/TSS・ring-3移行・int 0x80・独立CR3を実装しました。呼び出し元はカーネルが決定し、
 ユーザー引数で他タスクのCapability表を選べません。4 MiBの全1,024ページの物理アドレス一致、
@@ -109,10 +109,19 @@ nativeのpaging保護を維持し、bytecodeだけが信頼されたインタプ
   QEMUで4ケースの実payload回収と各stop1回、frame/table/mapping収支、M1〜M9回帰。
 - [M10-DESIGN.md](M10-DESIGN.md)。panic=abort/mem::forget/SMP等は保証対象外。
 
-## M10後の未着手候補
+## M11: Trusted read manifest
 
-- 次の優先候補: 信頼されたlaunch manifestによる初期Capability付与と、外部プログラムからの
-  immutable object共有デモ。プログラムがtask IDや権利を自己申告して増幅できない設計にする。
+- 2個目の外部moduleを全件検証し、kernel内の固定manifestだけで初期READを付与する。
+- 3program、2reader、専用owner slot。初期r1へtask-local handleを渡し、数値自体を権限と扱わない。
+- 空のstoreだけを引き受け、準備失敗・Session拒否・早期終了でもLaunchが参照を回収する。
+- Gate: READ限定/他task/古いhandle/範囲外拒否、準備失敗、起動引数のhost tests、
+  QEMUで同一物理frameとchecksum、無権限task拒否、同一ELFの外部入力変更、opcode/count拒否、全回帰。
+- [M11-DESIGN.md](M11-DESIGN.md)。外部manifest署名、動的ロード、一般アプリ実行は含まない。
+
+## M11後の未着手候補
+
+- 次の優先候補: Session内の信頼された制御経路から権限を失効し、外部programの中断・再開をまたいで
+  拒否・部分終了・再起動時のstale handleを検査する。固定起動デモから制御可能な実行基盤へ進める。
 - native preemptionと動的task slot再利用には別の設計・検証が必要。
 - 検証器の体系的なfuzz・モデル検査、より強い証明、信頼基盤の縮小とruntime自身の隔離。
 - 未使用秘密ページ除外・RXコード共有などを行ったnative対照群、複数task数・入力・書込み負荷での比較。

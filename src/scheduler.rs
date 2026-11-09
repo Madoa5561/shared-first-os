@@ -60,6 +60,15 @@ impl<'a> Scheduler<'a> {
     /// Admission grants a lifetime budget, never a per-dispatch refill.
     /// Rejected admission changes neither slots nor cumulative budget.
     pub fn admit(&mut self, program: Program<'a>, fuel: u64) -> Result<usize, AdmissionError> {
+        self.admit_with_argument(program, fuel, 0)
+    }
+    /// Kernel-supplied r1, isolated to the newly admitted context.
+    pub fn admit_with_argument(
+        &mut self,
+        program: Program<'a>,
+        fuel: u64,
+        argument: u64,
+    ) -> Result<usize, AdmissionError> {
         if self.admitted == CAPACITY {
             return Err(AdmissionError::Capacity);
         }
@@ -68,7 +77,7 @@ impl<'a> Scheduler<'a> {
         }
         let task = self.admitted;
         self.tasks[task] = Some(Task {
-            context: Context::new(program, fuel),
+            context: Context::with_argument(program, fuel, argument),
             ready: true,
         });
         self.admitted += 1;

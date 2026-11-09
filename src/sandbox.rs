@@ -95,10 +95,14 @@ pub struct Context<'a> {
 }
 impl<'a> Context<'a> {
     pub fn new(program: Program<'a>, fuel: u64) -> Self {
+        Self::with_argument(program, fuel, 0)
+    }
+    /// Trusted launch argument in r1; an integer alone never grants authority.
+    pub fn with_argument(program: Program<'a>, fuel: u64, argument: u64) -> Self {
         Self {
             program,
             pc: 0,
-            registers: [0; 4],
+            registers: [0, argument, 0, 0],
             scratch: [0; 64],
             fuel,
             stopped: false,

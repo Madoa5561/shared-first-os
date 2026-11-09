@@ -1,0 +1,13 @@
+Evidence: /mnt/c/Users/shout/OneDrive/ドキュメント/RAMOS/artifacts/boot-module-alt-128M-1794238781736753404; passed=False exit=-9
+Traceback (most recent call last):
+  File "/mnt/c/Users/shout/OneDrive/ドキュメント/RAMOS/tools/qemu.py", line 408, in <module>
+    main()
+    ~~~~^^
+  File "/mnt/c/Users/shout/OneDrive/ドキュメント/RAMOS/tools/qemu.py", line 404, in main
+    run_qemu(options)
+    ~~~~~~~~^^^^^^^^^
+  File "/mnt/c/Users/shout/OneDrive/ドキュメント/RAMOS/tools/qemu.py", line 223, in run_qemu
+    raise failure
+  File "/mnt/c/Users/shout/OneDrive/ドキュメント/RAMOS/tools/qemu.py", line 191, in run_qemu
+    raise ValueError('QEMU boot timed out')
+ValueError: QEMU boot timed out

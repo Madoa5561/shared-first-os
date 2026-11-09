@@ -1,5 +1,13 @@
 # 技術判断記録
 
+## M11: 外部codeと信頼された初期権限設定を分離
+
+1. M9の無権限デモを維持し、同形式の別boot moduleをM11専用入口にする。署名認証とは呼ばない。
+2. 固定3programと非実行owner slotの専用storeに限定。manifestはkernel内のREAD許可配列で、
+   external inputにtask IDや権利maskを宣言させない。r1は実task-local handleの受渡しだけに使う。
+3. Launchが準備から所有者解放までをRAIIで管理し、Sessionは実行taskを回収する。
+   busy storeを引き受けず、失敗で無関係の資源を消さない。Dropのabort/forget制約はM10と同じ。
+
 ## M10: 外部実行の所有関係を先に固定
 
 1. 初期権限付与に先立ち、M8の明示的shutdownとhost固定の契約をSession型へ閉じ込める。

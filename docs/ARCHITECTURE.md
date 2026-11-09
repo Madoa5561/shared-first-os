@@ -1,6 +1,19 @@
 # Architecture: Object-Centric Memory (OCM)
 
-## M10の実行セッション（現在）
+## M11の初期Capability（現在）
+
+2個目のboot module `shared.sfbc` を全件検証してから、kernel内ReadManifestが3programのうち
+task 0/1だけに同じ4 KiB immutable objectのREADを付与する。ownerは実行しないslot 3。
+Launchは空の専用storeを排他的に所有し、設定拒否では既存資源を変更せず、準備失敗/Dropで取得分を回収する。
+Session終了時に3taskが停止し、Launch終了時にownerが消えて最後の物理参照を解放する。
+
+初期引数r1へtask-local handleを渡し、SUMの度にtask+slot+generation+READを照合する。
+引数を知るだけでは別taskの権限にならない。命令やコンテナに権限付与機能は追加しない。
+manifestはコンパイル済みの信頼された設定であり、外部codeの署名/同一性を検証するものではない。
+moduleの位置がこの権限を受ける入口で、任意の検証済みcodeをそこへ置ける運用を信頼する。
+実物理frame一致・RO alias・checksumと全回収をQEMUで検査する。[M11-DESIGN.md](M11-DESIGN.md)を参照。
+
+## M10の実行セッション
 
 `src/session.rs` のSessionはSchedulerと、同じTaskHostの排他的borrowを保持する。
 Programは所有Batchをimmutable borrowし、Session生存中のBatch.clearと別経路のhost操作をRustが拒否する。
@@ -11,11 +24,11 @@ M9の外部実行をSession経由へ移し、途中return時の明示的shutdown
 Batchのslotだけで、他taskの資源まで巻き込まない。stopは信頼されたinfallible/no-reentry操作。
 panic=abort、電源断、mem::forgetでの自動回収は保証しない。M8低水準Schedulerの直接利用には旧契約が残る。
 compile-fail/compile-passで借用境界、QEMUで実payloadの中止/途中終了/fault後の回収を検査する。
-詳細は[M10-DESIGN.md](M10-DESIGN.md)。外部codeへの初期権限付与はまだ実装しない。
+詳細は[M10-DESIGN.md](M10-DESIGN.md)。初期権限はM11のLaunchが別途準備する。
 
 ## M9の外部コードロード
 
-`src/boot.rs` がLimine moduleのABI prefixを読み、件数1・非NULL・最大592 byte・kind 6内の
+`src/boot.rs` がLimine moduleのABI prefixを読み、件数2・有界index・非NULL・各最大592 byte・kind 6内の
 範囲を検査する。M2のHHDMに保持した領域から読み、元の予約ページは回収しない。
 ブートローダのメタデータ/ポインタは信頼するが、ファイル内容は信頼しない。
 

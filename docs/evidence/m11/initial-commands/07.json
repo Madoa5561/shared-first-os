@@ -1,0 +1,22 @@
+{
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "C:\\Users\\shout\\OneDrive\\ドキュメント\\RAMOS",
+    "--exec",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tools",
+    "-p",
+    "test_*.py",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\shout\\OneDrive\\ドキュメント\\RAMOS",
+  "exit_code": 0
+}

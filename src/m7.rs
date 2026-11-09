@@ -3,6 +3,8 @@
 use super::*;
 #[path = "m10.rs"]
 mod m10;
+#[path = "m11.rs"]
+mod m11;
 #[path = "m8.rs"]
 mod m8;
 #[path = "m9.rs"]
@@ -416,4 +418,5 @@ pub(super) fn run() {
     m8::run(store);
     m9::run(store);
     m10::run(store);
+    m11::run(store);
 }
