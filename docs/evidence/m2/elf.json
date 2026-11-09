@@ -1,0 +1,14 @@
+{
+  "exit_code": 0,
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--exec",
+    "readelf",
+    "-h",
+    "-l",
+    "-W",
+    "target/x86_64-unknown-none/release/shared-first-kernel"
+  ]
+}

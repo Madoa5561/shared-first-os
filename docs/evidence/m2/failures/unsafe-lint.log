@@ -1,0 +1,32 @@
+    Checking shared-first-os v0.1.0 (C:\Users\shout\OneDrive\ドキュメント\RAMOS)
+error: unsafe block missing a safety comment
+   --> src\m2.rs:186:13
+    |
+186 |             unsafe {
+    |             ^^^^^^^^
+    |
+    = help: consider adding a safety comment on the preceding line
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.96.0/index.html#undocumented_unsafe_blocks
+    = note: requested on the command line with `-D clippy::undocumented-unsafe-blocks`
+
+error: implicit autoref creates a reference to the dereference of a raw pointer
+   --> src\m2.rs:292:29
+    |
+292 |     let regions = unsafe { &(*ptr::addr_of!(REGIONS))[..*region_count] };
+    |                             ^^----------------------^^^^^^^^^^^^^^^^^^
+    |                               |
+    |                               this raw pointer has type `*const [shared_first_os::memory::Region; 4096]`
+    |
+    = note: creating a reference requires the pointer target to be valid and imposes aliasing requirements
+note: autoref is being applied to this expression, resulting in: `&[shared_first_os::memory::Region; 4096]`
+   --> src\m2.rs:292:29
+    |
+292 |     let regions = unsafe { &(*ptr::addr_of!(REGIONS))[..*region_count] };
+    |                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+    = note: `#[deny(dangerous_implicit_autorefs)]` on by default
+help: try using a raw pointer method instead; or if this reference is intentional, make it explicit
+    |
+292 |     let regions = unsafe { &(&(*ptr::addr_of!(REGIONS)))[..*region_count] };
+    |                             ++                         +
+
+error: could not compile `shared-first-os` (bin "shared-first-kernel") due to 2 previous errors

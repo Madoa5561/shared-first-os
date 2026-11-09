@@ -1,0 +1,20 @@
+{
+  "rust": "1.96.0",
+  "qemu": "10.2.1",
+  "ubuntu": "26.04",
+  "packages": {
+    "qemu-system-x86": "1:10.2.1+ds-1ubuntu3",
+    "ovmf": "2025.11-3ubuntu7",
+    "xorriso": "1:1.5.6-1.1ubuntu4",
+    "binutils": "2.46-3ubuntu2"
+  },
+  "limine": {
+    "tag": "v8.7.0-binary",
+    "commit": "aad3edd370955449717a334f0289dee10e2c5f01",
+    "files": {
+      "BOOTX64.EFI": "51ca2b20ed14bbc678a396cdfb0c1d941acbc155cabebc9bfafabe4cdae1be73",
+      "limine-uefi-cd.bin": "0ea0aa408c464014a306840acc843dc564e54f602b2077852ceb34178488bd03",
+      "LICENSE": "6ea0b80a0ed3d69204ae56a397cd0b557823b4f2826890ec5776d2e34752f4cf"
+    }
+  }
+}

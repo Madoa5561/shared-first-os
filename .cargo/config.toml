@@ -1,0 +1,8 @@
+[target.x86_64-unknown-none]
+linker = "rust-lld"
+rustflags = [
+    "-C", "link-arg=-Tlinker.ld",
+    "-C", "link-arg=--no-dynamic-linker",
+    "-C", "link-arg=-zmax-page-size=0x1000",
+    "-C", "relocation-model=static",
+]

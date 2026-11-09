@@ -1,0 +1,21 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running unittests src\lib.rs (target\debug\deps\shared_first_os-49c2a11fc1d0688d.exe)
+
+running 14 tests
+test frame::tests::exhaustion_reuse_and_invalid_free ... ok
+test frame::tests::reservations_win_in_any_order_and_reclaimable_is_not_free ... ok
+test frame::tests::rejects_malformed_maps_and_capacity_overflow ... ok
+test frame::tests::inward_alignment_and_duplicate_usable_ranges ... ok
+test memory::tests::counter_overflow_is_transactional ... ok
+test memory::tests::only_usable_is_available_including_future_types ... ok
+test memory::tests::preserves_unaligned_byte_counts_without_rounding_into_free_frames ... ok
+test paging::tests::partial_allocation_failure_rolls_back_all_new_tables ... ok
+test memory::tests::rejects_wrapping_address_without_mutating_summary ... ok
+test memory::tests::rejects_empty_regions ... ok
+test paging::tests::adjacent_mapping_survives_pruning_and_failed_expansion ... ok
+test paging::tests::malformed_addresses_do_not_allocate_tables ... ok
+test paging::tests::map_permissions_duplicate_unmap_and_prune ... ok
+test frame::tests::deterministic_churn_matches_independent_ownership_model ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+

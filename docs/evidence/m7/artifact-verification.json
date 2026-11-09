@@ -1,0 +1,16 @@
+{
+  "kernel_sha256": "f0ffeacec8924fcbfbb3160bbdf8004518eeffbc2285a6891b513d72736927a2",
+  "matches_both_boot_tests": true,
+  "source_evidence": {
+    "unexpected-fault": "artifacts/boot-fault-128M-1794202522666934655",
+    "panic": "artifacts/boot-panic-128M-1794202512636824169",
+    "image-normal": "artifacts/image-normal-1794202368086358986",
+    "timeout": "artifacts/boot-normal-128M-1794202507246502213",
+    "commands": "artifacts/commands-20261109-143243-005",
+    "boot-256M": "artifacts/boot-normal-256M-1794202437804829913",
+    "development-check": "artifacts/commands-20261109-142901-039",
+    "boot-128M": "artifacts/boot-normal-128M-1794202369658040986"
+  },
+  "iso_sha256": "1683a1f984b1ea203185f39eff6856bb54e6ed1e113ad15099e30ce20ba7e7a2",
+  "all_18_commands_exit_zero": true
+}

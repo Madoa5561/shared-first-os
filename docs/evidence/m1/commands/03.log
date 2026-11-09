@@ -1,0 +1,12 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+     Running unittests src\lib.rs (target\debug\deps\shared_first_os-49c2a11fc1d0688d.exe)
+
+running 5 tests
+test memory::tests::counter_overflow_is_transactional ... ok
+test memory::tests::only_usable_is_available_including_future_types ... ok
+test memory::tests::preserves_unaligned_byte_counts_without_rounding_into_free_frames ... ok
+test memory::tests::rejects_wrapping_address_without_mutating_summary ... ok
+test memory::tests::rejects_empty_regions ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

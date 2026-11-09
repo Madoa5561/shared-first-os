@@ -1,0 +1,12 @@
+{
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--exec",
+    "sh",
+    "-lc",
+    "uname -a; python3 --version; dpkg-query -W qemu-system-x86 qemu-system-common ovmf ovmf-generic xorriso binutils"
+  ],
+  "exit_code": 0
+}

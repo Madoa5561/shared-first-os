@@ -1,0 +1,37 @@
+test_accepts_full_ab_protocol_and_retains_raw_samples (test_m5.M5ValidatorTests.test_accepts_full_ab_protocol_and_retains_raw_samples) ... ok
+test_previous_milestone_or_marker_is_not_success (test_m5.M5ValidatorTests.test_previous_milestone_or_marker_is_not_success) ... ok
+test_rejects_faked_memory_savings_or_missing_overheads (test_m5.M5ValidatorTests.test_rejects_faked_memory_savings_or_missing_overheads) ... ok
+test_rejects_invalid_timing_or_pressure (test_m5.M5ValidatorTests.test_rejects_invalid_timing_or_pressure) ... ok
+test_rejects_simulated_user_or_missing_cow_revoke_exit (test_m5.M5ValidatorTests.test_rejects_simulated_user_or_missing_cow_revoke_exit) ... ok
+test_rejects_unpaired_inputs_or_missing_runs (test_m5.M5ValidatorTests.test_rejects_unpaired_inputs_or_missing_runs) ... ok
+test_accepts_all_modes_and_excludes_only_labelled_warmups (test_m6.M6ValidatorTests.test_accepts_all_modes_and_excludes_only_labelled_warmups) ... ok
+test_rejects_forged_peaks_copy_counts_and_leaks (test_m6.M6ValidatorTests.test_rejects_forged_peaks_copy_counts_and_leaks) ... ok
+test_rejects_hidden_metadata_and_bad_resident_scope (test_m6.M6ValidatorTests.test_rejects_hidden_metadata_and_bad_resident_scope) ... ok
+test_rejects_invalid_authority_and_data_evidence (test_m6.M6ValidatorTests.test_rejects_invalid_authority_and_data_evidence) ... ok
+test_rejects_marker_only_and_incomplete_matrix (test_m6.M6ValidatorTests.test_rejects_marker_only_and_incomplete_matrix) ... ok
+test_rejects_time_accounting_and_warmup_manipulation (test_m6.M6ValidatorTests.test_rejects_time_accounting_and_warmup_manipulation) ... ok
+test_accepts_complete_m2_evidence (test_qemu.M2ValidatorTests.test_accepts_complete_m2_evidence) ... ok
+test_m1_success_is_not_m2_success (test_qemu.M2ValidatorTests.test_m1_success_is_not_m2_success) ... ok
+test_rejects_leaked_frames_or_missing_hardware_faults (test_qemu.M2ValidatorTests.test_rejects_leaked_frames_or_missing_hardware_faults) ... ok
+test_unexpected_fault_requires_exact_diagnostic (test_qemu.M2ValidatorTests.test_unexpected_fault_requires_exact_diagnostic) ... ok
+test_accepts_full_object_and_hardware_evidence (test_qemu.M3ValidatorTests.test_accepts_full_object_and_hardware_evidence) ... ok
+test_m2_or_marker_alone_is_not_m3_success (test_qemu.M3ValidatorTests.test_m2_or_marker_alone_is_not_m3_success) ... ok
+test_rejects_leaks_wrong_permissions_and_accounting (test_qemu.M3ValidatorTests.test_rejects_leaks_wrong_permissions_and_accounting) ... ok
+test_rejects_missing_or_wrong_faults_and_backing (test_qemu.M3ValidatorTests.test_rejects_missing_or_wrong_faults_and_backing) ... ok
+test_accepts_ring3_sharing_cow_and_reclamation_evidence (test_qemu.M4ValidatorTests.test_accepts_ring3_sharing_cow_and_reclamation_evidence) ... ok
+test_m3_or_marker_alone_cannot_pass_m4 (test_qemu.M4ValidatorTests.test_m3_or_marker_alone_cannot_pass_m4) ... ok
+test_rejects_fake_isolation_or_changed_reader (test_qemu.M4ValidatorTests.test_rejects_fake_isolation_or_changed_reader) ... ok
+test_rejects_missing_attacks_syscall_checks_and_cow_failure (test_qemu.M4ValidatorTests.test_rejects_missing_attacks_syscall_checks_and_cow_failure) ... ok
+test_rejects_physical_leaks_and_double_counted_mappings (test_qemu.M4ValidatorTests.test_rejects_physical_leaks_and_double_counted_mappings) ... ok
+test_panic_requires_explicit_expectation (test_qemu.ValidatorTests.test_panic_requires_explicit_expectation) ... ok
+test_rejects_bad_accounting (test_qemu.ValidatorTests.test_rejects_bad_accounting) ... ok
+test_rejects_marker_only (test_qemu.ValidatorTests.test_rejects_marker_only) ... ok
+test_rejects_missing_or_repeated_success (test_qemu.ValidatorTests.test_rejects_missing_or_repeated_success) ... ok
+test_rejects_panic_after_success (test_qemu.ValidatorTests.test_rejects_panic_after_success) ... ok
+test_rejects_wrong_exit_code_even_with_marker (test_qemu.ValidatorTests.test_rejects_wrong_exit_code_even_with_marker) ... ok
+test_valid_transcript (test_qemu.ValidatorTests.test_valid_transcript) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.739s
+
+OK

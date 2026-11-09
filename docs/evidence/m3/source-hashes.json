@@ -1,0 +1,114 @@
+{
+  "note": "Source and documentation snapshot after successful verify; documentation-only edits followed the tested source.",
+  "evidence": "docs/evidence/m3",
+  "files": [
+    {
+      "sha256": "28346ae9fcef9f8c294ff5eaa915d8f41ac10d3c7669d0b22070a41b02e0d755",
+      "path": "Cargo.toml"
+    },
+    {
+      "sha256": "03c6b2de92ed5febf4f48073181c52aeb389cccc441d15b1edba51756fff57c5",
+      "path": "Cargo.lock"
+    },
+    {
+      "sha256": "a863d586195b4975d243bc60707d6f9ddbfda310fe2428b51bbad1b885d0e1a5",
+      "path": "linker.ld"
+    },
+    {
+      "sha256": "84a22d1cc21bc28974160709421ac01b19b1b1722aba4bc471fad809c86276e8",
+      "path": "limine.conf"
+    },
+    {
+      "sha256": "12ebc4826d96d4c3c56952f593d4bd396ea6355956d69d4e42b7e3dbd8ac791f",
+      "path": "tools/project.ps1"
+    },
+    {
+      "sha256": "a2eda25143b825ce780638e9914484028ba9493da2db7ff94fadd95121781b18",
+      "path": "tools/versions.json"
+    },
+    {
+      "sha256": "ec41697e55df5994788d75d84e9605dca4bfdc3bd18292e95848128012a311f8",
+      "path": "tools/qemu.py"
+    },
+    {
+      "sha256": "e97de985952bcfc14c8c364ae9b38a85c6b175956173fa9475b648eb9fd0895f",
+      "path": "tools/test_qemu.py"
+    },
+    {
+      "sha256": "4cd1731aa4b5e54d80abb6950646c015719a4d03b0248b6c40d93129b110d2ca",
+      "path": "src/boot.rs"
+    },
+    {
+      "sha256": "2960301401ecfdf4acd7dc070595b9626c31c1068d96d2e148e8feeb2afb8cad",
+      "path": "src/faults.rs"
+    },
+    {
+      "sha256": "378ee7cbf4236081dfc4c2939156c78599f595f29706af0f8bfb470e1cb03b89",
+      "path": "src/frame.rs"
+    },
+    {
+      "sha256": "75b67f34c011edf0de7b9ab2fde8f0c37a8207e573c6535169041e1dd03d7080",
+      "path": "src/lib.rs"
+    },
+    {
+      "sha256": "d149b73cfb565a99936a525b3edfcf8afeaf8d2420cc65b2537e3ae15590dcf1",
+      "path": "src/m2.rs"
+    },
+    {
+      "sha256": "12d5885733ddbbc1bbe35d6bf6fbb301aec252a095221403221681b0ca2f5d0a",
+      "path": "src/m3.rs"
+    },
+    {
+      "sha256": "74a48b78afae66361346f4c2a4d0296200a308cc6cd5168c9bd467a6f08c14e6",
+      "path": "src/machine.rs"
+    },
+    {
+      "sha256": "19f8afa536f302e7c67fa254edd37504bc1425b72eae427bfd8eddafb573472f",
+      "path": "src/main.rs"
+    },
+    {
+      "sha256": "c0f911236372a57c26e16b1b7aac58b332ca427a73b459989699501d9db829f1",
+      "path": "src/memory.rs"
+    },
+    {
+      "sha256": "7241e2db45ba719225d145b2871b3bf06a3fd6d65288b75aed5012252f77e701",
+      "path": "src/object.rs"
+    },
+    {
+      "sha256": "0c7093a524c7ef48d1b2fbbf1bbdca923af402b47a382e3d41516dcac8aed2cc",
+      "path": "src/paging.rs"
+    },
+    {
+      "sha256": "ede373930c1c9ec2900736f01973c6c2cb9ec689a87487300c5bfde50750304d",
+      "path": "src/serial.rs"
+    },
+    {
+      "sha256": "8e3403773c4d31bf9412c89b567f0e7e6d4c69a36ded78ae3b573e625eb242ef",
+      "path": "README.md"
+    },
+    {
+      "sha256": "a25358bf05e1b270711da686d01e82f3958584230df8d0fce72ef2f2c3c85b3e",
+      "path": "docs/ARCHITECTURE.md"
+    },
+    {
+      "sha256": "637bc0de36c777c401b3a460bff662263fa5a35cf1b896973dde91beca9f3704",
+      "path": "docs/ROADMAP.md"
+    },
+    {
+      "sha256": "fae55780980abae2ff149eee29cfc8e7598e3304b89f5ddd89c45037e22212e5",
+      "path": "docs/BUILD.md"
+    },
+    {
+      "sha256": "082fcadaec4ac36b51ffb603347ae67dc43dd0ca4f3c72bebbebdf7f04cee5f4",
+      "path": "docs/DECISIONS.md"
+    },
+    {
+      "sha256": "817e0b5d92302f0a9fcf3dcfd113c3bde1f383184d1f8be35063cff3132fa835",
+      "path": "docs/M2-VERIFICATION.md"
+    },
+    {
+      "sha256": "56a8f182b82cca3e0863c16ae71e4f21372e90d14962d6b33c8b8da8fbd17aa0",
+      "path": "docs/M3-VERIFICATION.md"
+    }
+  ]
+}

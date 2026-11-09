@@ -1,0 +1,41 @@
+    Checking shared-first-os v0.1.0 (C:\Users\shout\OneDrive\ドキュメント\RAMOS)
+error: this `if` statement can be collapsed
+   --> src\m4.rs:346:9
+    |
+346 | /         if context.vector == 14 && context.error == 7 {
+347 | |             if objects.resolve_cow(task, address).is_ok() {
+348 | |                 counts.cow += 1;
+349 | |                 serial::print(format_args!(
+...   |
+355 | |         }
+    | |_________^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.96.0/index.html#collapsible_if
+    = note: `-D clippy::collapsible-if` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+    |
+346 ~         if context.vector == 14 && context.error == 7
+347 ~             && objects.resolve_cow(task, address).is_ok() {
+348 |                 counts.cow += 1;
+...
+353 |                 continue; // Retry the actual faulting user instruction.
+354 ~             }
+    |
+
+error: the loop variable `index` is used to index `m4_vectors`
+   --> src\user_cpu.rs:151:22
+    |
+151 |         for index in 0..256 {
+    |                      ^^^^^^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.96.0/index.html#needless_range_loop
+    = note: `-D clippy::needless-range-loop` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::needless_range_loop)]`
+help: consider using an iterator and enumerate()
+    |
+151 -         for index in 0..256 {
+151 +         for (index, <item>) in m4_vectors.iter().enumerate() {
+    |
+
+error: could not compile `shared-first-os` (bin "shared-first-kernel") due to 2 previous errors

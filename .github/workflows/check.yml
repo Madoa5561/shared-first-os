@@ -1,0 +1,27 @@
+name: Checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  portable-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Prepare the locked Rust toolchain
+        run: rustup toolchain install 1.96.0 --profile minimal --component rustfmt,clippy --target x86_64-unknown-none
+      - name: Format
+        run: cargo +1.96.0 fmt --check
+      - name: Rust unit tests
+        run: cargo +1.96.0 test --locked --offline --lib
+      - name: Host Clippy
+        run: cargo +1.96.0 clippy --locked --offline --lib --tests -- -D warnings
+      - name: Kernel Clippy
+        run: cargo +1.96.0 clippy --locked --offline --target x86_64-unknown-none --bin shared-first-kernel --all-features -- -D warnings
+      - name: Evidence validator tests
+        run: python3 -B -m unittest discover -s tools -p 'test_*.py' -v

@@ -1,0 +1,32 @@
+[package]
+name = "shared-first-os"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "shared-first-kernel"
+path = "src/main.rs"
+test = false
+bench = false
+
+[features]
+boot-panic = []
+boot-unexpected-fault = []
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+debug = true
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+
+[lints.clippy]
+undocumented_unsafe_blocks = "deny"
