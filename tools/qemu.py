@@ -13,6 +13,7 @@ from m6_validation import validate_m6, benchmark_markdown
 from m7_validation import validate_m7, benchmark_markdown as m7_markdown
 from m8_validation import validate_m8
 from m9_validation import validate_m9
+from m10_validation import validate_m10
 from pack_bytecode import encode
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -189,6 +190,7 @@ def run_qemu(options):
                     record['m8'] = validate_m8(serial, record['m2'])
                     module = (ROOT / 'build' / options.variant / 'iso-root/boot/programs.sfbc').read_bytes()
                     record['m9'] = validate_m9(serial, record['m2'], module, options.variant)
+                    record['m10'] = validate_m10(serial, record['m2'])
         record['passed'] = True
         # Keep the raw firmware escape sequences in serial.log, but make the
         # command transcript readable. This does not affect validation.

@@ -1,0 +1,766 @@
+{
+  "base_commit": "cbc932f8ec1327507d637bc942f5f8f9f871d6e4",
+  "command_directory": "artifacts/commands-20261110-001835-875",
+  "command_count": 25,
+  "artifacts": [
+    {
+      "path": "build/normal/shared-first.iso",
+      "sha256": "97547ea195f2ede6e537fa31588f8bf33ff22d644da891b50dcb92380b9da5bd"
+    },
+    {
+      "path": "target/x86_64-unknown-none/release/shared-first-kernel",
+      "sha256": "a0293bf6a0300e15b0dfecbacd7a59ac851fafa729e2748f7fb744b08f31c999"
+    },
+    {
+      "path": "build/normal/iso-root/boot/programs.sfbc",
+      "sha256": "e5787c6385bacc7c11e25ac1316a884e2727f37bb6cfa7dc9822037cf8694984"
+    }
+  ],
+  "module_variants_same_kernel": true,
+  "copies": [
+    {
+      "source": "artifacts/commands-20261110-001835-875/01.json",
+      "destination": "commands/01.json",
+      "sha256": "ce0cb1da03d1cf66a34183d7c83d4752687b6bad8b3d33b2d090560c763f8cdf",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/01.log",
+      "destination": "commands/01.log",
+      "sha256": "88b7810119b8cb6083d3f2835d072d7048f479595a7c152b6716f4859675be36",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/02.json",
+      "destination": "commands/02.json",
+      "sha256": "ef4bfd18be19539b67dda710a4f64052f47d6d1c83be7fee3ddaf019b575bdd0",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/02.log",
+      "destination": "commands/02.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/03.json",
+      "destination": "commands/03.json",
+      "sha256": "acfa35831269567e243cccb2807123802bd4a2453fab5404ceb8da2547820e81",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/03.log",
+      "destination": "commands/03.log",
+      "sha256": "c05e15c6e8fbafcd705208e89e1992769a3512f738b87a06018755421d409e92",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/04.json",
+      "destination": "commands/04.json",
+      "sha256": "5274df75ba008f8d70505082762b4d7ea2d92f5dc8c785168040619b14006d2e",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/04.log",
+      "destination": "commands/04.log",
+      "sha256": "8ca6440526007d0b88d292bd8494efe58659cc59ee12e736f369b0305641e1d4",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/05.json",
+      "destination": "commands/05.json",
+      "sha256": "3c316f0c4eea5448b55983ea3758eea53d5048d44a7619e0992b549678f95474",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/05.log",
+      "destination": "commands/05.log",
+      "sha256": "ce983c667d1a2e606e99f44f0d7fb8cd1f7777fd4e64efbaaccdb942f87dddf9",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/06.json",
+      "destination": "commands/06.json",
+      "sha256": "3f29d093d84bf002f1949dbbd753d149bfd39b6a76a8b120eb4fe30ca5d7f8f3",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/06.log",
+      "destination": "commands/06.log",
+      "sha256": "1adcc8a8254f1b34734a99ab77af884e086faebf6463dc42e321f4160c746f78",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/07.json",
+      "destination": "commands/07.json",
+      "sha256": "32367ecbe783ab8ed3e8080a5fe8bc2f7f564eb965943bc8b23f7d37009aee61",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/07.log",
+      "destination": "commands/07.log",
+      "sha256": "b7de3a7bc59a0dbae607a063a3dc731be7a84ef9e356822603b4f2862ca31a71",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/08.json",
+      "destination": "commands/08.json",
+      "sha256": "b21a4380208a4ec047bdfaec673be8b797c7248c7b6fe767f6591cdb2491aef9",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/08.log",
+      "destination": "commands/08.log",
+      "sha256": "a7eb30f68c0ae3b7b2f2b90cb5fe683b0ac2986040a900732a2a9e8e05309a8d",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/09.json",
+      "destination": "commands/09.json",
+      "sha256": "b91bfacf2cc96a9e367fa2a568c3f163472e09a786093fd8964091a22a21914c",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/09.log",
+      "destination": "commands/09.log",
+      "sha256": "2b3686f1f340cfb585426f0c546891f0adc92d6424834a988abd6586cc178651",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/10.json",
+      "destination": "commands/10.json",
+      "sha256": "41920105d31ec171928d29b46dcd3664d37c2fe1e5906773caf6586dae41e1c3",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/10.log",
+      "destination": "commands/10.log",
+      "sha256": "fa2778fd3698268378f9a5726aca6f8c43fb398b22e91cf7122a77473588c236",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/11.json",
+      "destination": "commands/11.json",
+      "sha256": "6df15953750ff42bc2c505f0a4525da253374a6338836899b9fe87a4f8a03697",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/11.log",
+      "destination": "commands/11.log",
+      "sha256": "0989eb423b16d6c36d361cfca0962ecf9a68a02b6e60fa7ca1ab2af9b24fb1f5",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/12.json",
+      "destination": "commands/12.json",
+      "sha256": "88fc813a45808c1723028ba93d8e6bde720c7e9650132829627f7d64fcd862a6",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/12.log",
+      "destination": "commands/12.log",
+      "sha256": "0b2931fc92d8fd0681953a85f0f7f1e06a6899778ec523f3d7268d6951facc79",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/13.json",
+      "destination": "commands/13.json",
+      "sha256": "117bddd65354ca6725f8987a734ca74cd14b8da0cc6998b8299b4a3583f781a6",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/13.log",
+      "destination": "commands/13.log",
+      "sha256": "d7e94125b7eb53fe8830beb6f8c344e8e182c1fc1743a2f552e7c783adb51864",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/14.json",
+      "destination": "commands/14.json",
+      "sha256": "0998c8b1732de70437899ee78411a6debd12833fe429b916c362925de041bde4",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/14.log",
+      "destination": "commands/14.log",
+      "sha256": "cbb1541cda935ca60665e0c99f3fdf5d2848b48fb913e5987041f5da2291814b",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/15.json",
+      "destination": "commands/15.json",
+      "sha256": "8c1a6380141a3a29e12f2811b28bd2307443941a32a827ab909c2672e15e1ac9",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/15.log",
+      "destination": "commands/15.log",
+      "sha256": "bb513616aeb2fbf3d4c5eb51a09aadc980b5f14c8a1606805a55051faf3fac50",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/16.json",
+      "destination": "commands/16.json",
+      "sha256": "3c723ed46dc3a4105f9b47ace2a890f3dd35f460abf721755d261167c063f0f0",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/16.log",
+      "destination": "commands/16.log",
+      "sha256": "76131c70028089bb3085bffefcd48e4dec834a5afcfefdf830e4e83a61b9bd4e",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/17.json",
+      "destination": "commands/17.json",
+      "sha256": "2bf629107c77101842483e074d07d21451644db68301d4bf1d9e2c88b8c54263",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/17.log",
+      "destination": "commands/17.log",
+      "sha256": "142da60514e265a387e780d0395bd0ce0b8916d378f2e58e607854f0785a7ffe",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/18.json",
+      "destination": "commands/18.json",
+      "sha256": "e015ea4f038c9abf9d6fc250979bd140f487cee8b0e0c462dda86d510e49af0f",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/18.log",
+      "destination": "commands/18.log",
+      "sha256": "bb8d66764e76f5b9da2520c77d4cc2064451ae08be28ad67efab1b1381299aab",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/19.json",
+      "destination": "commands/19.json",
+      "sha256": "9dfc9affe54af06924b231af60ea08e25cd97b6023898e361340a8074779994f",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/19.log",
+      "destination": "commands/19.log",
+      "sha256": "4d3e5f43e086c60f68b1c2d2a4a18b4265540ace39c4dca45cd29718ab50dddd",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/20.json",
+      "destination": "commands/20.json",
+      "sha256": "f86d457f53bf612a2c72cb4cd20e1824a0e0c71bcb2bbcba03cae5cdcc270b22",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/20.log",
+      "destination": "commands/20.log",
+      "sha256": "08a20e3bac41f45592a417e7a3ece50d5594dedeb481f2b6ebe1fc52bf792435",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/21.json",
+      "destination": "commands/21.json",
+      "sha256": "389a5659e783201c5f582ba1c49808ffb2ed15df0d5884ce2cbbef0c0a658203",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/21.log",
+      "destination": "commands/21.log",
+      "sha256": "e42ea9d729be74678ebee8a030283b9cd4f0a3785cd9ec3fad56640e2e6294a5",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/22.json",
+      "destination": "commands/22.json",
+      "sha256": "44097cda24c9752903681573efc9e16a0a7329ae6bc3c20d67fd2128d711d0e9",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/22.log",
+      "destination": "commands/22.log",
+      "sha256": "4d3e5f43e086c60f68b1c2d2a4a18b4265540ace39c4dca45cd29718ab50dddd",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/23.json",
+      "destination": "commands/23.json",
+      "sha256": "95b785812129b38cefd81d585ad137859166d427f88843839a70bcd781ac0832",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/23.log",
+      "destination": "commands/23.log",
+      "sha256": "6f34b51207ba5713061e2ccc75b0da6b86b2123af4aae3e124eb000b5c1023a0",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/24.json",
+      "destination": "commands/24.json",
+      "sha256": "0f691bc6fca9234fa4de0f1b2d10a72e7e169f0b89604a769da1fd4f9c1dad63",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/24.log",
+      "destination": "commands/24.log",
+      "sha256": "2ec8e6f941f912d1100c62aaa00527408b762e8710e82e19a63905ac906ca517",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/25.json",
+      "destination": "commands/25.json",
+      "sha256": "b21a4380208a4ec047bdfaec673be8b797c7248c7b6fe767f6591cdb2491aef9",
+      "matched": true
+    },
+    {
+      "source": "artifacts/commands-20261110-001835-875/25.log",
+      "destination": "commands/25.log",
+      "sha256": "4d3e5f43e086c60f68b1c2d2a4a18b4265540ace39c4dca45cd29718ab50dddd",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-normal-1794237523985794293/command.json",
+      "destination": "image-normal/command.json",
+      "sha256": "58fd3bfd65305d05dfc25613e570ef8ef00dd6329ab8226c4bc6005c19c12080",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-normal-1794237523985794293/hashes.json",
+      "destination": "image-normal/hashes.json",
+      "sha256": "9c259cb007e5ed14b8b32e84b6f8f282aceaba677bfa7e964a74745b285057a0",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-normal-1794237523985794293/stderr.log",
+      "destination": "image-normal/stderr.log",
+      "sha256": "6e72d2616f4f7b97ea0fbbaee4f6cfbced34251619960d4a04a95930708effab",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-normal-1794237523985794293/stdout.log",
+      "destination": "image-normal/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237525637335947/m6-benchmark.md",
+      "destination": "boot-128M/m6-benchmark.md",
+      "sha256": "95b6f1a817537b0f4882aa39cc1bce41f2fb0cf14c46f3c59289d851198a106d",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237525637335947/m7-benchmark.md",
+      "destination": "boot-128M/m7-benchmark.md",
+      "sha256": "92cb578b5e75fa3fb1dccf49a8aa08ff9b53fce5faca1297a624c552f62e85c9",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237525637335947/result.json",
+      "destination": "boot-128M/result.json",
+      "sha256": "39bd63c76180035e789f027bcdf52435e50e5017216c44a2492951a1cd0459f1",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237525637335947/serial-readable.log",
+      "destination": "boot-128M/serial-readable.log",
+      "sha256": "addc847ea07addb8e63e2695c0e4e02241f24e3382adde0e83904a539188a064",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237525637335947/serial.log",
+      "destination": "boot-128M/serial.log",
+      "sha256": "44edee7e3ea64cdeb77931ac31806d87c170fd4e9d1eeaf210e5ff3be4414cbc",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237525637335947/stderr.log",
+      "destination": "boot-128M/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237525637335947/stdout.log",
+      "destination": "boot-128M/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-256M-1794237597270249485/m6-benchmark.md",
+      "destination": "boot-256M/m6-benchmark.md",
+      "sha256": "51ed300af65d9d45118d02dbe0e5f67c0eca6d18f33979166adc7cb4afb555a5",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-256M-1794237597270249485/m7-benchmark.md",
+      "destination": "boot-256M/m7-benchmark.md",
+      "sha256": "69a91eccc70c31ff0b603132f0b0bc0694d9a4a0d50125012371ab3fb7a74a73",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-256M-1794237597270249485/result.json",
+      "destination": "boot-256M/result.json",
+      "sha256": "8a1798af27438d392b0d7a923dad43dfbf41e0d372a155b61ec28e8a77ade809",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-256M-1794237597270249485/serial-readable.log",
+      "destination": "boot-256M/serial-readable.log",
+      "sha256": "6c4634323b7efc7e6c344438ad1717e6790f4be2c986f0956bbf56d77534b619",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-256M-1794237597270249485/serial.log",
+      "destination": "boot-256M/serial.log",
+      "sha256": "d0263a6db93ff0c2f1e513e0cf7c4284b7e883b7598823f7963da1590643a77b",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-256M-1794237597270249485/stderr.log",
+      "destination": "boot-256M/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-256M-1794237597270249485/stdout.log",
+      "destination": "boot-256M/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-alt-1794237670325318820/command.json",
+      "destination": "image-module-alt/command.json",
+      "sha256": "c91b4dae836adf2acbed70f187e8fd12331105e630a403497c345489aef3d4c3",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-alt-1794237670325318820/hashes.json",
+      "destination": "image-module-alt/hashes.json",
+      "sha256": "477bc4d0b39426003b2761e338e7a8e0672490ce46dbe1abf69a2fbeeac4e709",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-alt-1794237670325318820/stderr.log",
+      "destination": "image-module-alt/stderr.log",
+      "sha256": "d77faab8ff2d75aad38ac8d6bc58b9213949429fc8ea954b0b762e8ff5d7cf47",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-alt-1794237670325318820/stdout.log",
+      "destination": "image-module-alt/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-alt-128M-1794237672610541504/m6-benchmark.md",
+      "destination": "module-alt/m6-benchmark.md",
+      "sha256": "3ada77495c122074eae78e1a2ccd33cd7a782bcbeb56de8ed38d1cb263eba977",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-alt-128M-1794237672610541504/m7-benchmark.md",
+      "destination": "module-alt/m7-benchmark.md",
+      "sha256": "d8edb93e9e6216a5e7979a3275522cfa684afe011e0b23947351c519b63ba132",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-alt-128M-1794237672610541504/result.json",
+      "destination": "module-alt/result.json",
+      "sha256": "057a37778a8b3729f752e505b1c42f30cd2ae87ed7bc0544eafad959940b1e9d",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-alt-128M-1794237672610541504/serial-readable.log",
+      "destination": "module-alt/serial-readable.log",
+      "sha256": "e264f7f9b7c578c3b98a7b526c26ec6596e558f89cbda546dd4285726705842e",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-alt-128M-1794237672610541504/serial.log",
+      "destination": "module-alt/serial.log",
+      "sha256": "63dcf629417a881a031b58457b5fa66b0643f05411c12051a9b4c5e208329e08",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-alt-128M-1794237672610541504/stderr.log",
+      "destination": "module-alt/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-alt-128M-1794237672610541504/stdout.log",
+      "destination": "module-alt/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-bad-version-1794237737039865878/command.json",
+      "destination": "image-module-bad-version/command.json",
+      "sha256": "269e9c4d67ef62bd7ff00e554723b89030b563d480a210ffab2c1c02a4e07709",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-bad-version-1794237737039865878/hashes.json",
+      "destination": "image-module-bad-version/hashes.json",
+      "sha256": "f1a2af21120090bac73e0fdbf790a7aeb40e6d8e69019afdab9c9d642f246a0d",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-bad-version-1794237737039865878/stderr.log",
+      "destination": "image-module-bad-version/stderr.log",
+      "sha256": "f569dc86a12eafe586fed84f231bd80166e26d9382b4feaa6d62aca5d40af656",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-bad-version-1794237737039865878/stdout.log",
+      "destination": "image-module-bad-version/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-version-128M-1794237738625987199/m6-benchmark.md",
+      "destination": "module-bad-version/m6-benchmark.md",
+      "sha256": "1ed4e3d0026170814e7229c6505fa68baad376ea0f9b74316d1c942210c92060",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-version-128M-1794237738625987199/m7-benchmark.md",
+      "destination": "module-bad-version/m7-benchmark.md",
+      "sha256": "91d4388e7fe35c2c7f674e52909f87a7aaf98c865af39e73f726bd9aa1aa5c5a",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-version-128M-1794237738625987199/result.json",
+      "destination": "module-bad-version/result.json",
+      "sha256": "7e75bf1d33ad36d71adddc3d232969d26cb46c24812d1c95a6d9f469289c5d14",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-version-128M-1794237738625987199/serial-readable.log",
+      "destination": "module-bad-version/serial-readable.log",
+      "sha256": "2899868199b8c6bb7568cc47cc8399a071967fec1a3e23c29204bd812a97acc7",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-version-128M-1794237738625987199/serial.log",
+      "destination": "module-bad-version/serial.log",
+      "sha256": "9a9e83f361069b2ff1a3e32e0ddda87bf34b4a96737e07228bf28386b6c45e30",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-version-128M-1794237738625987199/stderr.log",
+      "destination": "module-bad-version/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-version-128M-1794237738625987199/stdout.log",
+      "destination": "module-bad-version/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-bad-opcode-1794237813597129817/command.json",
+      "destination": "image-module-bad-opcode/command.json",
+      "sha256": "2885dcd5aaf009b47ebd1a4f7be5637e6d06728bb74136c6934124e48fb61772",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-bad-opcode-1794237813597129817/hashes.json",
+      "destination": "image-module-bad-opcode/hashes.json",
+      "sha256": "af943179722d4f46096e5ecf0da26aceaf8f993de3727b158e6d77df130a98d7",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-bad-opcode-1794237813597129817/stderr.log",
+      "destination": "image-module-bad-opcode/stderr.log",
+      "sha256": "e93aadfd8206b2776abde1fae280c873d3a59f6524f13d95ea95a1eade0ca1fa",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-module-bad-opcode-1794237813597129817/stdout.log",
+      "destination": "image-module-bad-opcode/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-opcode-128M-1794237815697167752/m6-benchmark.md",
+      "destination": "module-bad-opcode/m6-benchmark.md",
+      "sha256": "5155a384232f5034cc141e2c30d2b964afd375b7d57b66b4c6466f36b7af6809",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-opcode-128M-1794237815697167752/m7-benchmark.md",
+      "destination": "module-bad-opcode/m7-benchmark.md",
+      "sha256": "00a092857e24e1b24efbc88bda11f808f832379c3624ef65fbdbce1c80a90e9b",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-opcode-128M-1794237815697167752/result.json",
+      "destination": "module-bad-opcode/result.json",
+      "sha256": "09e24ed5edfcfcce3d949bc2430e5915bc366f0dfb30217ee4e38bf28784a360",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-opcode-128M-1794237815697167752/serial-readable.log",
+      "destination": "module-bad-opcode/serial-readable.log",
+      "sha256": "c7d02b06cbdd5793e619bb41bf16485f51f4fa0c5d78f2211babe16ade6b78e0",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-opcode-128M-1794237815697167752/serial.log",
+      "destination": "module-bad-opcode/serial.log",
+      "sha256": "26c80629fd18795afced650633cec23c39f55d3289424868c0f50f5c8c2cf70b",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-opcode-128M-1794237815697167752/stderr.log",
+      "destination": "module-bad-opcode/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-module-bad-opcode-128M-1794237815697167752/stdout.log",
+      "destination": "module-bad-opcode/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237887913880542/result.json",
+      "destination": "timeout/result.json",
+      "sha256": "dc945e1c7a69e39b7b5753b453c691738cfb8f2ffc53f2a1688a61e9e92c4853",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237887913880542/serial-readable.log",
+      "destination": "timeout/serial-readable.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237887913880542/serial.log",
+      "destination": "timeout/serial.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237887913880542/stderr.log",
+      "destination": "timeout/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-normal-128M-1794237887913880542/stdout.log",
+      "destination": "timeout/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-panic-1794237890310343442/command.json",
+      "destination": "image-panic/command.json",
+      "sha256": "7e8316d72874429e7a84fb4ce20ac1cc191cfa71bd968ff087bb7a4c640d11ad",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-panic-1794237890310343442/hashes.json",
+      "destination": "image-panic/hashes.json",
+      "sha256": "3b6dba21e0b13430b364c22042ef238761fa43351d72fcaf784131996fd32f3a",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-panic-1794237890310343442/stderr.log",
+      "destination": "image-panic/stderr.log",
+      "sha256": "6b425187e5f5a1cbe676f5220d3293581359425d0464adb6cc1e945228332993",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-panic-1794237890310343442/stdout.log",
+      "destination": "image-panic/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-panic-128M-1794237892611570838/result.json",
+      "destination": "panic/result.json",
+      "sha256": "a6a978e951329c38b92deacd5963f7574aa48fd5236edf78c7fb7e33f4bc0ade",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-panic-128M-1794237892611570838/serial-readable.log",
+      "destination": "panic/serial-readable.log",
+      "sha256": "82829d283c75664bc1bc305a3bd4937666d137c5cb13d73f43c70436c211141e",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-panic-128M-1794237892611570838/serial.log",
+      "destination": "panic/serial.log",
+      "sha256": "6d467b69ec745f0b919621e62b78425e066714444f860ef40288544c174e96d8",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-panic-128M-1794237892611570838/stderr.log",
+      "destination": "panic/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-panic-128M-1794237892611570838/stdout.log",
+      "destination": "panic/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-fault-1794237899828242244/command.json",
+      "destination": "image-fault/command.json",
+      "sha256": "701e4dbeea898011f85342f20b788ffc6b7f36271b536736bbd75ac5c3610f42",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-fault-1794237899828242244/hashes.json",
+      "destination": "image-fault/hashes.json",
+      "sha256": "1ee453961c00ed88005abc816c233169a921af31c1b524d19ee95cd76d31cc53",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-fault-1794237899828242244/stderr.log",
+      "destination": "image-fault/stderr.log",
+      "sha256": "398e881d96ad2240cb6fb883ab94f42e675e5337ce373f1cac9047206744dc26",
+      "matched": true
+    },
+    {
+      "source": "artifacts/image-fault-1794237899828242244/stdout.log",
+      "destination": "image-fault/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-fault-128M-1794237901686052321/result.json",
+      "destination": "unexpected-fault/result.json",
+      "sha256": "68e9c7217521e7aa5f8eb5e846d43601bc3b129e161beb986252c7e8245cef8b",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-fault-128M-1794237901686052321/serial-readable.log",
+      "destination": "unexpected-fault/serial-readable.log",
+      "sha256": "4a2f04453d9ab2583bf6751ddcb993014c5d5bb99eb607c4969f19833bc0e8d1",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-fault-128M-1794237901686052321/serial.log",
+      "destination": "unexpected-fault/serial.log",
+      "sha256": "8cf23cf34a038bd8e14c47245aa0471d3800724e562909106d85cbf76b1b5d26",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-fault-128M-1794237901686052321/stderr.log",
+      "destination": "unexpected-fault/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    },
+    {
+      "source": "artifacts/boot-fault-128M-1794237901686052321/stdout.log",
+      "destination": "unexpected-fault/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matched": true
+    }
+  ]
+}

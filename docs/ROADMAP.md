@@ -1,14 +1,14 @@
 # Roadmap and gates
 
-## 現在の状態（M9 checkpoint）
+## 現在の状態（M10）
 
-M1〜M9のゲートを通過しました。M9は外部バイトコードローダです。
+M1〜M10のゲートを通過しました。M10の実行セッションと自動cleanupを実装・検証しました。
 M7は脅威モデルに限定した言語隔離の研究試作です。
 実ring-3の共有・隔離・COW、任意の重複排除と圧力時圧縮、5方式のベースラインに加え、
 制限付きバイトコードの検証・燃料・Capability読取り・失効を実装しました。
 検証コマンドは `./tools/project.ps1 verify`、証跡と正確な結果は
-[M9-VERIFICATION.md](M9-VERIFICATION.md) に記録します。
-M9も固定容量の有限試作です。汎用OSや安全性証明の完成ではありません。
+[M10-VERIFICATION.md](M10-VERIFICATION.md) に記録します。
+M10も固定容量の有限試作です。汎用OSや安全性証明の完成ではありません。
 
 M4ではGDT/TSS・ring-3移行・int 0x80・独立CR3を実装しました。呼び出し元はカーネルが決定し、
 ユーザー引数で他タスクのCapability表を選べません。4 MiBの全1,024ページの物理アドレス一致、
@@ -100,12 +100,20 @@ nativeのpaging保護を維持し、bytecodeだけが信頼されたインタプ
   不正version/最後の不正opcodeの全件拒否、実QEMUの回収とM1〜M8回帰。
 - 形式・脅威モデル: [M9-FORMAT.md](M9-FORMAT.md)。元のLimine予約ページは保持。
 
-## M9後の未着手候補
+## M10: Scoped execution lifecycle
+
+- Sessionがコードのimmutable borrowと同じauthority hostのexclusive borrowを保持する。
+- dispatchごとのhost付替えを禁止し、途中return/Dropで残るtaskだけを自動shutdown。
+- M9外部実行をSessionへ移行。空Batch/不正設定はhost引受け前に拒否。
+- Gate: 借用境界のcompile-fail/pass、通常終了/fault/取消/Dropの単体検査、
+  QEMUで4ケースの実payload回収と各stop1回、frame/table/mapping収支、M1〜M9回帰。
+- [M10-DESIGN.md](M10-DESIGN.md)。panic=abort/mem::forget/SMP等は保証対象外。
+
+## M10後の未着手候補
 
 - 次の優先候補: 信頼されたlaunch manifestによる初期Capability付与と、外部プログラムからの
   immutable object共有デモ。プログラムがtask IDや権利を自己申告して増幅できない設計にする。
-- Schedulerとauthority hostの所有関係を型で固定し、Drop/取消時のcleanupを構造的に保証する。
-  native preemptionと動的task slot再利用は別の設計・検証が必要。
+- native preemptionと動的task slot再利用には別の設計・検証が必要。
 - 検証器の体系的なfuzz・モデル検査、より強い証明、信頼基盤の縮小とruntime自身の隔離。
 - 未使用秘密ページ除外・RXコード共有などを行ったnative対照群、複数task数・入力・書込み負荷での比較。
 - 制限言語の機能拡張に先立つ脅威モデル更新。データ書込み・host機能の追加ごとに権限・寿命・会計を検証。

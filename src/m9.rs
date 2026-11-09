@@ -3,6 +3,7 @@ use super::*;
 use shared_first_os::{
     loader::Batch,
     scheduler::{Scheduler, TaskHost},
+    session::Session,
 };
 
 struct World<'a> {
@@ -69,14 +70,10 @@ pub(super) fn run(store: &mut Bench) {
     let turns;
     let stops;
     {
-        let mut scheduler = Scheduler::new(2).unwrap();
         let mut host = World { store, stops: 0 };
-        for index in 0..batch.count() {
-            let (program, fuel) = batch.program(index).unwrap();
-            assert_eq!(scheduler.admit(program, fuel), Ok(index));
-        }
+        let mut session = Session::new(&batch, &mut host, 2).unwrap();
         let mut dispatched = 0;
-        while let Some(event) = scheduler.dispatch(&mut host) {
+        while let Some(event) = session.dispatch() {
             dispatched += 1;
             // Bound diagnostics as well as execution, even for a hostile package.
             // At most 64 dispatches printed; all later work is still fuel bounded.
@@ -86,11 +83,8 @@ pub(super) fn run(store: &mut Bench) {
                     event.task, event.result, event.fuel_before, event.fuel_after
                 ));
             }
-            if event.result.is_err() {
-                assert_eq!(host.store.stats().capabilities, 0);
-            }
         }
-        scheduler.shutdown(&mut host);
+        drop(session);
         assert_eq!(host.stops, batch.count());
         turns = dispatched;
         stops = host.stops;

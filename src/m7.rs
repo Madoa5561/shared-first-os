@@ -1,6 +1,8 @@
 //! Restricted bytecode shares kernel CR3, never native execution privilege.
 //! See docs/M7-THREAT-MODEL.md. Native controls retain the M4 hardware boundary.
 use super::*;
+#[path = "m10.rs"]
+mod m10;
 #[path = "m8.rs"]
 mod m8;
 #[path = "m9.rs"]
@@ -413,4 +415,5 @@ pub(super) fn run() {
     ));
     m8::run(store);
     m9::run(store);
+    m10::run(store);
 }

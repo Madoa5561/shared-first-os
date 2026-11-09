@@ -1,0 +1,60 @@
+BdsDxe: loading Boot0002 "UEFI QEMU DVD-ROM QM00005 " from PciRoot(0x0)/Pci(0x1F,0x2)/Sata(0x2,0xFFFF,0x0)
+BdsDxe: starting Boot0002 "UEFI QEMU DVD-ROM QM00005 " from PciRoot(0x0)/Pci(0x1F,0x2)/Sata(0x2,0xFFFF,0x0)
+limine: Loading executable `boot():/boot/shared-first-kernel`...limine: Loading module `boot():/boot/programs.sfbc`...Shared-First OS booted
+BOOT base_revision=3 firmware=2
+MEMMAP index=0 base=0x0000000000000000 length=0x00000000000a0000 kind=0
+MEMMAP index=1 base=0x0000000000100000 length=0x0000000000700000 kind=0
+MEMMAP index=2 base=0x0000000000800000 length=0x0000000000008000 kind=3
+MEMMAP index=3 base=0x0000000000808000 length=0x0000000000003000 kind=0
+MEMMAP index=4 base=0x000000000080b000 length=0x0000000000001000 kind=3
+MEMMAP index=5 base=0x000000000080c000 length=0x0000000000008000 kind=0
+MEMMAP index=6 base=0x0000000000814000 length=0x00000000000ec000 kind=3
+MEMMAP index=7 base=0x0000000000900000 length=0x0000000001855000 kind=0
+MEMMAP index=8 base=0x0000000002155000 length=0x0000000000117000 kind=5
+MEMMAP index=9 base=0x000000000226c000 length=0x0000000001920000 kind=0
+MEMMAP index=10 base=0x0000000003b8c000 length=0x000000000000b000 kind=5
+MEMMAP index=11 base=0x0000000003b97000 length=0x0000000000001000 kind=6
+MEMMAP index=12 base=0x0000000003b98000 length=0x000000000002d000 kind=5
+MEMMAP index=13 base=0x0000000003bc5000 length=0x00000000026f2000 kind=0
+MEMMAP index=14 base=0x00000000062b7000 length=0x0000000000005000 kind=1
+MEMMAP index=15 base=0x00000000062bc000 length=0x0000000000009000 kind=0
+MEMMAP index=16 base=0x00000000062c5000 length=0x000000000003f000 kind=5
+MEMMAP index=17 base=0x0000000006304000 length=0x0000000000007000 kind=6
+MEMMAP index=18 base=0x000000000630b000 length=0x0000000000035000 kind=5
+MEMMAP index=19 base=0x0000000006340000 length=0x00000000003aa000 kind=0
+MEMMAP index=20 base=0x00000000066ea000 length=0x0000000000009000 kind=5
+MEMMAP index=21 base=0x00000000066f3000 length=0x000000000000b000 kind=1
+MEMMAP index=22 base=0x00000000066fe000 length=0x0000000000241000 kind=0
+MEMMAP index=23 base=0x000000000693f000 length=0x00000000000c1000 kind=1
+MEMMAP index=24 base=0x0000000006a00000 length=0x0000000000aed000 kind=0
+MEMMAP index=25 base=0x00000000074ed000 length=0x0000000000100000 kind=1
+MEMMAP index=26 base=0x00000000075ed000 length=0x0000000000100000 kind=1
+MEMMAP index=27 base=0x00000000076ed000 length=0x0000000000080000 kind=1
+MEMMAP index=28 base=0x000000000776d000 length=0x0000000000012000 kind=2
+MEMMAP index=29 base=0x000000000777f000 length=0x0000000000080000 kind=3
+MEMMAP index=30 base=0x00000000077ff000 length=0x0000000000601000 kind=0
+MEMMAP index=31 base=0x0000000007e00000 length=0x000000000006f000 kind=5
+MEMMAP index=32 base=0x0000000007e6f000 length=0x0000000000056000 kind=0
+MEMMAP index=33 base=0x0000000007ec5000 length=0x0000000000001000 kind=5
+MEMMAP index=34 base=0x0000000007ec6000 length=0x000000000002e000 kind=0
+MEMMAP index=35 base=0x0000000007ef4000 length=0x0000000000084000 kind=1
+MEMMAP index=36 base=0x0000000007f78000 length=0x0000000000088000 kind=3
+MEMMAP index=37 base=0x0000000080000000 length=0x00000000003e8000 kind=7
+MEMMAP index=38 base=0x00000000e0000000 length=0x0000000010000000 kind=1
+MEMMAP index=39 base=0x00000000ffc00000 length=0x0000000000400000 kind=1
+MEMMAP index=40 base=0x000000fd00000000 length=0x0000000300000000 kind=1
+MEMKIND name=usable regions=14 bytes=125272064
+MEMKIND name=reserved regions=10 bytes=13161549824
+MEMKIND name=acpi_reclaimable regions=1 bytes=73728
+MEMKIND name=acpi_nvs regions=5 bytes=2084864
+MEMKIND name=bad_memory regions=0 bytes=0
+MEMKIND name=bootloader_reclaimable regions=8 bytes=2342912
+MEMKIND name=kernel_and_modules regions=2 bytes=32768
+MEMKIND name=framebuffer regions=1 bytes=4096000
+MEMKIND name=unknown regions=0 bytes=0
+MEMSUMMARY entries=41 usable_bytes=125272064 reserved_bytes=13170180096 described_bytes=13295452160
+ACCOUNTING reserved=all_non_usable; address_map_bytes_are_not_ram_usage; allocator=initialized_after_summary
+PANIC: panicked at src\main.rs:66:9:
+intentional boot-panic test
+
+Evidence: /mnt/c/Users/shout/OneDrive/ドキュメント/RAMOS/artifacts/boot-panic-128M-1794237892611570838; passed=True exit=35

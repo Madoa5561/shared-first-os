@@ -1,6 +1,19 @@
 # Architecture: Object-Centric Memory (OCM)
 
-## M9の外部コードロード（現在）
+## M10の実行セッション（現在）
+
+`src/session.rs` のSessionはSchedulerと、同じTaskHostの排他的borrowを保持する。
+Programは所有Batchをimmutable borrowし、Session生存中のBatch.clearと別経路のhost操作をRustが拒否する。
+dispatch/cancelは外からhostを受け取らない。Dropが残るtaskをshutdownし、既に終了したtaskのstopを重ねない。
+M9の外部実行をSession経由へ移し、途中return時の明示的shutdownへの依存を除いた。
+
+空Batch/不正quantumは引受け前に拒否し、host資源は呼出し側が保持する。成功後に管理するのは
+Batchのslotだけで、他taskの資源まで巻き込まない。stopは信頼されたinfallible/no-reentry操作。
+panic=abort、電源断、mem::forgetでの自動回収は保証しない。M8低水準Schedulerの直接利用には旧契約が残る。
+compile-fail/compile-passで借用境界、QEMUで実payloadの中止/途中終了/fault後の回収を検査する。
+詳細は[M10-DESIGN.md](M10-DESIGN.md)。外部codeへの初期権限付与はまだ実装しない。
+
+## M9の外部コードロード
 
 `src/boot.rs` がLimine moduleのABI prefixを読み、件数1・非NULL・最大592 byte・kind 6内の
 範囲を検査する。M2のHHDMに保持した領域から読み、元の予約ページは回収しない。
@@ -11,7 +24,7 @@ fuel/code合計quota、切断・末尾余剰を全件検査し、成功時だけ
 Batchは最大4×256 byteのコード領域を持ち、実code上限は512 byte。Programはこのコピーをborrowする。
 部分成功を外へ出さない。元のバイト列を後から変更してもコピーには反映しない。
 
-`src/m9.rs` が空のCapability表を前提にM8 Schedulerへadmitする。初期権限の付与は実装しておらず、
+`src/m9.rs` が空のCapability表を前提にSession経由でadmitする。初期権限の付与は実装しておらず、
 外部コードの整数handleは権限にならない。認可は既存ObjectStoreへ接続し、終了時にrelease_taskする。
 全task停止後にborrowを終え、Batch.clearでcode/count/fuelを0にする。実行中のclearは借用規則で禁止する。
 実stack高水位やsecure erase、元moduleページの回収を保証しない。
@@ -26,7 +39,8 @@ Batchは最大4×256 byteのコード領域を持ち、実code上限は512 byte�
 1〜64命令ごとに中断し、YIELDのないプログラムからも制御を取り戻します。命令列とscratch、PC、
 register、残燃料は同じContextに保存されます。生涯燃料とは別の命令数quantumです。
 batchの累積付与量は2,097,152以下。終了・取消で返却せず、slotも再利用しません。
-不正admissionは状態不変です。ホストだけが新batchを生成でき、事前に全task表が空である必要があります。
+不正admissionは状態不変です。ホストだけが新batchを生成でき、当該batch専用のtask表だけを扱います。
+M8/M9は空の表から開始し、M10の回収fixtureは信頼されたkernelが用意した権限を引き受けます。
 
 `TaskHost` adapterへ渡すtask IDはschedulerのslotから決定します。bytecodeには選択権がありません。
 HALT/fault/cancelでstopを1回だけ呼び、実adapterは既存`release_task`でCapability・写像を解放します。

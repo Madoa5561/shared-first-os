@@ -8,7 +8,7 @@ pub const MAX_BATCH_FUEL: u64 = 2 * 1024 * 1024;
 
 /// Trusted task-local authority adapter. `stop` must release that task's
 /// capabilities/mappings before returning; it cannot reenter the scheduler.
-/// A fresh batch requires empty task tables. Slots are never reused in a batch.
+/// Each batch exclusively owns its task tables. Slots are never reused in a batch.
 pub trait TaskHost {
     fn sum(&mut self, task: usize, handle: u64, offset: u64, length: u64) -> Result<u64, Fault>;
     fn stop(&mut self, task: usize);

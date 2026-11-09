@@ -14,10 +14,10 @@ workloads, including restricted bytecode loaded from a separate boot module,
 and exits automatically. There is no desktop, interactive shell,
 filesystem, network stack, general application loader, or physical-machine installer.
 
-**[Download the M9 research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/m9-preview)**
+**[Download the M10 research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/m10-preview)**
 · **[Build instructions](docs/BUILD.md)**
 · **[Architecture](docs/ARCHITECTURE.md)**
-· **[Verification report](docs/M9-VERIFICATION.md)**
+· **[Verification report](docs/M10-VERIFICATION.md)**
 
 ## What works
 
@@ -41,14 +41,16 @@ filesystem, network stack, general application loader, or physical-machine insta
 - **External bytecode packages:** a versioned boot-module format, full-package
   validation, owned code storage, and explicit code/fuel quotas. No initial
   capabilities are granted by the package itself.
+- **Scoped execution:** code and the authority host stay borrowed by one session;
+  leaving the scope cancels remaining tasks and releases their object references.
 
 Native tasks retain hardware isolation. The restricted interpreter is trusted
 kernel code; it accepts a small custom language, not arbitrary native code or WASM.
 
 ## Try the prebuilt image
 
-Download `shared-first-os-m9-preview.zip` from the
-[M9 release](https://github.com/Madoa5561/shared-first-os/releases/tag/m9-preview).
+Download `shared-first-os-m10-preview.zip` from the
+[M10 release](https://github.com/Madoa5561/shared-first-os/releases/tag/m10-preview).
 The ZIP contains the bootable ISO, kernel ELF, checksums, and license notices.
 The ISO is also available as a separate asset.
 
@@ -67,8 +69,8 @@ qemu-system-x86_64 \
   -device isa-debug-exit,iobase=0xf4,iosize=0x04
 ```
 
-Expect `Shared-First OS booted`, followed by `M1 PASS` through `M9 PASS`.
-The full run takes about 65–75 seconds in the recorded environment. QEMU exits with
+Expect `Shared-First OS booted`, followed by `M1 PASS` through `M10 PASS`.
+The full run takes about 71–73 seconds in the recorded environment. QEMU exits with
 **code 33 on success** through `isa-debug-exit`; this nonzero code is intentional.
 Code 35 indicates a kernel panic. Use QEMU only; physical-machine boot is untested.
 
@@ -102,6 +104,15 @@ The scripts enforce locked versions. An ISO's timestamp metadata is not fixed,
 so byte-for-byte reproducible ISO builds are not claimed.
 
 ## Verified results
+
+The M10 verification run includes **58 Rust unit tests**, **3 documentation compile tests**,
+and **51 Python tests**. QEMU tests cover 128/256 MiB,
+external-module changes and rejection, and four session cleanup cases using real
+shared physical backing. Each task stops exactly once, with no payload or
+capability references left. See [M10 verification](docs/M10-VERIFICATION.md)
+and [raw evidence](docs/evidence/m10) for exact commands and results.
+All **25 final verification commands** passed, including panic, unexpected page
+fault and timeout detection.
 
 The M9 checkpoint passed **54 Rust tests**, **49 Python tests**, format and Clippy,
 normal QEMU boots at **128 and 256 MiB**, and three external-module variants.
@@ -146,6 +157,8 @@ superiority over Linux, seL4, WASM runtimes, or other operating systems.
   loader. No general native application loader or dynamic loading.
 - Compression and deduplication are opt-in experiments in a small policy domain.
 - The interpreter and its host adapter are part of the trusted computing base.
+- Session cleanup covers normal scope exit and early returns. It is not guaranteed
+  on `panic=abort`, power loss, or deliberate `mem::forget` in trusted kernel code.
 - Physical hardware, KVM, Secure Boot, DMA isolation, side channels, and formal
   security proofs are outside the verified scope.
 
@@ -160,7 +173,8 @@ superiority over Linux, seL4, WASM runtimes, or other operating systems.
 | `docs/M7-THREAT-MODEL.md` | Restricted-language trust boundary and test plan |
 | `docs/M9-FORMAT.md` | External package format, quotas and trust boundary |
 | `examples/bytecode/demo.json` | Editable external bytecode example |
-| `docs/M1-VERIFICATION.md` … `docs/M9-VERIFICATION.md` | Checkpoint reports |
+| `docs/M10-DESIGN.md` | Code/authority lifetime and automatic cleanup |
+| `docs/M1-VERIFICATION.md` … `docs/M10-VERIFICATION.md` | Checkpoint reports |
 | `docs/evidence/` | Historical raw results, commands and source hashes |
 
 Detailed engineering documents are currently written in Japanese. Historical
@@ -168,6 +182,7 @@ evidence includes the original machine's local paths; those paths describe the
 recorded environment and are not prerequisites for building your checkout.
 M8 adds bounded bytecode scheduling; see its [design and limits](docs/M8-DESIGN.md).
 M9 loads externally packaged programs; see the [format and packer instructions](docs/M9-FORMAT.md).
+M10 binds external execution to one authority host and cleans up on scope exit.
 The historical v0.1.0 release remains the M7 checkpoint.
 
 ## Contributing

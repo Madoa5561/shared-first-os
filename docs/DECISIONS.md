@@ -1,5 +1,14 @@
 # 技術判断記録
 
+## M10: 外部実行の所有関係を先に固定
+
+1. 初期権限付与に先立ち、M8の明示的shutdownとhost固定の契約をSession型へ閉じ込める。
+   既存Schedulerの挙動は変えず、外部コードの実行経路だけSessionへ移す。
+2. 検証済みBatchをborrowし、権限hostをexclusive borrowする。実行中のコード変更やhost付替えを
+   compile-failで検査する。通常終了/中止はDropからshutdownし、二重stopを防ぐ。
+3. panic=abortやmem::forgetでDropを保証する主張はしない。低水準Schedulerも既存研究fixture用に残す。
+   汎用kernel回復機構の代わりではなく、通常制御フローの寿命の改善として扱う。
+
 ## M9: 全件検証する外部コードと所有期間
 
 1. Limineのmodule機能でISO内の独立ファイルを読み、カーネルELF再コンパイルなしで入力を変更できる。

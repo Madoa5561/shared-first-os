@@ -46,6 +46,7 @@ try {
     if ($Action -in @('check', 'verify')) {
         Invoke-Recorded 'cargo' @('fmt', '--check')
         Invoke-Recorded 'cargo' @('test', '--locked', '--offline', '--lib')
+        Invoke-Recorded 'cargo' @('test', '--locked', '--offline', '--doc')
         Invoke-Recorded 'cargo' @('clippy', '--locked', '--offline', '--lib', '--tests', '--', '-D', 'warnings')
         Invoke-Recorded 'cargo' @('clippy', '--locked', '--offline', '--target', 'x86_64-unknown-none', '--bin', 'shared-first-kernel', '--all-features', '--', '-D', 'warnings')
         Invoke-Recorded 'wsl.exe' @('-d', $Distribution, '--cd', $root, '--exec', 'python3', '-B', '-m', 'unittest', 'discover', '-s', 'tools', '-p', 'test_*.py', '-v')
