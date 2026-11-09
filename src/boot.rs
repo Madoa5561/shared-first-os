@@ -48,6 +48,88 @@ struct KernelResponse {
     virtual_address: u64,
 }
 
+// Limine revision-0 module/file ABI prefixes; later fields are not accessed.
+#[repr(C)]
+struct ModuleResponse {
+    revision: u64,
+    count: u64,
+    files: *const *const ModuleFile,
+}
+#[repr(C)]
+struct ModuleFile {
+    revision: u64,
+    address: *const u8,
+    size: u64,
+}
+#[used]
+#[unsafe(link_section = ".limine_requests")]
+static mut MODULES: Request<ModuleResponse> =
+    Request::new([0x3e7e279702be32af, 0xca1c4f3bd1280cee]);
+
+pub struct Module {
+    pub bytes: &'static [u8],
+    pub physical: u64,
+    pub retained_pages: u64,
+}
+
+/// Transport metadata is trusted Limine data. Contents are untrusted bytecode.
+/// Retain the original module pages and all response structures for this boot.
+pub fn bytecode_module() -> Result<Module, &'static str> {
+    // SAFETY: sole CPU, Limine completed handoff; response storage is retained.
+    let response = unsafe { ptr::read_volatile(ptr::addr_of!(MODULES.response)) };
+    if response.is_null() {
+        return Err("missing");
+    }
+    // SAFETY: non-null trusted Limine response, mapped by M2 as kind 5.
+    let response = unsafe { &*response };
+    if response.count != 1 || response.files.is_null() {
+        return Err("count");
+    }
+    // SAFETY: exactly one pointer in the retained Limine array.
+    let file = unsafe { response.files.read() };
+    if file.is_null() {
+        return Err("file");
+    }
+    // SAFETY: Limine file record contains at least this ABI prefix.
+    let file = unsafe { &*file };
+    if file.address.is_null()
+        || file.size == 0
+        || file.size > shared_first_os::loader::MAX_IMAGE as u64
+    {
+        return Err("size");
+    }
+    let physical = (file.address as u64)
+        .checked_sub(address_info().0)
+        .ok_or("address")?;
+    let end = physical.checked_add(file.size).ok_or("address")?;
+    let map = MemoryMap::get()?;
+    let mut retained = false;
+    for index in 0..map.len() {
+        let region = map.region(index)?;
+        if region.kind == 6
+            && region.base <= physical
+            && region
+                .base
+                .checked_add(region.length)
+                .is_some_and(|limit| end <= limit)
+        {
+            retained = true;
+        }
+    }
+    if !retained || physical == 0 {
+        return Err("region");
+    }
+    // SAFETY: trusted file pointer, size bounded before slice creation, entire
+    // range verified in retained kind-6 memory mapped in HHDM by M2. No code
+    // writes these pages, no AP/DMA execution target, and no reclamation occurs.
+    let bytes = unsafe { core::slice::from_raw_parts(file.address, file.size as usize) };
+    Ok(Module {
+        bytes,
+        physical,
+        retained_pages: ((physical % 4096) + file.size).div_ceil(4096),
+    })
+}
+
 #[used]
 #[unsafe(link_section = ".limine_requests")]
 static mut HHDM: Request<HhdmResponse> = Request::new([0x48dcf1cb8ad2b852, 0x63984e959a98244b]);

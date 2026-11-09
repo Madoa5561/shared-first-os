@@ -1,14 +1,14 @@
 # Roadmap and gates
 
-## 現在の状態（2026-11-09）
+## 現在の状態（M9 checkpoint）
 
-M1〜M8のゲートを通過しました。M8は制限付きバイトコードの燃料付きスケジューラです。
+M1〜M9のゲートを通過しました。M9は外部バイトコードローダです。
 M7は脅威モデルに限定した言語隔離の研究試作です。
 実ring-3の共有・隔離・COW、任意の重複排除と圧力時圧縮、5方式のベースラインに加え、
 制限付きバイトコードの検証・燃料・Capability読取り・失効を実装しました。
 検証コマンドは `./tools/project.ps1 verify`、証跡と正確な結果は
-[M8-VERIFICATION.md](M8-VERIFICATION.md) に記録します。
-M8も固定容量の有限試作です。汎用OSや安全性証明の完成ではありません。
+[M9-VERIFICATION.md](M9-VERIFICATION.md) に記録します。
+M9も固定容量の有限試作です。汎用OSや安全性証明の完成ではありません。
 
 M4ではGDT/TSS・ring-3移行・int 0x80・独立CR3を実装しました。呼び出し元はカーネルが決定し、
 ユーザー引数で他タスクのCapability表を選べません。4 MiBの全1,024ページの物理アドレス一致、
@@ -90,11 +90,22 @@ nativeのpaging保護を維持し、bytecodeだけが信頼されたインタプ
   共有・回収を照合し、M1〜M7の回帰と意図的な失敗経路も通す。
 - 設計境界: [M8-DESIGN.md](M8-DESIGN.md)。外部ローダ、native preemption、実時間保証は含まない。
 
-## M8後の未着手候補
+## M9: External bytecode packages
 
-- 次の優先候補: 外部bytecodeのversion付きコンテナ、入力サイズ・命令検証・ロード拒否の境界。
-  検証済みコードの所有期間とtask終了を接続し、信頼されたadmissionが権限を付与する。
-  M8のslot/fuel上限に加え、入力byte数・code保持量のquotaが必要。
+- Limine moduleで独立ファイルを取得し、version付きコンテナを検証して所有copyする。
+- 1..4 program、各code 16..256 byte、code合計512 byte、ファイル最大592 byte。
+- 全件検証後だけadmit。初期権限は空、file内のhandle値は権限付与にならない。
+- 所有codeのborrowが全taskの終了まで有効で、終了後clearできる寿命規則。
+- Gate: ホストの切断/余剰/型/予約bit/quota/opcode検査、同一ELFで別moduleの出力変更、
+  不正version/最後の不正opcodeの全件拒否、実QEMUの回収とM1〜M8回帰。
+- 形式・脅威モデル: [M9-FORMAT.md](M9-FORMAT.md)。元のLimine予約ページは保持。
+
+## M9後の未着手候補
+
+- 次の優先候補: 信頼されたlaunch manifestによる初期Capability付与と、外部プログラムからの
+  immutable object共有デモ。プログラムがtask IDや権利を自己申告して増幅できない設計にする。
+- Schedulerとauthority hostの所有関係を型で固定し、Drop/取消時のcleanupを構造的に保証する。
+  native preemptionと動的task slot再利用は別の設計・検証が必要。
 - 検証器の体系的なfuzz・モデル検査、より強い証明、信頼基盤の縮小とruntime自身の隔離。
 - 未使用秘密ページ除外・RXコード共有などを行ったnative対照群、複数task数・入力・書込み負荷での比較。
 - 制限言語の機能拡張に先立つ脅威モデル更新。データ書込み・host機能の追加ごとに権限・寿命・会計を検証。

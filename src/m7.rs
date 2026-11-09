@@ -3,6 +3,8 @@
 use super::*;
 #[path = "m8.rs"]
 mod m8;
+#[path = "m9.rs"]
+mod m9;
 use core::mem::size_of;
 use shared_first_os::{
     object::ReadBackend,
@@ -410,4 +412,5 @@ pub(super) fn run() {
         "M7CHECK measured=32 warmups=4 attacks=22 shared=1 fuel=1 revocation=1 native_paging=1 cleanup=1\nM7 PASS\n"
     ));
     m8::run(store);
+    m9::run(store);
 }

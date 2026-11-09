@@ -125,7 +125,11 @@ nativeのCPL3・独立CR3、bytecodeのkernel CR3・CPL0、同じ物理backing�
 `result.json` の `m7` に生データ・min/median/max・削減量、`m7-benchmark.md` に自動表を保存します。
 M8は17dispatchの順序・燃料・結果、実物理ページ共有、失効後の認可拒否、quotaと全回収を
 必須にします。`result.json` の `m8` に検証済みの生データを保存します。
-パニック版はM1途中、想定外fault版はM2途中で意図的に停止するため、M3〜M8を実行しません。
+M9は外部moduleのfingerprint/予約領域と実行結果・燃料・code回収を照合します。
+`verify`は同一ELFからmodule-alt / module-bad-version / module-bad-opcodeのISOを追加生成し、
+各128 MiBで起動します。版/命令が不正ならadmitted=0の拒否を成功条件にし、通常M9完了とは区別します。
+記録は`result.json`の`m9`。標準の24コマンドが全て0で終了することを必須にします。
+パニック版はM1途中、想定外fault版はM2途中で意図的に停止するため、M3〜M9を実行しません。
 128 MiB・256 MiBが検証対象で、usable領域の終端が1 GiBを超える構成は明示的に拒否します。
 各試験は新しい証跡フォルダを使い、過去のシリアルログを流用しません。
 QEMUはネットワークなし、ホストの物理ディスク接続なしで実行します。

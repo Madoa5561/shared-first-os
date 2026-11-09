@@ -12,6 +12,8 @@ from m5_validation import validate_m5
 from m6_validation import validate_m6, benchmark_markdown
 from m7_validation import validate_m7, benchmark_markdown as m7_markdown
 from m8_validation import validate_m8
+from m9_validation import validate_m9
+from pack_bytecode import encode
 
 ROOT = Path(__file__).resolve().parent.parent
 LOCK = json.loads((ROOT / 'tools/versions.json').read_text())
@@ -53,6 +55,16 @@ def make_image(variant):
     kernel = ROOT / 'target/x86_64-unknown-none/release/shared-first-kernel'
     shutil.copyfile(kernel, staging / 'boot/shared-first-kernel')
     shutil.copyfile(ROOT / 'limine.conf', staging / 'limine.conf')
+    spec = json.loads((ROOT / 'examples/bytecode/demo.json').read_text())
+    if variant == 'module-alt':
+        spec['programs'][0]['instructions'][0][4] = 99
+    module = bytearray(encode(spec))
+    if variant == 'module-bad-version':
+        module[8] = 2
+    if variant == 'module-bad-opcode':
+        # Corrupt the final program, proving all-or-nothing admission.
+        module[-16] = 255
+    (staging / 'boot/programs.sfbc').write_bytes(module)
     shutil.copyfile(limine / 'BOOTX64.EFI', staging / 'EFI/BOOT/BOOTX64.EFI')
     shutil.copyfile(limine / 'limine-uefi-cd.bin', staging / 'boot/limine-uefi-cd.bin')
     shutil.copyfile(limine / 'LICENSE', staging / 'boot/LIMINE-LICENSE.txt')
@@ -65,6 +77,8 @@ def make_image(variant):
     (directory / 'hashes.json').write_text(json.dumps({
         'kernel_sha256': sha256(kernel), 'iso_sha256': sha256(iso),
         'limine_commit': LOCK['limine']['commit'],
+        'module_sha256': sha256(staging / 'boot/programs.sfbc'),
+        'module_bytes': len(module),
     }, indent=2) + '\n')
     print(f'ISO: {iso}; evidence: {directory}')
 
@@ -173,6 +187,8 @@ def run_qemu(options):
                     record['m7'] = validate_m7(serial, record['m2'], record['m6'])
                     (directory / 'm7-benchmark.md').write_text(m7_markdown(record['m7']), encoding='utf-8')
                     record['m8'] = validate_m8(serial, record['m2'])
+                    module = (ROOT / 'build' / options.variant / 'iso-root/boot/programs.sfbc').read_bytes()
+                    record['m9'] = validate_m9(serial, record['m2'], module, options.variant)
         record['passed'] = True
         # Keep the raw firmware escape sequences in serial.log, but make the
         # command transcript readable. This does not affect validation.
@@ -356,7 +372,7 @@ def validate_m4(serial, m2, m3):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=['image', 'test', 'test-timeout'])
-    parser.add_argument('--variant', choices=['normal', 'panic', 'fault'], default='normal')
+    parser.add_argument('--variant', choices=['normal', 'panic', 'fault', 'module-alt', 'module-bad-version', 'module-bad-opcode'], default='normal')
     parser.add_argument('--memory', type=int, choices=[128, 256], default=128)
     parser.add_argument('--timeout', type=float, default=90)
     expected = parser.add_mutually_exclusive_group()

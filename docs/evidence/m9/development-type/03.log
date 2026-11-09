@@ -1,0 +1,19 @@
+   Compiling shared-first-os v0.1.0 (C:\Users\shout\OneDrive\ドキュメント\RAMOS)
+error[E0308]: mismatched types
+   --> src\loader.rs:219:42
+    |
+219 |         let batch = Batch::load(&package(&[(&medium, 1); 4])).unwrap();
+    |                                  ------- ^^^^^^^^^^^^^^^^^^ expected `&[(&[u8], u32)]`, found `&[(&[{integer}; 128], {integer}); 4]`
+    |                                  |
+    |                                  arguments to this function are incorrect
+    |
+    = note: expected reference `&[(&[u8], u32)]`
+               found reference `&[(&[{integer}; 128], {integer}); 4]`
+note: function defined here
+   --> src\loader.rs:130:8
+    |
+130 |     fn package(entries: &[(&[u8], u32)]) -> Vec<u8> {
+    |        ^^^^^^^ ------------------------
+
+For more information about this error, try `rustc --explain E0308`.
+error: could not compile `shared-first-os` (lib test) due to 1 previous error

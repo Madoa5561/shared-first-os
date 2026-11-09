@@ -1,6 +1,26 @@
 # Architecture: Object-Centric Memory (OCM)
 
-## M8の燃料付きスケジューラ（現在）
+## M9の外部コードロード（現在）
+
+`src/boot.rs` がLimine moduleのABI prefixを読み、件数1・非NULL・最大592 byte・kind 6内の
+範囲を検査する。M2のHHDMに保持した領域から読み、元の予約ページは回収しない。
+ブートローダのメタデータ/ポインタは信頼するが、ファイル内容は信頼しない。
+
+`src/loader.rs` はsafe Rustのversion付きコンテナparser。件数、entry長、reserved、命令、
+fuel/code合計quota、切断・末尾余剰を全件検査し、成功時だけ所有Batchを返す。
+Batchは最大4×256 byteのコード領域を持ち、実code上限は512 byte。Programはこのコピーをborrowする。
+部分成功を外へ出さない。元のバイト列を後から変更してもコピーには反映しない。
+
+`src/m9.rs` が空のCapability表を前提にM8 Schedulerへadmitする。初期権限の付与は実装しておらず、
+外部コードの整数handleは権限にならない。認可は既存ObjectStoreへ接続し、終了時にrelease_taskする。
+全task停止後にborrowを終え、Batch.clearでcode/count/fuelを0にする。実行中のclearは借用規則で禁止する。
+実stack高水位やsecure erase、元moduleページの回収を保証しない。
+
+ビルドは`examples/bytecode/demo.json`から`tools/pack_bytecode.py`で独立したprograms.sfbcを生成しISOへ格納。
+同一ELFで42/99の別moduleと、不正version/最後のopcodeの拒否を起動試験する。
+診断FNV-1aは認証ではなく、host側SHA256と合わせた入力照合。制約は [M9-FORMAT.md](M9-FORMAT.md)。
+
+## M8の燃料付きスケジューラ
 
 `src/scheduler.rs` はsafe Rustの固定4slot round-robinです。`Context::run_slice` が
 1〜64命令ごとに中断し、YIELDのないプログラムからも制御を取り戻します。命令列とscratch、PC、

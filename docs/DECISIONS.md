@@ -1,5 +1,18 @@
 # 技術判断記録
 
+## M9: 全件検証する外部コードと所有期間
+
+1. Limineのmodule機能でISO内の独立ファイルを読み、カーネルELF再コンパイルなしで入力を変更できる。
+   実ファイル由来のfingerprintとSHA256を記録し、同じELFで42→99を実起動して照合する。
+2. version付きの小さいコンテナを自作し、最大4件・code合計512 byte・生涯fuel合計上限を強制する。
+   汎用ELF/WASMローダを名乗らず、既存8命令の脅威モデルを広げない。
+3. 全件検証後にだけ所有Batchを返す。Programのimmutable borrowで実行中のcode破棄を禁止する。
+   不正な最後のprogramでも先行programを起動しない。
+4. 初期Capabilityは空とする。外部code内のhandle値を権限として採用しない。
+   初期object共有は後続の信頼されたlaunch manifest設計へ分離する。
+5. 元Limine moduleページは保持し、実行用bufferのclearと区別する。FNV診断値を署名や認証と呼ばない。
+   根拠と制限は[M9-FORMAT.md](M9-FORMAT.md)に記載する。
+
 ## 2026-11-09: M8は言語拡張より先に実行資源を制限
 
 1. 外部bytecodeを受け入れる前に、YIELDなしloopの占有と複数Contextの公平性を扱う。

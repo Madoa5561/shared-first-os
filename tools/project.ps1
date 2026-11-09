@@ -54,6 +54,10 @@ try {
     if ($Action -in @('run', 'test-boot', 'verify')) { Invoke-QemuTool @('test', '--memory', '128') }
     if ($Action -eq 'verify') {
         Invoke-QemuTool @('test', '--memory', '256')
+        foreach ($moduleVariant in @('module-alt', 'module-bad-version', 'module-bad-opcode')) {
+            Invoke-QemuTool @('image', '--variant', $moduleVariant)
+            Invoke-QemuTool @('test', '--variant', $moduleVariant, '--memory', '128')
+        }
         Invoke-QemuTool @('test-timeout', '--timeout', '2')
         Build-Kernel -PanicImage
         Invoke-QemuTool @('test', '--variant', 'panic', '--expect-panic')

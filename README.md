@@ -9,14 +9,15 @@ Shared-First OS explores immutable memory objects and copy-on-write across isola
 tasks. It runs a real `no_std` x86-64 kernel under QEMU, with hardware paging,
 task-local capabilities, and reproducible tests backed by serial logs.
 
-This is an early research preview. The current system executes finite built-in
-workloads and exits automatically. There is no desktop, interactive shell,
+This is an early research preview. The current system executes finite test
+workloads, including restricted bytecode loaded from a separate boot module,
+and exits automatically. There is no desktop, interactive shell,
 filesystem, network stack, general application loader, or physical-machine installer.
 
-**[Download the research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/v0.1.0)**
+**[Download the M9 research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/m9-preview)**
 · **[Build instructions](docs/BUILD.md)**
 · **[Architecture](docs/ARCHITECTURE.md)**
-· **[Verification report](docs/M8-VERIFICATION.md)**
+· **[Verification report](docs/M9-VERIFICATION.md)**
 
 ## What works
 
@@ -37,14 +38,17 @@ filesystem, network stack, general application loader, or physical-machine insta
   scratch memory, checked object reads, persistent fuel limits, and attack tests.
 - **Bounded bytecode scheduling:** four fixed task slots, instruction quanta,
   round-robin dispatch, cumulative fuel quotas, and task-local cleanup.
+- **External bytecode packages:** a versioned boot-module format, full-package
+  validation, owned code storage, and explicit code/fuel quotas. No initial
+  capabilities are granted by the package itself.
 
 Native tasks retain hardware isolation. The restricted interpreter is trusted
 kernel code; it accepts a small custom language, not arbitrary native code or WASM.
 
 ## Try the prebuilt image
 
-Download `shared-first-os-v0.1.0-preview.zip` from the
-[v0.1.0 release](https://github.com/Madoa5561/shared-first-os/releases/tag/v0.1.0).
+Download `shared-first-os-m9-preview.zip` from the
+[M9 release](https://github.com/Madoa5561/shared-first-os/releases/tag/m9-preview).
 The ZIP contains the bootable ISO, kernel ELF, checksums, and license notices.
 The ISO is also available as a separate asset.
 
@@ -63,8 +67,8 @@ qemu-system-x86_64 \
   -device isa-debug-exit,iobase=0xf4,iosize=0x04
 ```
 
-Expect `Shared-First OS booted`, followed by `M1 PASS` through `M7 PASS`.
-The full run takes about 68 seconds in the recorded environment. QEMU exits with
+Expect `Shared-First OS booted`, followed by `M1 PASS` through `M9 PASS`.
+The full run takes about 65–75 seconds in the recorded environment. QEMU exits with
 **code 33 on success** through `isa-debug-exit`; this nonzero code is intentional.
 Code 35 indicates a kernel panic. Use QEMU only; physical-machine boot is untested.
 
@@ -99,13 +103,20 @@ so byte-for-byte reproducible ISO builds are not claimed.
 
 ## Verified results
 
-The M8 working tree passed **49 Rust tests**, **42 Python validator tests**, format
+The M9 checkpoint passed **54 Rust tests**, **49 Python tests**, format and Clippy,
+normal QEMU boots at **128 and 256 MiB**, and three external-module variants.
+The same kernel ELF returned **42 or 99 depending on the external file**; a bad
+version or a bad final opcode was rejected before admitting any program.
+Panic, unexpected page fault and timeout paths also passed: **24 recorded commands**.
+See [M9 verification](docs/M9-VERIFICATION.md) and [raw evidence](docs/evidence/m9).
+
+The M8 checkpoint passed **49 Rust tests**, **42 Python validator tests**, format
 and Clippy checks, normal QEMU boots at **128 and 256 MiB**, and the intentional
 panic, unexpected page fault and timeout paths. All 18 verification commands passed.
 Each normal boot validates 17 M8 dispatches, non-yielding loop isolation, shared
 physical backing, revocation during suspension, admission quotas and cleanup.
 See [M8 verification](docs/M8-VERIFICATION.md) and [raw evidence](docs/evidence/m8).
-These checks are local Windows/WSL results; a new GitHub CI run is not claimed.
+QEMU checks are local Windows/WSL results; portable checks also run in GitHub CI.
 
 The M7 checkpoint passed **43 Rust tests**, **38 Python validator tests**, format
 and Clippy checks, normal QEMU boots at **128 and 256 MiB**, intentional panic,
@@ -131,7 +142,8 @@ superiority over Linux, seL4, WASM runtimes, or other operating systems.
 - One CPU, interrupts disabled, finite workloads; no native preemption/SMP.
   Bytecode can be suspended at instruction boundaries; host reads remain synchronous.
 - Usable physical memory must end at or below 1 GiB.
-- Fixed-capacity tables and built-in native/bytecode fixtures.
+- Fixed-capacity tables, built-in native fixtures, and a bounded external bytecode
+  loader. No general native application loader or dynamic loading.
 - Compression and deduplication are opt-in experiments in a small policy domain.
 - The interpreter and its host adapter are part of the trusted computing base.
 - Physical hardware, KVM, Secure Boot, DMA isolation, side channels, and formal
@@ -146,15 +158,17 @@ superiority over Linux, seL4, WASM runtimes, or other operating systems.
 | `docs/ARCHITECTURE.md` | Invariants, permission/lifetime rules and implementation |
 | `docs/ROADMAP.md` | Milestones and remaining research questions |
 | `docs/M7-THREAT-MODEL.md` | Restricted-language trust boundary and test plan |
-| `docs/M1-VERIFICATION.md` … `docs/M7-VERIFICATION.md` | Checkpoint reports |
+| `docs/M9-FORMAT.md` | External package format, quotas and trust boundary |
+| `examples/bytecode/demo.json` | Editable external bytecode example |
+| `docs/M1-VERIFICATION.md` … `docs/M9-VERIFICATION.md` | Checkpoint reports |
 | `docs/evidence/` | Historical raw results, commands and source hashes |
 
 Detailed engineering documents are currently written in Japanese. Historical
 evidence includes the original machine's local paths; those paths describe the
 recorded environment and are not prerequisites for building your checkout.
-M1–M8 are complete within their documented scope. M8 adds bounded bytecode
-scheduling; see its [design and limits](docs/M8-DESIGN.md). The downloadable
-v0.1.0 release remains the M7 checkpoint; build the working source to test M8.
+M8 adds bounded bytecode scheduling; see its [design and limits](docs/M8-DESIGN.md).
+M9 loads externally packaged programs; see the [format and packer instructions](docs/M9-FORMAT.md).
+The historical v0.1.0 release remains the M7 checkpoint.
 
 ## Contributing
 
