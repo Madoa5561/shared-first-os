@@ -16,7 +16,7 @@ filesystem, network stack, general application loader, or physical-machine insta
 **[Download the research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/v0.1.0)**
 · **[Build instructions](docs/BUILD.md)**
 · **[Architecture](docs/ARCHITECTURE.md)**
-· **[Verification report](docs/M7-VERIFICATION.md)**
+· **[Verification report](docs/M8-VERIFICATION.md)**
 
 ## What works
 
@@ -35,6 +35,8 @@ filesystem, network stack, general application loader, or physical-machine insta
   object COW modes with saved samples and descriptive statistics.
 - **Restricted interpreter:** eight validated bytecode instructions, private
   scratch memory, checked object reads, persistent fuel limits, and attack tests.
+- **Bounded bytecode scheduling:** four fixed task slots, instruction quanta,
+  round-robin dispatch, cumulative fuel quotas, and task-local cleanup.
 
 Native tasks retain hardware isolation. The restricted interpreter is trusted
 kernel code; it accepts a small custom language, not arbitrary native code or WASM.
@@ -97,6 +99,14 @@ so byte-for-byte reproducible ISO builds are not claimed.
 
 ## Verified results
 
+The M8 working tree passed **49 Rust tests**, **42 Python validator tests**, format
+and Clippy checks, normal QEMU boots at **128 and 256 MiB**, and the intentional
+panic, unexpected page fault and timeout paths. All 18 verification commands passed.
+Each normal boot validates 17 M8 dispatches, non-yielding loop isolation, shared
+physical backing, revocation during suspension, admission quotas and cleanup.
+See [M8 verification](docs/M8-VERIFICATION.md) and [raw evidence](docs/evidence/m8).
+These checks are local Windows/WSL results; a new GitHub CI run is not claimed.
+
 The M7 checkpoint passed **43 Rust tests**, **38 Python validator tests**, format
 and Clippy checks, normal QEMU boots at **128 and 256 MiB**, intentional panic,
 unexpected page fault, and timeout cleanup. All 18 verification commands passed.
@@ -118,7 +128,8 @@ superiority over Linux, seL4, WASM runtimes, or other operating systems.
 
 ## Current boundaries
 
-- One CPU, interrupts disabled, cooperative finite workloads; no preemption/SMP.
+- One CPU, interrupts disabled, finite workloads; no native preemption/SMP.
+  Bytecode can be suspended at instruction boundaries; host reads remain synchronous.
 - Usable physical memory must end at or below 1 GiB.
 - Fixed-capacity tables and built-in native/bytecode fixtures.
 - Compression and deduplication are opt-in experiments in a small policy domain.
@@ -141,7 +152,9 @@ superiority over Linux, seL4, WASM runtimes, or other operating systems.
 Detailed engineering documents are currently written in Japanese. Historical
 evidence includes the original machine's local paths; those paths describe the
 recorded environment and are not prerequisites for building your checkout.
-M1–M7 are complete within their documented scope. Further implementation is paused.
+M1–M8 are complete within their documented scope. M8 adds bounded bytecode
+scheduling; see its [design and limits](docs/M8-DESIGN.md). The downloadable
+v0.1.0 release remains the M7 checkpoint; build the working source to test M8.
 
 ## Contributing
 

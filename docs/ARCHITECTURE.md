@@ -1,6 +1,29 @@
 # Architecture: Object-Centric Memory (OCM)
 
-## M7の制限付き言語隔離（現在）
+## M8の燃料付きスケジューラ（現在）
+
+`src/scheduler.rs` はsafe Rustの固定4slot round-robinです。`Context::run_slice` が
+1〜64命令ごとに中断し、YIELDのないプログラムからも制御を取り戻します。命令列とscratch、PC、
+register、残燃料は同じContextに保存されます。生涯燃料とは別の命令数quantumです。
+batchの累積付与量は2,097,152以下。終了・取消で返却せず、slotも再利用しません。
+不正admissionは状態不変です。ホストだけが新batchを生成でき、事前に全task表が空である必要があります。
+
+`TaskHost` adapterへ渡すtask IDはschedulerのslotから決定します。bytecodeには選択権がありません。
+HALT/fault/cancelでstopを1回だけ呼び、実adapterは既存`release_task`でCapability・写像を解放します。
+shutdownは生きたtask全部に同じ処理を行います。スケジューラはstoreを所有しないため、
+稼働中に捨てる前のshutdownと同一hostへの固定は信頼された呼出し元の契約です。
+停止Contextの固定メモリはbatchが破棄されるまで保持し、燃料上限やslot上限を潜り抜ける再利用はありません。
+
+`src/m8.rs` はM7の物理storeを再利用し、暴走loop・正常終了・YIELD連打・境界faultを混在実行します。
+実物理1ページを2Contextで読み、SUM直後の強制中断中にrevokeし、再開後に認可を拒否します。
+不許可のtaskによる読取りも生きたobjectに対して拒否。取消で共有先の寿命を保ち、最後の終了で回収します。
+全17dispatchの順序・結果・燃料をシリアルに記録し、Python検証器で独立照合します。
+
+単一CPU・割込み無効を維持します。公平性は最大3回の他タスクdispatch待ちという命令上の性質です。
+SUM最大256 KiBとhost.stop等は途中中断しません。native taskのpreemption、実時間応答、SMP、
+外部ローダは未実装です。[M8-DESIGN.md](M8-DESIGN.md) に前提・資源会計を記載します。
+
+## M7の制限付き言語隔離
 
 実装前に [M7-THREAT-MODEL.md](M7-THREAT-MODEL.md) で脅威モデル・方式比較・検証計画を定義しました。
 `src/sandbox.rs` はsafe Rustだけの独自インタプリタです。WASM互換や任意nativeコードの実行はありません。

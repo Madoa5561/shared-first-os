@@ -1,6 +1,8 @@
 //! Restricted bytecode shares kernel CR3, never native execution privilege.
 //! See docs/M7-THREAT-MODEL.md. Native controls retain the M4 hardware boundary.
 use super::*;
+#[path = "m8.rs"]
+mod m8;
 use core::mem::size_of;
 use shared_first_os::{
     object::ReadBackend,
@@ -407,4 +409,5 @@ pub(super) fn run() {
     serial::print(format_args!(
         "M7CHECK measured=32 warmups=4 attacks=22 shared=1 fuel=1 revocation=1 native_paging=1 cleanup=1\nM7 PASS\n"
     ));
+    m8::run(store);
 }

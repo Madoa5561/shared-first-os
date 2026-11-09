@@ -16,10 +16,16 @@ pub enum Fault {
     Fuel,
     Stopped,
 }
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum Outcome {
     Yield(u64),
     Halt(u64),
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum Slice {
+    Expired,
+    Event(Outcome),
 }
 
 /// Trusted adapter owns the calling task identity; bytecode cannot supply it.
@@ -102,12 +108,26 @@ impl<'a> Context<'a> {
         self.fuel
     }
     pub fn run(&mut self, host: &mut impl Host) -> Result<Outcome, Fault> {
+        loop {
+            match self.run_slice(host, core::num::NonZeroU32::MAX)? {
+                Slice::Expired => (),
+                Slice::Event(outcome) => return Ok(outcome),
+            }
+        }
+    }
+    /// Suspend at an instruction boundary without replenishing lifetime fuel.
+    /// Each instruction (including synchronous SUM) remains indivisible.
+    pub fn run_slice(
+        &mut self,
+        host: &mut impl Host,
+        instructions: core::num::NonZeroU32,
+    ) -> Result<Slice, Fault> {
         if self.stopped {
             return Err(Fault::Stopped);
         }
-        loop {
+        for _ in 0..instructions.get() {
             match self.step(host) {
-                Ok(Some(outcome)) => return Ok(outcome),
+                Ok(Some(outcome)) => return Ok(Slice::Event(outcome)),
                 Ok(None) => (),
                 Err(error) => {
                     self.stopped = true;
@@ -115,6 +135,7 @@ impl<'a> Context<'a> {
                 }
             }
         }
+        Ok(Slice::Expired)
     }
     fn step(&mut self, host: &mut impl Host) -> Result<Option<Outcome>, Fault> {
         let word = self

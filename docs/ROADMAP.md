@@ -2,12 +2,13 @@
 
 ## 現在の状態（2026-11-09）
 
-M1〜M7のゲートを通過しました。M7は脅威モデルに限定した言語隔離の研究試作です。
+M1〜M8のゲートを通過しました。M8は制限付きバイトコードの燃料付きスケジューラです。
+M7は脅威モデルに限定した言語隔離の研究試作です。
 実ring-3の共有・隔離・COW、任意の重複排除と圧力時圧縮、5方式のベースラインに加え、
 制限付きバイトコードの検証・燃料・Capability読取り・失効を実装しました。
 検証コマンドは `./tools/project.ps1 verify`、証跡と正確な結果は
-[M7-VERIFICATION.md](M7-VERIFICATION.md) に記録します。
-定義済みの最終Milestoneまでの有限試作が完了しました。汎用OSや安全性証明の完成ではありません。
+[M8-VERIFICATION.md](M8-VERIFICATION.md) に記録します。
+M8も固定容量の有限試作です。汎用OSや安全性証明の完成ではありません。
 
 M4ではGDT/TSS・ring-3移行・int 0x80・独立CR3を実装しました。呼び出し元はカーネルが決定し、
 ユーザー引数で他タスクのCapability表を選べません。4 MiBの全1,024ページの物理アドレス一致、
@@ -78,9 +79,22 @@ nativeのpaging保護を維持し、bytecodeだけが信頼されたインタプ
 - No successful test claims without stdout/stderr and exit status.
 - Maintain design decision log and run instructions.
 
-## M7後の未着手候補（M8は未定義）
+## M8: Bounded bytecode scheduling
 
-- 外部bytecodeローダの入力境界とquota管理、複数Contextの燃料付きスケジューラ。
+- 外部入力や命令を増やす前に、YIELDなしloopが他タスクの進行を妨げない実行基盤を作る。
+- 最大4タスク、1〜64命令quantumのround-robin、batch累積燃料2,097,152。
+- 生成時だけ燃料を付与し、yield・終了・取消で払い戻さない。slotのbatch内再利用は禁止。
+- kernelがtask IDを固定。HALT/fault/cancel時に当該taskのCapability/写像を解放する。
+- 強制中断中のrevoke後は次の読取りを拒否。共有の実物理backing・checksumを検査する。
+- Gate: Rust/検証器テスト、128/256 MiB QEMUで実行順序と燃料残量、容量・権限拒否、
+  共有・回収を照合し、M1〜M7の回帰と意図的な失敗経路も通す。
+- 設計境界: [M8-DESIGN.md](M8-DESIGN.md)。外部ローダ、native preemption、実時間保証は含まない。
+
+## M8後の未着手候補
+
+- 次の優先候補: 外部bytecodeのversion付きコンテナ、入力サイズ・命令検証・ロード拒否の境界。
+  検証済みコードの所有期間とtask終了を接続し、信頼されたadmissionが権限を付与する。
+  M8のslot/fuel上限に加え、入力byte数・code保持量のquotaが必要。
 - 検証器の体系的なfuzz・モデル検査、より強い証明、信頼基盤の縮小とruntime自身の隔離。
 - 未使用秘密ページ除外・RXコード共有などを行ったnative対照群、複数task数・入力・書込み負荷での比較。
 - 制限言語の機能拡張に先立つ脅威モデル更新。データ書込み・host機能の追加ごとに権限・寿命・会計を検証。
