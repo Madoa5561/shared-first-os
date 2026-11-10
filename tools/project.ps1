@@ -55,7 +55,7 @@ try {
     if ($Action -in @('run', 'test-boot', 'verify')) { Invoke-QemuTool @('test', '--memory', '128') }
     if ($Action -eq 'verify') {
         Invoke-QemuTool @('test', '--memory', '256')
-        foreach ($moduleVariant in @('module-alt', 'module-bad-version', 'module-bad-opcode', 'shared-alt', 'shared-bad-opcode', 'shared-bad-count')) {
+        foreach ($moduleVariant in @('module-alt', 'module-bad-version', 'module-bad-opcode', 'shared-alt', 'shared-bad-opcode', 'shared-bad-count', 'revocation-bad-opcode')) {
             Invoke-QemuTool @('image', '--variant', $moduleVariant)
             Invoke-QemuTool @('test', '--variant', $moduleVariant, '--memory', '128')
         }

@@ -1,0 +1,22 @@
+{
+  "command": [
+    "xorriso",
+    "-as",
+    "mkisofs",
+    "-R",
+    "-J",
+    "-V",
+    "SHARED_FIRST",
+    "-e",
+    "boot/limine-uefi-cd.bin",
+    "-no-emul-boot",
+    "-efi-boot-part",
+    "--efi-boot-image",
+    "--protective-msdos-label",
+    "-o",
+    "/mnt/c/Users/shout/OneDrive/\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8/RAMOS/build/revocation-bad-opcode/shared-first.iso",
+    "/mnt/c/Users/shout/OneDrive/\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8/RAMOS/build/revocation-bad-opcode/iso-root"
+  ],
+  "cwd": "/mnt/c/Users/shout/OneDrive/\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8/RAMOS",
+  "exit_code": 0
+}

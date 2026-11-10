@@ -15,6 +15,7 @@ from m8_validation import validate_m8
 from m9_validation import validate_m9
 from m10_validation import validate_m10
 from m11_validation import validate_m11
+from m12_validation import validate_m12
 from pack_bytecode import encode
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -77,6 +78,10 @@ def make_image(variant):
     if variant == 'shared-bad-opcode':
         shared[-16] = 255
     (staging / 'boot/shared.sfbc').write_bytes(shared)
+    revocation = bytearray(encode(json.loads((ROOT / 'examples/bytecode/revocation.json').read_text())))
+    if variant == 'revocation-bad-opcode':
+        revocation[-16] = 255
+    (staging / 'boot/revocation.sfbc').write_bytes(revocation)
     shutil.copyfile(limine / 'BOOTX64.EFI', staging / 'EFI/BOOT/BOOTX64.EFI')
     shutil.copyfile(limine / 'limine-uefi-cd.bin', staging / 'boot/limine-uefi-cd.bin')
     shutil.copyfile(limine / 'LICENSE', staging / 'boot/LIMINE-LICENSE.txt')
@@ -93,6 +98,8 @@ def make_image(variant):
         'module_bytes': len(module),
         'shared_sha256': sha256(staging / 'boot/shared.sfbc'),
         'shared_bytes': len(shared),
+        'revocation_sha256': sha256(staging / 'boot/revocation.sfbc'),
+        'revocation_bytes': len(revocation),
     }, indent=2) + '\n')
     print(f'ISO: {iso}; evidence: {directory}')
 
@@ -206,6 +213,8 @@ def run_qemu(options):
                     record['m10'] = validate_m10(serial, record['m2'])
                     shared = (ROOT / 'build' / options.variant / 'iso-root/boot/shared.sfbc').read_bytes()
                     record['m11'] = validate_m11(serial, record['m2'], shared, options.variant)
+                    revocation = (ROOT / 'build' / options.variant / 'iso-root/boot/revocation.sfbc').read_bytes()
+                    record['m12'] = validate_m12(serial, record['m2'], revocation, options.variant)
         record['passed'] = True
         # Keep the raw firmware escape sequences in serial.log, but make the
         # command transcript readable. This does not affect validation.
@@ -389,7 +398,7 @@ def validate_m4(serial, m2, m3):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('action', choices=['image', 'test', 'test-timeout'])
-    parser.add_argument('--variant', choices=['normal', 'panic', 'fault', 'module-alt', 'module-bad-version', 'module-bad-opcode', 'shared-alt', 'shared-bad-opcode', 'shared-bad-count'], default='normal')
+    parser.add_argument('--variant', choices=['normal', 'panic', 'fault', 'module-alt', 'module-bad-version', 'module-bad-opcode', 'shared-alt', 'shared-bad-opcode', 'shared-bad-count', 'revocation-bad-opcode'], default='normal')
     parser.add_argument('--memory', type=int, choices=[128, 256], default=128)
     parser.add_argument('--timeout', type=float, default=180)
     expected = parser.add_mutually_exclusive_group()

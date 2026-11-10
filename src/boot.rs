@@ -82,10 +82,10 @@ pub fn bytecode_module(index: usize) -> Result<Module, &'static str> {
     }
     // SAFETY: non-null trusted Limine response, mapped by M2 as kind 5.
     let response = unsafe { &*response };
-    if response.count != 2 || index >= 2 || response.files.is_null() {
+    if response.count != 3 || index >= 3 || response.files.is_null() {
         return Err("count");
     }
-    // SAFETY: index checked within the two-pointer retained Limine array.
+    // SAFETY: index checked within the three-pointer retained Limine array.
     let file = unsafe { response.files.add(index).read() };
     if file.is_null() {
         return Err("file");

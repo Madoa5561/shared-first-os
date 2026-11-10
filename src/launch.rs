@@ -4,6 +4,7 @@ use crate::{
     object::{Error, Handle, ObjectStore, ReadBackend, Rights, Stats, TASKS},
     sandbox::Fault,
     scheduler::TaskHost,
+    session::RevocableHost,
 };
 
 pub const PROGRAMS: usize = 3;
@@ -29,6 +30,7 @@ pub struct Launch<'a, B: ReadBackend, const N: usize> {
     arguments: [u64; TASKS],
     active: [bool; TASKS],
     stops: [usize; TASKS],
+    owner: Option<Handle>,
 }
 impl<'a, B: ReadBackend, const N: usize> Launch<'a, B, N> {
     pub fn new(
@@ -49,11 +51,13 @@ impl<'a, B: ReadBackend, const N: usize> Launch<'a, B, N> {
             arguments: [0; TASKS],
             active: [true; TASKS],
             stops: [0; TASKS],
+            owner: None,
         };
         let owner = launch
             .store
             .create_filled(OWNER, 4096, fill)
             .map_err(LaunchError::Object)?;
+        launch.owner = Some(owner);
         for (task, allowed) in manifest.readers.into_iter().enumerate() {
             if allowed {
                 launch.arguments[task] = launch
@@ -107,6 +111,18 @@ impl<B: ReadBackend, const N: usize> Drop for Launch<'_, B, N> {
         for task in 0..TASKS {
             self.release(task);
         }
+    }
+}
+impl<B: ReadBackend, const N: usize> RevocableHost for Launch<'_, B, N> {
+    fn revoke(&mut self) -> bool {
+        let Some(owner) = self.owner.take() else {
+            return false;
+        };
+        self.store
+            .revoke(OWNER, owner)
+            .expect("owned launch object revocation");
+        self.arguments.fill(0);
+        true
     }
 }
 
@@ -215,6 +231,7 @@ mod tests {
     }
     #[test]
     fn session_receives_separate_arguments_and_cleanup_keeps_only_owner() {
+        assert_eq!(core::mem::size_of::<Launch<'_, Memory, 1>>(), 88);
         let batch = batch();
         let mut store = ObjectStore::<_, 1>::new(Memory::default());
         {
@@ -298,5 +315,112 @@ mod tests {
         assert_eq!(launch.sum(0, args[1], 0, 1), Err(Fault::Authority));
         assert_eq!(launch.sum(1, args[1], 0, 1), Ok(5));
         assert_eq!(launch.sum(2, args[2], 0, 1), Ok(5));
+    }
+    fn read_batch() -> Batch {
+        let mut bytes = [0; 256];
+        bytes[..8].copy_from_slice(&MAGIC);
+        bytes[8] = 1;
+        bytes[10] = 3;
+        for task in 0..3 {
+            let at = 16 + task * 80;
+            bytes[at] = 64;
+            bytes[at + 4] = 8;
+            for (index, word) in [
+                instruction(2, 0, 1, 2, 1),
+                instruction(7, 0, 0, 0, 0),
+                instruction(2, 0, 1, 2, 1),
+                instruction(0, 0, 0, 0, 0),
+            ]
+            .into_iter()
+            .enumerate()
+            {
+                bytes[at + 16 + index * 16..at + 32 + index * 16].copy_from_slice(&word);
+            }
+        }
+        Batch::load(&bytes).unwrap()
+    }
+    #[test]
+    fn session_revocation_denies_resumed_reads_without_refilling_fuel() {
+        let batch = read_batch();
+        let mut store = ObjectStore::<_, 1>::new(Memory::default());
+        {
+            let mut launch = Launch::new(&mut store, &batch, DEMO, 7).unwrap();
+            let args = launch.arguments();
+            let mut session = Session::with_arguments(&batch, &mut launch, 2, args).unwrap();
+            for task in 0..2 {
+                let event = session.dispatch().unwrap();
+                assert_eq!(event.task, task);
+                assert_eq!(event.result, Ok(Slice::Event(Outcome::Yield(7))));
+                assert_eq!(event.fuel_after, 5);
+            }
+            assert!(session.revoke());
+            assert!(!session.revoke());
+            assert_eq!(session.ready(), 3);
+            for (task, fuel) in [(2, 6), (0, 3), (1, 3)] {
+                let event = session.dispatch().unwrap();
+                assert_eq!(event.task, task);
+                assert_eq!(event.result, Err(Fault::Authority));
+                assert_eq!(event.fuel_after, fuel);
+            }
+            assert!(session.dispatch().is_none());
+            drop(session);
+            assert_eq!(launch.arguments(), [0; TASKS]);
+            assert_eq!(launch.stops(), [1, 1, 1, 0]);
+            assert_eq!(
+                launch.stats().capabilities + launch.stats().payload_frames,
+                0
+            );
+        }
+        assert!(!store.backend().live);
+    }
+    #[test]
+    fn cancel_revoke_and_early_drop_stop_each_task_once() {
+        let batch = read_batch();
+        let mut store = ObjectStore::<_, 1>::new(Memory::default());
+        let mut launch = Launch::new(&mut store, &batch, DEMO, 7).unwrap();
+        let args = launch.arguments();
+        let mut session = Session::with_arguments(&batch, &mut launch, 2, args).unwrap();
+        session.dispatch().unwrap();
+        session.dispatch().unwrap();
+        assert!(session.cancel(0));
+        assert!(!session.cancel(0));
+        assert!(session.revoke());
+        drop(session);
+        assert!(!launch.revoke());
+        assert_eq!(launch.stops(), [1, 1, 1, 0]);
+        assert_eq!(launch.stats().objects + launch.stats().payload_frames, 0);
+    }
+    #[test]
+    fn restart_rejects_old_argument_and_foreign_handle_while_new_reader_runs() {
+        let batch = read_batch();
+        let mut store = ObjectStore::<_, 1>::new(Memory::default());
+        let old;
+        {
+            let mut launch = Launch::new(&mut store, &batch, DEMO, 7).unwrap();
+            old = launch.arguments()[0];
+            assert!(launch.revoke());
+        }
+        {
+            let mut launch = Launch::new(&mut store, &batch, DEMO, 9).unwrap();
+            let mut args = launch.arguments();
+            assert_ne!(args[0], old);
+            args[0] = old;
+            args[2] = args[1];
+            let mut session = Session::with_arguments(&batch, &mut launch, 2, args).unwrap();
+            for (task, result) in [
+                (0, Err(Fault::Authority)),
+                (1, Ok(Slice::Event(Outcome::Yield(9)))),
+                (2, Err(Fault::Authority)),
+                (1, Ok(Slice::Event(Outcome::Halt(9)))),
+            ] {
+                let event = session.dispatch().unwrap();
+                assert_eq!(event.task, task);
+                assert_eq!(event.result, result);
+            }
+            drop(session);
+            assert_eq!(launch.stops(), [1, 1, 1, 0]);
+            assert_eq!(launch.stats().capabilities, 1);
+        }
+        assert_eq!(store.stats().payload_frames, 0);
     }
 }

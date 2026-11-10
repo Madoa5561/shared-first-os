@@ -1,5 +1,13 @@
 # 技術判断記録
 
+## M12: host固定を保った失効制御
+
+1. Sessionへ任意のhost操作closureを渡す仕組みは作らず、RevocableHost traitの限定操作にする。
+2. Launchにowner handleを保持し、revoke時にtakeする。重複要求をfalseにし、通常stopと
+   object失効を区別する。既存ObjectStoreのPTE/世代/参照管理を再利用する。
+3. 新しい外部moduleで再読取りと再起動を検査する。古い値の消去やSMP中の失効を保証せず、
+   native taskのページング隔離を維持する。元moduleの予約ページは引き続き保持する。
+
 ## M11: 外部codeと信頼された初期権限設定を分離
 
 1. M9の無権限デモを維持し、同形式の別boot moduleをM11専用入口にする。署名認証とは呼ばない。

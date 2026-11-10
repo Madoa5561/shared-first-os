@@ -132,11 +132,13 @@ M9は外部moduleのfingerprint/予約領域と実行結果・燃料・code回�
 M10では25コマンドを記録しました。QEMUではM10の4終了ケースと実frame収支を
 照合し、`result.json`の`m10`へ保存します。不正M9入力を拒否した後もM10のkernel fixtureは検査します。
 M11は`examples/bytecode/shared.json`を2個目のmoduleにします。shared-alt / shared-bad-opcode /
-shared-bad-countを追加し、現在の標準verifyは31コマンドです。read frame/認可/fuel/回収を
+shared-bad-countを追加し、M11のverifyは31コマンドでした。read frame/認可/fuel/回収を
 `result.json`の`m11`に保存し、不正opcode/件数では初期権限の準備前に拒否することを照合します。
 通常の起動上限は180秒です。M11の初回試験でM6ベンチマーク中に90秒を超えたため余裕を増やしました。
 検査項目は省略せず、意図的なtimeout試験は2秒を維持します。180秒で完了しなければ失敗です。
-パニック版はM1途中、想定外fault版はM2途中で意図的に停止するため、M3〜M11を実行しません。
+M12は`examples/bytecode/revocation.json`を3個目のmoduleにし、3caseの失効/取消/再起動を
+`result.json`の`m12`へ記録します。revocation-bad-opcodeも起動し、現在のverifyは33コマンドです。
+パニック版はM1途中、想定外fault版はM2途中で意図的に停止するため、M3〜M12を実行しません。
 128 MiB・256 MiBが検証対象で、usable領域の終端が1 GiBを超える構成は明示的に拒否します。
 各試験は新しい証跡フォルダを使い、過去のシリアルログを流用しません。
 QEMUはネットワークなし、ホストの物理ディスク接続なしで実行します。

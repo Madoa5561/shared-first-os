@@ -1,14 +1,14 @@
 # Roadmap and gates
 
-## 現在の状態（M11）
+## 現在の状態（M12）
 
-M1〜M11のゲートを通過しました。M11の初期Capabilityと外部program共有を実装・検証しました。
+M1〜M12のゲートを通過しました。M12の中断中失効と再起動を実装・検証しました。
 M7は脅威モデルに限定した言語隔離の研究試作です。
 実ring-3の共有・隔離・COW、任意の重複排除と圧力時圧縮、5方式のベースラインに加え、
 制限付きバイトコードの検証・燃料・Capability読取り・失効を実装しました。
 検証コマンドは `./tools/project.ps1 verify`、証跡と正確な結果は
-[M11-VERIFICATION.md](M11-VERIFICATION.md) に記録します。
-M11も固定容量の有限試作です。汎用OSや安全性証明の完成ではありません。
+[M12-VERIFICATION.md](M12-VERIFICATION.md) に記録します。
+M12も固定容量の有限試作です。汎用OSや安全性証明の完成ではありません。
 
 M4ではGDT/TSS・ring-3移行・int 0x80・独立CR3を実装しました。呼び出し元はカーネルが決定し、
 ユーザー引数で他タスクのCapability表を選べません。4 MiBの全1,024ページの物理アドレス一致、
@@ -118,10 +118,19 @@ nativeのpaging保護を維持し、bytecodeだけが信頼されたインタプ
   QEMUで同一物理frameとchecksum、無権限task拒否、同一ELFの外部入力変更、opcode/count拒否、全回帰。
 - [M11-DESIGN.md](M11-DESIGN.md)。外部manifest署名、動的ロード、一般アプリ実行は含まない。
 
-## M11後の未着手候補
+## M12: Scoped revocation and restart
 
-- 次の優先候補: Session内の信頼された制御経路から権限を失効し、外部programの中断・再開をまたいで
-  拒否・部分終了・再起動時のstale handleを検査する。固定起動デモから制御可能な実行基盤へ進める。
+- Sessionに限定されたkernel用revoke操作。hostを差し替えず、bytecodeに制御権を渡さない。
+- 失効でobject全参照とpayloadを同期回収。PC/register/fuelは維持し、次のSUMで世代を照合する。
+- 3個目の外部moduleを使い、中断後の失効、一部cancel、同じstoreでの再起動を検査。
+- Gate: host tests、実QEMUの同一frame/read結果、失効直後の回収、stale/foreign拒否、新handle成功、
+  stop各1回と全収支、不正opcodeの原子的拒否、M1〜M11回帰。
+- [M12-DESIGN.md](M12-DESIGN.md)。読取り済みデータの消去、SMP、汎用再起動管理は含まない。
+
+## M12後の未着手候補
+
+- 次の優先候補: 固定fixtureから、停止理由と資源残量を取得できる有界の実行管理APIへ進める。
+  権限準備・コード検証・実行・取消・失効の状態遷移を一貫させ、失敗を検査可能にする。
 - native preemptionと動的task slot再利用には別の設計・検証が必要。
 - 検証器の体系的なfuzz・モデル検査、より強い証明、信頼基盤の縮小とruntime自身の隔離。
 - 未使用秘密ページ除外・RXコード共有などを行ったnative対照群、複数task数・入力・書込み負荷での比較。

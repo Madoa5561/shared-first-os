@@ -10,6 +10,12 @@ pub enum SessionError {
     Admission(AdmissionError),
 }
 
+/// Trusted control path, never a bytecode host call. Revocation is synchronous,
+/// leaves scheduling/fuel unchanged, and returns false when already revoked.
+pub trait RevocableHost: TaskHost {
+    fn revoke(&mut self) -> bool;
+}
+
 /// The host and code stay borrowed until the session ends. Drop cancels live
 /// tasks; stopped tasks are not cleaned twice. The trusted host must implement
 /// infallible, non-reentrant stop and own exactly the admitted task tables.
@@ -94,6 +100,12 @@ impl<'code, 'host, H: TaskHost> Session<'code, 'host, H> {
 impl<H: TaskHost> Drop for Session<'_, '_, H> {
     fn drop(&mut self) {
         self.scheduler.shutdown(self.host);
+    }
+}
+impl<H: RevocableHost> Session<'_, '_, H> {
+    /// Revoke through the same borrowed host without exposing it for replacement.
+    pub fn revoke(&mut self) -> bool {
+        self.host.revoke()
     }
 }
 

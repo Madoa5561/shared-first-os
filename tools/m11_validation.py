@@ -27,7 +27,7 @@ def validate_m11(serial, m2, module, variant):
     if 'M11REJECT' in serial or serial.count('M11 PASS\n') != 1:
         raise ValueError('M11 missing completion')
     launch = single(serial, 'M11LAUNCH', 'tasks readers payload capabilities code_bytes fuel launch_bytes'.split())
-    if launch != dict(tasks=3, readers=2, payload=1, capabilities=3, code_bytes=144, fuel=12300, launch_bytes=80):
+    if launch != dict(tasks=3, readers=2, payload=1, capabilities=3, code_bytes=144, fuel=12300, launch_bytes=88):
         raise ValueError('M11 grant/code accounting mismatch')
     length = 2048 if variant == 'shared-alt' else 4096
     value = length * 7

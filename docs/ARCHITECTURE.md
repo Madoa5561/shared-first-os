@@ -1,6 +1,19 @@
 # Architecture: Object-Centric Memory (OCM)
 
-## M11の初期Capability（現在）
+## M12の中断中失効（現在）
+
+SessionのrevokeはRevocableHostを持つ場合だけ利用できるkernel用制御API。
+借用中hostへの任意アクセスや差替えは公開せず、bytecode命令からも呼べない。
+Launchの専用owner handleでobject-wide revokeを実行し、既存Capability/写像とpayloadを同期回収する。
+再要求はfalse。taskのPC/register/fuelは変えず、再開後のSUMで古いhandleを拒否する。
+すでに読んだ値は取り消せない。M12のREAD-only bytecodeにユーザーPTE写像はなく、native隔離は既存M4を維持する。
+
+3個目のboot module `revocation.sfbc` を使い、2readerの失効、一部cancel後の失効、同じstoreでの再起動を検査。
+再起動では旧handleをtask 0へ、新handleをtask 1へ、task 1の数値を無権限task 2へ渡す。
+新しいtask 1だけが読取りに成功する。物理frame再使用は許すがCapability世代を再使用しない。
+詳細は[M12-DESIGN.md](M12-DESIGN.md)。固定3caseの研究fixtureであり、汎用の再起動管理やSMP対応ではない。
+
+## M11の初期Capability
 
 2個目のboot module `shared.sfbc` を全件検証してから、kernel内ReadManifestが3programのうち
 task 0/1だけに同じ4 KiB immutable objectのREADを付与する。ownerは実行しないslot 3。
@@ -28,7 +41,7 @@ compile-fail/compile-passで借用境界、QEMUで実payloadの中止/途中終�
 
 ## M9の外部コードロード
 
-`src/boot.rs` がLimine moduleのABI prefixを読み、件数2・有界index・非NULL・各最大592 byte・kind 6内の
+`src/boot.rs` がLimine moduleのABI prefixを読み、件数3・有界index・非NULL・各最大592 byte・kind 6内の
 範囲を検査する。M2のHHDMに保持した領域から読み、元の予約ページは回収しない。
 ブートローダのメタデータ/ポインタは信頼するが、ファイル内容は信頼しない。
 

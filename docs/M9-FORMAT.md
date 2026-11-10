@@ -39,8 +39,9 @@ fuel要求は信用せず全体上限を検査する。
 ## 起動・所有期間・認可
 
 `limine.conf` の `module_path` から `/boot/programs.sfbc` をロードする。M9時点は1個だけ受理。
-M11以降は正確に2個を要求し、index 0をM9、index 1の`/boot/shared.sfbc`をM11の信頼された
-READ manifestへ渡す。コンテナ形式と各ファイルの上限は同じで、両moduleとも予約ページを保持する。
+M11は2個、M12以降は正確に3個を要求する。index 0はM9、index 1の`/boot/shared.sfbc`はM11、
+index 2の`/boot/revocation.sfbc`はM12へ渡す。後者2つは信頼されたREAD manifestを利用する。
+コンテナ形式と各ファイルの上限は同じで、3moduleとも予約ページを保持する。
 fileのsizeをslice生成前に検査し、全範囲がmemory mapのkind=6内にあることを検査する。
 M2はkind 6をHHDMへmapしallocatorから除外しており、その範囲を引き続き保持する。
 元モジュールの予約ページは回収しない。コード実行用の所有コピーはkernel stack上に置く。

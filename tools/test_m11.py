@@ -21,7 +21,7 @@ def fixture(variant='normal'):
     if variant in ('shared-bad-count', 'shared-bad-opcode'):
         reason = 'manifest=Count' if variant == 'shared-bad-count' else 'format=Code(Opcode)'
         return serial + f'M11REJECT {reason} admitted=0 grants=0\n', module
-    serial += 'M11LAUNCH tasks=3 readers=2 payload=1 capabilities=3 code_bytes=144 fuel=12300 launch_bytes=80\n'
+    serial += 'M11LAUNCH tasks=3 readers=2 payload=1 capabilities=3 code_bytes=144 fuel=12300 launch_bytes=88\n'
     value, fuel = length*7, 4100-length-2
     for task in range(3):
         serial += (f'M11READ task={task} allowed={int(task<2)} length={length} value={value if task<2 else 0} '
@@ -47,7 +47,7 @@ class M11ValidatorTests(unittest.TestCase):
         serial, module = fixture()
         for old, new in [('frame=0x4000', 'frame=0x5000'), ('task=2 allowed=0', 'task=2 allowed=1'),
                          ('after=89', 'after=90'), ('owner_caps=1', 'owner_caps=0'), ('before=2 after=1', 'before=2 after=2'),
-                         ('code_bytes=0', 'code_bytes=144'), ('kind=6', 'kind=0'), ('launch_bytes=80', 'launch_bytes=0')]:
+                         ('code_bytes=0', 'code_bytes=144'), ('kind=6', 'kind=0'), ('launch_bytes=88', 'launch_bytes=0')]:
             with self.subTest(old=old), self.assertRaises(ValueError):
                 self.validate(serial.replace(old,new,1), module)
         for changed in ['M11 PASS\n', serial+serial]:
