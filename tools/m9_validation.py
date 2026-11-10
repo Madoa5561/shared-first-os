@@ -31,7 +31,7 @@ def validate_m9(serial, m2, module, variant):
     if 'M9REJECT' in serial or serial.count('M9 PASS\n') != 1:
         raise ValueError('M9 module did not run to completion')
     load = single(serial, 'M9LOAD', 'tasks code_bytes fuel batch_bytes scheduler_bytes'.split())
-    if load != dict(tasks=3, code_bytes=160, fuel=17, batch_bytes=1096, scheduler_bytes=608):
+    if load != dict(tasks=3, code_bytes=160, fuel=17, batch_bytes=1096, scheduler_bytes=640):
         raise ValueError('M9 code/fuel/metadata accounting mismatch')
     value = 99 if variant == 'module-alt' else 42
     expected = [f'M9TASK task=0 result=Ok(Event(Halt({value}))) before=4 after=2',

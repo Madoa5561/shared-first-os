@@ -14,10 +14,10 @@ workloads, including restricted bytecode loaded from separate boot modules,
 and exits automatically. There is no desktop, interactive shell,
 filesystem, network stack, general application loader, or physical-machine installer.
 
-**[Download the M12 research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/m12-preview)**
+**[Download the M13 research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/m13-preview)**
 · **[Build instructions](docs/BUILD.md)**
 · **[Architecture](docs/ARCHITECTURE.md)**
-· **[Verification report](docs/M12-VERIFICATION.md)**
+· **[Verification report](docs/M13-VERIFICATION.md)**
 
 ## What works
 
@@ -48,14 +48,17 @@ filesystem, network stack, general application loader, or physical-machine insta
   and is denied. Launch arguments carry task-local handles, not global authority.
 - **Scoped revocation:** trusted control can revoke a suspended session's object.
   Subsequent reads are denied; restart tests reject old handles while new grants work.
+- **Execution inspection:** owned snapshots retain task stop reasons and remaining
+  fuel; a restricted host interface reports resource counts and revocation state.
+  Queries preserve scheduling and do not expose the authority host.
 
 Native tasks retain hardware isolation. The restricted interpreter is trusted
 kernel code; it accepts a small custom language, not arbitrary native code or WASM.
 
 ## Try the prebuilt image
 
-Download `shared-first-os-m12-preview.zip` from the
-[M12 release](https://github.com/Madoa5561/shared-first-os/releases/tag/m12-preview).
+Download `shared-first-os-m13-preview.zip` from the
+[M13 release](https://github.com/Madoa5561/shared-first-os/releases/tag/m13-preview).
 The ZIP contains the bootable ISO, kernel ELF, checksums, and license notices.
 The ISO is also available as a separate asset.
 
@@ -74,7 +77,7 @@ qemu-system-x86_64 \
   -device isa-debug-exit,iobase=0xf4,iosize=0x04
 ```
 
-Expect `Shared-First OS booted`, followed by `M1 PASS` through `M12 PASS`.
+Expect `Shared-First OS booted`, followed by `M1 PASS` through `M13 PASS`.
 The full benchmark suite can take over 90 seconds under TCG; the test runner allows
 up to 180 seconds per boot. QEMU exits with
 **code 33 on success** through `isa-debug-exit`; this nonzero code is intentional.
@@ -110,6 +113,13 @@ The scripts enforce locked versions. An ISO's timestamp metadata is not fixed,
 so byte-for-byte reproducible ISO builds are not claimed.
 
 ## Verified results
+
+M13 adds read-only execution and resource inspection. Verification passed **70 Rust
+unit tests**, **3 documentation compile tests**, **60 Python tests**, and all **33
+commands** covering QEMU at 128/256 MiB, seven module variants and failure paths.
+Two external execution cases validate 20 snapshots and 80 task observations with
+actual shared physical backing. See [M13 verification](docs/M13-VERIFICATION.md)
+and [raw evidence](docs/evidence/m13).
 
 M12 adds scoped revocation, partial cancellation and generation-safe restart of
 external bytecode. Its verification passed **66 Rust unit tests**, **3 documentation
@@ -179,6 +189,8 @@ superiority over Linux, seL4, WASM runtimes, or other operating systems.
 - The initial read manifest is compiled into the kernel. Module order is trusted;
   there is no signature check or code-identity authentication.
 - Revocation denies future object reads; it cannot erase values already read.
+- Inspection is a trusted kernel API between synchronous operations on one CPU.
+  Snapshots do not update automatically; unused fuel of stopped tasks is not reusable.
 - Session cleanup covers normal scope exit and early returns. It is not guaranteed
   on `panic=abort`, power loss, or deliberate `mem::forget` in trusted kernel code.
 - Physical hardware, KVM, Secure Boot, DMA isolation, side channels, and formal
@@ -200,7 +212,8 @@ superiority over Linux, seL4, WASM runtimes, or other operating systems.
 | `examples/bytecode/shared.json` | External shared-object readers and denied task |
 | `docs/M12-DESIGN.md` | Scoped revocation and restart boundaries |
 | `examples/bytecode/revocation.json` | External read/yield/read lifecycle fixture |
-| `docs/M1-VERIFICATION.md` … `docs/M12-VERIFICATION.md` | Checkpoint reports |
+| `docs/M13-DESIGN.md` | Read-only execution and resource snapshots |
+| `docs/M1-VERIFICATION.md` … `docs/M13-VERIFICATION.md` | Checkpoint reports |
 | `docs/evidence/` | Historical raw results, commands and source hashes |
 
 Detailed engineering documents are currently written in Japanese. Historical
@@ -211,6 +224,7 @@ M9 loads externally packaged programs; see the [format and packer instructions](
 M10 binds external execution to one authority host and cleans up on scope exit.
 M11 adds a trusted read manifest and proves physical sharing by external programs.
 M12 revokes through the bound host and tests resumed and restarted readers.
+M13 exposes bounded snapshots without releasing the host or code borrow.
 The historical v0.1.0 release remains the M7 checkpoint.
 
 ## Contributing

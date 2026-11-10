@@ -16,6 +16,6 @@ def validate_m10(serial, m2):
     if cases != expected:
         raise ValueError('M10 missing lifecycle case, duplicate stop or leaked resources')
     check = single(serial, 'M10CHECK', 'cases session_bytes host_bound drop_cleanup once code_lifetime'.split())
-    if check != dict(cases=4, session_bytes=616, host_bound=1, drop_cleanup=1, once=1, code_lifetime=1):
+    if check != dict(cases=4, session_bytes=648, host_bound=1, drop_cleanup=1, once=1, code_lifetime=1):
         raise ValueError('M10 scope/accounting mismatch')
     return dict(cases=cases, check=check)

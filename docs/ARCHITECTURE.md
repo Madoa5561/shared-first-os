@@ -1,6 +1,20 @@
 # Architecture: Object-Centric Memory (OCM)
 
-## M12の中断中失効（現在）
+## M13の実行状態照会（現在）
+
+SchedulerはReady/Halted(value)/Faulted(reason)/Cancelledを固定slotに保存する。
+Session::snapshotは4slotと累積付与燃料・残燃料合計・ready数をコピーで返す。
+停止済みの未使用燃料も残量に含み、再配布やslot再利用は許可しない。YIELD/quantum満了はReady。
+重複cancel、終了後dispatch、shutdownで終了理由を上書きしない。
+
+InspectableHost限定のSession::inspectは同じ借用hostのobject/payload/capability/mapping数と
+revokedを加える。host参照・Capability表・アドレス・register/scratchへのアクセスは公開しない。
+Haltedの値は既存dispatchが返す終了値。任意のu64であり、それ自体は権限ではない。
+照会はkernel用でbytecodeの命令ではない。hostの照会は副作用なし・非再入という信頼契約。
+単一CPUの同期操作間でのみ整合し、SMPのatomic snapshotを主張しない。
+詳細とゲートは [M13-DESIGN.md](M13-DESIGN.md)。汎用manager・動的slot管理は未実装。
+
+## M12の中断中失効
 
 SessionのrevokeはRevocableHostを持つ場合だけ利用できるkernel用制御API。
 借用中hostへの任意アクセスや差替えは公開せず、bytecode命令からも呼べない。

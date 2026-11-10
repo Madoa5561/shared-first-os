@@ -1,5 +1,13 @@
 # 技術判断記録
 
+## M13: 有界の状態照会を実行管理の第一段階にする
+
+1. Schedulerのready boolを終了理由付きTaskStateへ置換。停止後も情報を保持し、取消で上書きしない。
+2. 状態は固定長のcopyで返す。残燃料は停止task分も含め、未使用quotaを再配布しない。
+3. 集約資源照会はInspectableHostに限定し、Sessionのhost借用を保つ。汎用の可変host getterは作らない。
+4. 管理サイズ増加を測定し、実frame数とは別に報告。既存外部moduleと異常variantを再利用して
+   1命令quantumの各状態を照合する。汎用manager・SMP snapshot・速度改善は対象外。
+
 ## M12: host固定を保った失効制御
 
 1. Sessionへ任意のhost操作closureを渡す仕組みは作らず、RevocableHost traitの限定操作にする。

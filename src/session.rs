@@ -1,7 +1,7 @@
 //! A host-bound RAII execution scope for a complete validated external batch.
 use crate::{
     loader::Batch,
-    scheduler::{AdmissionError, Dispatch, Scheduler, TaskHost},
+    scheduler::{AdmissionError, Dispatch, Scheduler, Snapshot, TaskHost},
 };
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -14,6 +14,25 @@ pub enum SessionError {
 /// leaves scheduling/fuel unchanged, and returns false when already revoked.
 pub trait RevocableHost: TaskHost {
     fn revoke(&mut self) -> bool;
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct Resources {
+    pub objects: usize,
+    pub payload_frames: usize,
+    pub capabilities: usize,
+    pub mapping_pages: usize,
+    pub revoked: bool,
+}
+/// Trusted, bounded, side-effect-free and non-reentrant diagnostic operation.
+/// No handles, addresses or host references may be returned to the caller.
+pub trait InspectableHost: TaskHost {
+    fn resources(&self) -> Resources;
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct Inspection {
+    pub execution: Snapshot,
+    pub resources: Resources,
 }
 
 /// The host and code stay borrowed until the session ends. Drop cancels live
@@ -96,6 +115,9 @@ impl<'code, 'host, H: TaskHost> Session<'code, 'host, H> {
     pub fn ready(&self) -> usize {
         self.scheduler.ready()
     }
+    pub fn snapshot(&self) -> Snapshot {
+        self.scheduler.snapshot()
+    }
 }
 impl<H: TaskHost> Drop for Session<'_, '_, H> {
     fn drop(&mut self) {
@@ -106,6 +128,15 @@ impl<H: RevocableHost> Session<'_, '_, H> {
     /// Revoke through the same borrowed host without exposing it for replacement.
     pub fn revoke(&mut self) -> bool {
         self.host.revoke()
+    }
+}
+impl<H: InspectableHost> Session<'_, '_, H> {
+    /// Coherent between synchronous operations on one CPU, not an SMP snapshot.
+    pub fn inspect(&self) -> Inspection {
+        Inspection {
+            execution: self.snapshot(),
+            resources: self.host.resources(),
+        }
     }
 }
 

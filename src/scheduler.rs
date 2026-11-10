@@ -33,9 +33,31 @@ pub struct Dispatch {
     pub fuel_before: u64,
     pub fuel_after: u64,
 }
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum TaskState {
+    Ready,
+    Halted(u64),
+    Faulted(Fault),
+    Cancelled,
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct TaskSnapshot {
+    pub state: TaskState,
+    pub remaining_fuel: u64,
+}
+/// Owned diagnostic copy, never authority. Remaining fuel includes terminal
+/// tasks' unused budgets; it cannot be refunded or granted to another task.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct Snapshot {
+    pub tasks: [Option<TaskSnapshot>; CAPACITY],
+    pub admitted: usize,
+    pub ready: usize,
+    pub granted_fuel: u64,
+    pub remaining_fuel: u64,
+}
 struct Task<'a> {
     context: Context<'a>,
-    ready: bool,
+    state: TaskState,
 }
 pub struct Scheduler<'a> {
     tasks: [Option<Task<'a>>; CAPACITY],
@@ -78,7 +100,7 @@ impl<'a> Scheduler<'a> {
         let task = self.admitted;
         self.tasks[task] = Some(Task {
             context: Context::with_argument(program, fuel, argument),
-            ready: true,
+            state: TaskState::Ready,
         });
         self.admitted += 1;
         self.granted_fuel += fuel;
@@ -91,8 +113,23 @@ impl<'a> Scheduler<'a> {
         self.tasks
             .iter()
             .flatten()
-            .filter(|task| task.ready)
+            .filter(|task| task.state == TaskState::Ready)
             .count()
+    }
+    pub fn snapshot(&self) -> Snapshot {
+        let tasks = core::array::from_fn(|index| {
+            self.tasks[index].as_ref().map(|task| TaskSnapshot {
+                state: task.state,
+                remaining_fuel: task.context.remaining(),
+            })
+        });
+        Snapshot {
+            remaining_fuel: tasks.iter().flatten().map(|task| task.remaining_fuel).sum(),
+            tasks,
+            admitted: self.admitted,
+            ready: self.ready(),
+            granted_fuel: self.granted_fuel,
+        }
     }
     /// At most CAPACITY slots scanned, then at most quantum instructions.
     /// A ready task waits behind at most CAPACITY-1 other dispatches.
@@ -103,13 +140,17 @@ impl<'a> Scheduler<'a> {
             let Some(task) = &mut self.tasks[id] else {
                 continue;
             };
-            if !task.ready {
+            if task.state != TaskState::Ready {
                 continue;
             }
             let fuel_before = task.context.remaining();
             let result = task.context.run_slice(&mut Bound(host, id), self.quantum);
-            if matches!(result, Ok(Slice::Event(Outcome::Halt(_))) | Err(_)) {
-                task.ready = false;
+            task.state = match result {
+                Ok(Slice::Event(Outcome::Halt(value))) => TaskState::Halted(value),
+                Err(fault) => TaskState::Faulted(fault),
+                _ => TaskState::Ready,
+            };
+            if task.state != TaskState::Ready {
                 host.stop(id);
             }
             return Some(Dispatch {
@@ -126,10 +167,10 @@ impl<'a> Scheduler<'a> {
         let Some(Some(task)) = self.tasks.get_mut(id) else {
             return false;
         };
-        if !task.ready {
+        if task.state != TaskState::Ready {
             return false;
         }
-        task.ready = false;
+        task.state = TaskState::Cancelled;
         host.stop(id);
         true
     }
@@ -164,6 +205,132 @@ mod tests {
         fn stop(&mut self, task: usize) {
             self.stops[task] += 1;
         }
+    }
+    #[test]
+    fn snapshots_retain_terminal_reasons_and_unused_fuel() {
+        let halt = ins(0, 0, 0, 0, 0);
+        let read = ins(2, 0, 0, 0, 1);
+        let looping = ins(6, 0, 0, 0, 0);
+        let mut scheduler = Scheduler::new(1).unwrap();
+        let mut host = World {
+            deny: true,
+            ..World::default()
+        };
+        for code in [&halt, &read, &looping] {
+            scheduler
+                .admit(Program::validate(code).unwrap(), 5)
+                .unwrap();
+        }
+        let initial = scheduler.snapshot();
+        assert_eq!(
+            (initial.admitted, initial.ready, initial.remaining_fuel),
+            (3, 3, 15)
+        );
+        assert_eq!(initial.tasks[3], None);
+        scheduler.dispatch(&mut host).unwrap();
+        scheduler.dispatch(&mut host).unwrap();
+        assert!(scheduler.cancel(2, &mut host));
+        let terminal = scheduler.snapshot();
+        assert_eq!(
+            terminal.tasks,
+            [
+                Some(TaskSnapshot {
+                    state: TaskState::Halted(0),
+                    remaining_fuel: 4
+                }),
+                Some(TaskSnapshot {
+                    state: TaskState::Faulted(Fault::Authority),
+                    remaining_fuel: 3
+                }),
+                Some(TaskSnapshot {
+                    state: TaskState::Cancelled,
+                    remaining_fuel: 5
+                }),
+                None,
+            ]
+        );
+        assert_eq!(
+            (
+                terminal.ready,
+                terminal.granted_fuel,
+                terminal.remaining_fuel
+            ),
+            (0, 15, 12)
+        );
+        for task in [0, 1, 2, 3, usize::MAX] {
+            assert!(!scheduler.cancel(task, &mut host));
+        }
+        scheduler.shutdown(&mut host);
+        assert_eq!(scheduler.dispatch(&mut host), None);
+        assert_eq!(scheduler.snapshot(), terminal);
+        assert_eq!(host.stops, [1, 1, 1, 0]);
+    }
+    #[test]
+    fn observation_and_detached_copy_do_not_change_dispatch_or_fuel() {
+        let words = [ins(1, 0, 0, 0, 7), ins(7, 0, 0, 0, 0), ins(0, 0, 0, 0, 0)];
+        let looping = ins(6, 0, 0, 0, 0);
+        let mut observed = Scheduler::new(1).unwrap();
+        let mut control = Scheduler::new(1).unwrap();
+        for scheduler in [&mut observed, &mut control] {
+            scheduler
+                .admit(Program::validate(words.as_flattened()).unwrap(), 4)
+                .unwrap();
+            scheduler
+                .admit(Program::validate(&looping).unwrap(), 2)
+                .unwrap();
+        }
+        let mut observed_host = World::default();
+        let mut control_host = World::default();
+        loop {
+            let snapshot = observed.snapshot();
+            assert_eq!(snapshot, observed.snapshot());
+            let mut detached = snapshot;
+            detached.remaining_fuel = u64::MAX;
+            detached.tasks.fill(None);
+            assert_ne!(detached, observed.snapshot());
+            let event = observed.dispatch(&mut observed_host);
+            assert_eq!(event, control.dispatch(&mut control_host));
+            if let Some(event) = event {
+                if matches!(
+                    event.result,
+                    Ok(Slice::Expired | Slice::Event(Outcome::Yield(_)))
+                ) {
+                    assert_eq!(
+                        observed.snapshot().tasks[event.task].unwrap().state,
+                        TaskState::Ready
+                    );
+                }
+            } else {
+                break;
+            }
+        }
+        let snapshot = observed.snapshot();
+        assert_eq!(snapshot, control.snapshot());
+        assert_eq!(snapshot.tasks[0].unwrap().state, TaskState::Halted(7));
+        assert_eq!(
+            snapshot.tasks[1].unwrap().state,
+            TaskState::Faulted(Fault::Fuel)
+        );
+        assert_eq!(snapshot.remaining_fuel, 1);
+        assert_eq!(observed_host.stops, control_host.stops);
+        assert_eq!(core::mem::size_of::<Scheduler<'_>>(), 640);
+    }
+    #[test]
+    fn rejected_admission_preserves_snapshot() {
+        let halt = ins(0, 0, 0, 0, 0);
+        let program = Program::validate(&halt).unwrap();
+        let mut scheduler = Scheduler::new(1).unwrap();
+        scheduler.admit(program, MAX_BATCH_FUEL).unwrap();
+        let before = scheduler.snapshot();
+        assert_eq!(scheduler.admit(program, 1), Err(AdmissionError::Fuel));
+        assert_eq!(scheduler.snapshot(), before);
+        let mut scheduler = Scheduler::new(1).unwrap();
+        for _ in 0..CAPACITY {
+            scheduler.admit(program, 1).unwrap();
+        }
+        let before = scheduler.snapshot();
+        assert_eq!(scheduler.admit(program, 1), Err(AdmissionError::Capacity));
+        assert_eq!(scheduler.snapshot(), before);
     }
     #[test]
     fn non_yielding_loop_cannot_starve_peer_and_terminal_is_not_restarted() {

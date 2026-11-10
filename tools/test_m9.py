@@ -20,7 +20,7 @@ def fixture(variant='normal'):
         reason = 'Version' if variant == 'module-bad-version' else 'Code(Opcode)'
         return serial + f'M9REJECT format={reason} admitted=0 cleanup=1\n', module
     value = 99 if variant == 'module-alt' else 42
-    serial += f'''M9LOAD tasks=3 code_bytes=160 fuel=17 batch_bytes=1096 scheduler_bytes=608
+    serial += f'''M9LOAD tasks=3 code_bytes=160 fuel=17 batch_bytes=1096 scheduler_bytes=640
 M9TASK task=0 result=Ok(Event(Halt({value}))) before=4 after=2
 M9TASK task=1 result=Ok(Expired) before=5 after=3
 M9TASK task=2 result=Err(Authority) before=8 after=5

@@ -4,7 +4,7 @@ use crate::{
     object::{Error, Handle, ObjectStore, ReadBackend, Rights, Stats, TASKS},
     sandbox::Fault,
     scheduler::TaskHost,
-    session::RevocableHost,
+    session::{InspectableHost, Resources, RevocableHost},
 };
 
 pub const PROGRAMS: usize = 3;
@@ -123,6 +123,18 @@ impl<B: ReadBackend, const N: usize> RevocableHost for Launch<'_, B, N> {
             .expect("owned launch object revocation");
         self.arguments.fill(0);
         true
+    }
+}
+impl<B: ReadBackend, const N: usize> InspectableHost for Launch<'_, B, N> {
+    fn resources(&self) -> Resources {
+        let stats = self.store.stats();
+        Resources {
+            objects: stats.objects,
+            payload_frames: stats.payload_frames,
+            capabilities: stats.capabilities,
+            mapping_pages: stats.mapping_pages,
+            revoked: self.owner.is_none(),
+        }
     }
 }
 
@@ -338,6 +350,71 @@ mod tests {
             }
         }
         Batch::load(&bytes).unwrap()
+    }
+    #[test]
+    fn inspection_observes_cancel_and_revoke_without_exposing_authority() {
+        use crate::scheduler::TaskState;
+        let batch = read_batch();
+        let mut store = ObjectStore::<_, 1>::new(Memory::default());
+        let mut launch = Launch::new(&mut store, &batch, DEMO, 7).unwrap();
+        let args = launch.arguments();
+        assert!(Session::with_arguments(&batch, &mut launch, 0, args).is_err());
+        assert_eq!(launch.resources().capabilities, 3);
+        let mut session = Session::with_arguments(&batch, &mut launch, 2, args).unwrap();
+        assert_eq!(core::mem::size_of_val(&session), 648);
+        let initial = session.inspect();
+        assert_eq!(
+            initial.resources,
+            Resources {
+                objects: 1,
+                payload_frames: 1,
+                capabilities: 3,
+                mapping_pages: 0,
+                revoked: false
+            }
+        );
+        assert_eq!(initial.execution.granted_fuel, 24);
+        assert_eq!(session.inspect(), initial);
+        session.dispatch().unwrap();
+        assert!(session.cancel(0));
+        let cancelled = session.inspect();
+        assert_eq!(cancelled.resources.capabilities, 2);
+        assert_eq!(
+            cancelled.execution.tasks[0].unwrap().state,
+            TaskState::Cancelled
+        );
+        assert!(session.revoke());
+        let revoked = session.inspect();
+        assert_eq!(revoked.execution, cancelled.execution);
+        assert_eq!(
+            revoked.resources,
+            Resources {
+                objects: 0,
+                payload_frames: 0,
+                capabilities: 0,
+                mapping_pages: 0,
+                revoked: true
+            }
+        );
+        assert!(!session.revoke());
+        assert_eq!(session.inspect(), revoked);
+        while session.dispatch().is_some() {}
+        let ended = session.inspect();
+        assert_eq!(ended.execution.ready, 0);
+        assert_eq!(
+            ended.execution.tasks[0].unwrap().state,
+            TaskState::Cancelled
+        );
+        for task in [1, 2] {
+            assert_eq!(
+                ended.execution.tasks[task].unwrap().state,
+                TaskState::Faulted(Fault::Authority)
+            );
+        }
+        drop(session);
+        assert_eq!(launch.stops(), [1, 1, 1, 0]);
+        assert_eq!(initial.resources.capabilities, 3);
+        assert_eq!(ended.resources, revoked.resources);
     }
     #[test]
     fn session_revocation_denies_resumed_reads_without_refilling_fuel() {

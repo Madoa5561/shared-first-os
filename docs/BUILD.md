@@ -138,7 +138,10 @@ shared-bad-countを追加し、M11のverifyは31コマンドでした。read fra
 検査項目は省略せず、意図的なtimeout試験は2秒を維持します。180秒で完了しなければ失敗です。
 M12は`examples/bytecode/revocation.json`を3個目のmoduleにし、3caseの失効/取消/再起動を
 `result.json`の`m12`へ記録します。revocation-bad-opcodeも起動し、現在のverifyは33コマンドです。
-パニック版はM1途中、想定外fault版はM2途中で意図的に停止するため、M3〜M12を実行しません。
+M13は同じ3個目のmoduleで、1命令quantumの通常終了と取消+失効を検査します。
+20回のsnapshot・80件のtask状態・実read/frame/回収を`result.json`の`m13`へ保存します。
+新しいmodule/variantは不要で、verifyは33コマンドのままです。
+パニック版はM1途中、想定外fault版はM2途中で意図的に停止するため、M3〜M13を実行しません。
 128 MiB・256 MiBが検証対象で、usable領域の終端が1 GiBを超える構成は明示的に拒否します。
 各試験は新しい証跡フォルダを使い、過去のシリアルログを流用しません。
 QEMUはネットワークなし、ホストの物理ディスク接続なしで実行します。
