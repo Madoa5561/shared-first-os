@@ -5,8 +5,8 @@ problem or proposed experiment before a substantial feature change.
 
 ## Development
 
-1. Read [the architecture](docs/ARCHITECTURE.md), [roadmap](docs/ROADMAP.md), and
-   [build instructions](docs/BUILD.md).
+1. Read [the architecture](docs/ARCHITECTURE.md), [security model](docs/SECURITY-MODEL.md),
+   and [build instructions](docs/BUILD.md).
 2. Keep changes focused. Document safety invariants at every necessary unsafe
    hardware/memory boundary.
 3. Run `./tools/project.ps1 check` for format, Clippy and host tests.

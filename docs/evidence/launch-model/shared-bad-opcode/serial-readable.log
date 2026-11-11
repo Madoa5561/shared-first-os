@@ -1,0 +1,1376 @@
+BdsDxe: loading Boot0002 "UEFI QEMU DVD-ROM QM00005 " from PciRoot(0x0)/Pci(0x1F,0x2)/Sata(0x2,0xFFFF,0x0)
+BdsDxe: starting Boot0002 "UEFI QEMU DVD-ROM QM00005 " from PciRoot(0x0)/Pci(0x1F,0x2)/Sata(0x2,0xFFFF,0x0)
+limine: Loading executable `boot():/boot/shared-first-kernel`...limine: Loading module `boot():/boot/programs.sfbc`...limine: Loading module `boot():/boot/shared.sfbc`...limine: Loading module `boot():/boot/revocation.sfbc`...Shared-First OS booted
+BOOT base_revision=3 firmware=2
+MEMMAP index=0 base=0x0000000000000000 length=0x00000000000a0000 kind=0
+MEMMAP index=1 base=0x0000000000100000 length=0x0000000000700000 kind=0
+MEMMAP index=2 base=0x0000000000800000 length=0x0000000000008000 kind=3
+MEMMAP index=3 base=0x0000000000808000 length=0x0000000000003000 kind=0
+MEMMAP index=4 base=0x000000000080b000 length=0x0000000000001000 kind=3
+MEMMAP index=5 base=0x000000000080c000 length=0x0000000000008000 kind=0
+MEMMAP index=6 base=0x0000000000814000 length=0x00000000000ec000 kind=3
+MEMMAP index=7 base=0x0000000000900000 length=0x0000000001485000 kind=0
+MEMMAP index=8 base=0x0000000001d85000 length=0x0000000000054000 kind=5
+MEMMAP index=9 base=0x0000000001dd9000 length=0x00000000000e7000 kind=6
+MEMMAP index=10 base=0x0000000001ec0000 length=0x00000000003ac000 kind=5
+MEMMAP index=11 base=0x000000000226c000 length=0x0000000001920000 kind=0
+MEMMAP index=12 base=0x0000000003b8c000 length=0x0000000000004000 kind=5
+MEMMAP index=13 base=0x0000000003b90000 length=0x0000000000001000 kind=6
+MEMMAP index=14 base=0x0000000003b91000 length=0x0000000000004000 kind=5
+MEMMAP index=15 base=0x0000000003b95000 length=0x0000000000001000 kind=6
+MEMMAP index=16 base=0x0000000003b96000 length=0x0000000000005000 kind=5
+MEMMAP index=17 base=0x0000000003b9b000 length=0x0000000000001000 kind=6
+MEMMAP index=18 base=0x0000000003b9c000 length=0x0000000000029000 kind=5
+MEMMAP index=19 base=0x0000000003bc5000 length=0x00000000026f2000 kind=0
+MEMMAP index=20 base=0x00000000062b7000 length=0x0000000000005000 kind=1
+MEMMAP index=21 base=0x00000000062bc000 length=0x0000000000009000 kind=0
+MEMMAP index=22 base=0x00000000062c5000 length=0x000000000007b000 kind=5
+MEMMAP index=23 base=0x0000000006340000 length=0x00000000003aa000 kind=0
+MEMMAP index=24 base=0x00000000066ea000 length=0x0000000000009000 kind=5
+MEMMAP index=25 base=0x00000000066f3000 length=0x000000000000b000 kind=1
+MEMMAP index=26 base=0x00000000066fe000 length=0x0000000000241000 kind=0
+MEMMAP index=27 base=0x000000000693f000 length=0x00000000000c1000 kind=1
+MEMMAP index=28 base=0x0000000006a00000 length=0x0000000000aed000 kind=0
+MEMMAP index=29 base=0x00000000074ed000 length=0x0000000000100000 kind=1
+MEMMAP index=30 base=0x00000000075ed000 length=0x0000000000100000 kind=1
+MEMMAP index=31 base=0x00000000076ed000 length=0x0000000000080000 kind=1
+MEMMAP index=32 base=0x000000000776d000 length=0x0000000000012000 kind=2
+MEMMAP index=33 base=0x000000000777f000 length=0x0000000000080000 kind=3
+MEMMAP index=34 base=0x00000000077ff000 length=0x0000000000601000 kind=0
+MEMMAP index=35 base=0x0000000007e00000 length=0x000000000006f000 kind=5
+MEMMAP index=36 base=0x0000000007e6f000 length=0x0000000000056000 kind=0
+MEMMAP index=37 base=0x0000000007ec5000 length=0x0000000000001000 kind=5
+MEMMAP index=38 base=0x0000000007ec6000 length=0x000000000002e000 kind=0
+MEMMAP index=39 base=0x0000000007ef4000 length=0x0000000000084000 kind=1
+MEMMAP index=40 base=0x0000000007f78000 length=0x0000000000088000 kind=3
+MEMMAP index=41 base=0x0000000080000000 length=0x00000000003e8000 kind=7
+MEMMAP index=42 base=0x00000000e0000000 length=0x0000000010000000 kind=1
+MEMMAP index=43 base=0x00000000ffc00000 length=0x0000000000400000 kind=1
+MEMMAP index=44 base=0x000000fd00000000 length=0x0000000300000000 kind=1
+MEMKIND name=usable regions=14 bytes=121274368
+MEMKIND name=reserved regions=10 bytes=13161549824
+MEMKIND name=acpi_reclaimable regions=1 bytes=73728
+MEMKIND name=acpi_nvs regions=5 bytes=2084864
+MEMKIND name=bad_memory regions=0 bytes=0
+MEMKIND name=bootloader_reclaimable regions=10 bytes=5414912
+MEMKIND name=kernel_and_modules regions=4 bytes=958464
+MEMKIND name=framebuffer regions=1 bytes=4096000
+MEMKIND name=unknown regions=0 bytes=0
+MEMSUMMARY entries=45 usable_bytes=121274368 reserved_bytes=13174177792 described_bytes=13295452160
+ACCOUNTING reserved=all_non_usable; address_map_bytes_are_not_ram_usage; allocator=initialized_after_summary
+M1 PASS
+M2START total_frames=29607 bitmap_bytes=65536 limit_bytes=1073741824
+M2PAGING root=0x1000 table_frames=73 mappings=31410 wp=1 nx=1
+M2STACK rsp=0xfffffe8000010e50 bottom=0xfffffe8000001000 top=0xfffffe8000011000 guards=2
+M2FAULT address=0xfffffe8000000000 error=0 recovered=1
+M2FAULT address=0xfffffe8000011000 error=0 recovered=1
+M2FAULT address=0xffffffff8001fe40 error=3 recovered=1
+M2FAULT address=0xffff800001df8e40 error=3 recovered=1
+M2FAULT address=0xffffff0000000000 error=0 recovered=1
+M2FAULT address=0xffffff0000000000 error=3 recovered=1
+M2FAULT address=0xffffff0000000000 error=17 recovered=1
+M2FRAMES total=29607 allocated=89 free=29518 table_frames=73 stack_frames=16 payload_frames=0 bitmap_bytes=65536 scratch_bytes=32768 mappings=31410
+M2CHECK exhausted_reclaimed=29518 reserved_excluded=1 map_unmap=1 tlb=1 readonly=1 nx=1 guards=2 wx_aliases=1 faults=7
+M2 PASS
+M3OBJECT length=4097 payload_frames=2 capabilities=2 mapping_pages=4 metadata_bytes=9024 allocated=95 table_frames=77
+M3PAGE index=0 physical=0x5a000 owner_va=0xfffffd0000001000 reader_va=0xfffffd0000201000 hhdm=0xffff80000005a000 rights=ro_nx
+M3FAULT address=0xffff80000005a000 error=3 recovered=1
+M3PAGE index=1 physical=0x5b000 owner_va=0xfffffd0000002000 reader_va=0xfffffd0000202000 hhdm=0xffff80000005b000 rights=ro_nx
+M3FAULT address=0xffff80000005b000 error=3 recovered=1
+M3FAULT address=0xfffffd0000001000 error=3 recovered=1
+M3FAULT address=0xfffffd0000201000 error=3 recovered=1
+M3FAULT address=0xfffffd0000201000 error=17 recovered=1
+M3FAULT address=0xfffffd0000001000 error=0 recovered=1
+M3FAULT address=0xfffffd0000201000 error=0 recovered=1
+M3FAULT address=0xfffffd0000001000 error=0 recovered=1
+M3FAULT address=0xfffffd0000201000 error=0 recovered=1
+M3FRAMES before=89 after=89 tables_before=73 tables_after=73 mappings_before=31410 mappings_after=31410 payload_frames=0 capabilities=0 objects=0
+M3CHECK shared_frames=1 zero_tail=1 rights=1 stale=1 revoke=1 release=1 create_rollback=1 map_rollback=1 drop_cleanup=1 hhdm_readonly=1 faults=9
+M3 PASS
+M4TASK task=0 root=0x4ba000 code=0x4bb000 stack=0x4bf000 attack=0
+M4TASK task=1 root=0x4c2000 code=0x4c3000 stack=0x4c7000 attack=0
+M4DENY task=0 syscall=999 reason=Denied
+M4DENY task=0 syscall=1 reason=StaleHandle
+M4DENY task=0 syscall=1 reason=Denied
+M4DENY task=0 syscall=1 reason=InvalidAddress
+M4USER task=0 phase=0 checksum=377487360 cs=3 root=0x4ba000
+M4DENY task=1 syscall=999 reason=Denied
+M4DENY task=1 syscall=1 reason=StaleHandle
+M4DENY task=1 syscall=1 reason=Denied
+M4DENY task=1 syscall=1 reason=InvalidAddress
+M4DENY task=1 syscall=1 reason=Denied
+M4DENY task=1 syscall=5 reason=Denied
+M4USER task=1 phase=0 checksum=377487360 cs=3 root=0x4c2000
+M4SHARED bytes=4194304 pages=1024 task0_root=0x4ba000 task1_root=0x4c2000 first_frame=0x5a000 payload_frames=1024 mapping_pages=2048 metadata_bytes=331584 allocated=1134 table_frames=89 task_frames=5
+M4COW task=0 address=0x4000007b error=7 cs=3 copies=1
+M4USER task=0 phase=1 checksum=377487515 cs=3 root=0x4ba000
+M4USER task=1 phase=1 checksum=377487360 cs=3 root=0x4c2000
+M4PRIVATE original=0x5a000 private=0x4cf000 copied_pages=1 unchanged_pages=1023 payload_frames=1025 allocated=1135
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=0
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=5 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=9 reason=InvalidSize
+M4DENY task=2 syscall=9 reason=InvalidSize
+M4CREATE task=2 bytes=4097 fill=51
+M4EXIT task=2 status=0 cs=3
+M4ATTACK case=0 reclaimed=1
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=1
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=5 reason=Denied
+M4FAULT task=2 vector=14 error=7 address=0x40000000 cs=3 killed=1
+M4ATTACK case=1 reclaimed=1
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=2
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=5 reason=Denied
+M4FAULT task=2 vector=14 error=21 address=0x40000000 cs=3 killed=1
+M4ATTACK case=2 reclaimed=1
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=3
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=5 reason=Denied
+M4FAULT task=2 vector=14 error=5 address=0xffffffff80000000 cs=3 killed=1
+M4ATTACK case=3 reclaimed=1
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=4
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=5 reason=Denied
+M4FAULT task=2 vector=14 error=5 address=0xffff80000005a000 cs=3 killed=1
+M4ATTACK case=4 reclaimed=1
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=5
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=5 reason=Denied
+M4FAULT task=2 vector=14 error=4 address=0x900000 cs=3 killed=1
+M4ATTACK case=5 reclaimed=1
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=6
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=5 reason=Denied
+M4FAULT task=2 vector=13 error=0 address=0x0 cs=3 killed=1
+M4ATTACK case=6 reclaimed=1
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=7
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=5 reason=Denied
+M4FAULT task=2 vector=13 error=1034 address=0x0 cs=3 killed=1
+M4ATTACK case=7 reclaimed=1
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=8
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=5 reason=Denied
+M4FAULT task=2 vector=14 error=7 address=0x400000 cs=3 killed=1
+M4ATTACK case=8 reclaimed=1
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=9
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=5 reason=Denied
+M4FAULT task=2 vector=14 error=4 address=0x7ff000 cs=3 killed=1
+M4ATTACK case=9 reclaimed=1
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=10
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=5 reason=Denied
+M4FAULT task=2 vector=7 error=0 address=0x0 cs=3 killed=1
+M4ATTACK case=10 reclaimed=1
+M4TASK task=2 root=0x4d0000 code=0x4d1000 stack=0x4d5000 attack=11
+M4DENY task=2 syscall=999 reason=Denied
+M4DENY task=2 syscall=1 reason=StaleHandle
+M4DENY task=2 syscall=1 reason=Denied
+M4DENY task=2 syscall=1 reason=InvalidAddress
+M4DENY task=2 syscall=1 reason=Backend(Conflict)
+M4DENY task=2 syscall=5 reason=Denied
+M4COWFAIL task=2 allocation_denied=1
+M4FAULT task=2 vector=14 error=7 address=0x40000000 cs=3 killed=1
+M4ATTACK case=11 reclaimed=1
+M4USER task=0 phase=2 checksum=0 cs=3 root=0x4ba000
+M4DENY task=0 syscall=1 reason=StaleHandle
+M4FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M4DENY task=1 syscall=1 reason=StaleHandle
+M4FAULT task=1 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M4FRAMES before=89 after=89 tables_before=73 tables_after=73 mappings_before=31410 mappings_after=31410 payload_frames=0 private_frames=0 task_frames=0 capabilities=0
+M4CHECK entries=142 syscalls=128 denied=87 cow_faults=1 killed=13 exited=1 shared_pages=1024 unchanged_pages=1023 revoke=1 cleanup=1 ring3=1
+M4 PASS
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=1474560 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=1474560 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=1474635 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=1474560 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=1474560 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=0 sample=0 enabled=0 input_hash=0xa97a7a6074da2325 logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=0 attempts=0 rejected=0 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=1603034 pressure_ticks=29393 map_read_ticks=57627815 cow_read_ticks=79382301 cleanup_ticks=64730726 isolation=1 reclaimed=1
+M5TASK task=0 root=0x5a000 code=0x5b000 stack=0x5f000 attack=0
+M5TASK task=1 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M5USER task=0 phase=0 checksum=1474560 cs=3 root=0x5a000
+M5USER task=1 phase=0 checksum=1474560 cs=3 root=0x62000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=1474635 cs=3 root=0x5a000
+M5USER task=1 phase=1 checksum=1474560 cs=3 root=0x62000
+M5USER task=1 phase=2 checksum=1474560 cs=3 root=0x62000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=0 sample=0 enabled=1 input_hash=0xa97a7a6074da2325 logical_pages=16 created=1 cold=0 compressed_pages=1 compressed_bytes=3 mapped=1 mappings=8 cow=2 hits=15 probes=15 bypasses=0 attempts=1 rejected=0 restored=1 metadata=3448 arena=4096 object_metadata=5184 free_before=29517 watermark=29549 before=89 after=89 mapped_allocated=109 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=1110717 pressure_ticks=279493 map_read_ticks=55241203 cow_read_ticks=87008913 cleanup_ticks=81367200 isolation=1 reclaimed=1
+M5TASK task=0 root=0x5a000 code=0x5b000 stack=0x5f000 attack=0
+M5TASK task=1 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M5USER task=0 phase=0 checksum=1474560 cs=3 root=0x5a000
+M5USER task=1 phase=0 checksum=1474560 cs=3 root=0x62000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=1474635 cs=3 root=0x5a000
+M5USER task=1 phase=1 checksum=1474560 cs=3 root=0x62000
+M5USER task=1 phase=2 checksum=1474560 cs=3 root=0x62000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=0 sample=1 enabled=1 input_hash=0xa97a7a6074da2325 logical_pages=16 created=1 cold=0 compressed_pages=1 compressed_bytes=3 mapped=1 mappings=8 cow=2 hits=15 probes=15 bypasses=0 attempts=1 rejected=0 restored=1 metadata=3448 arena=4096 object_metadata=5184 free_before=29517 watermark=29549 before=89 after=89 mapped_allocated=109 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=408652 pressure_ticks=49360 map_read_ticks=57318899 cow_read_ticks=83056708 cleanup_ticks=78313019 isolation=1 reclaimed=1
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=1474560 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=1474560 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=1474635 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=1474560 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=1474560 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=0 sample=1 enabled=0 input_hash=0xa97a7a6074da2325 logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=0 attempts=0 rejected=0 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=414922 pressure_ticks=984 map_read_ticks=60456669 cow_read_ticks=99587964 cleanup_ticks=90941604 isolation=1 reclaimed=1
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=1474560 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=1474560 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=1474635 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=1474560 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=1474560 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=0 sample=2 enabled=0 input_hash=0xa97a7a6074da2325 logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=0 attempts=0 rejected=0 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=412888 pressure_ticks=1104 map_read_ticks=62862816 cow_read_ticks=94191725 cleanup_ticks=69459854 isolation=1 reclaimed=1
+M5TASK task=0 root=0x5a000 code=0x5b000 stack=0x5f000 attack=0
+M5TASK task=1 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M5USER task=0 phase=0 checksum=1474560 cs=3 root=0x5a000
+M5USER task=1 phase=0 checksum=1474560 cs=3 root=0x62000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=1474635 cs=3 root=0x5a000
+M5USER task=1 phase=1 checksum=1474560 cs=3 root=0x62000
+M5USER task=1 phase=2 checksum=1474560 cs=3 root=0x62000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=0 sample=2 enabled=1 input_hash=0xa97a7a6074da2325 logical_pages=16 created=1 cold=0 compressed_pages=1 compressed_bytes=3 mapped=1 mappings=8 cow=2 hits=15 probes=15 bypasses=0 attempts=1 rejected=0 restored=1 metadata=3448 arena=4096 object_metadata=5184 free_before=29517 watermark=29549 before=89 after=89 mapped_allocated=109 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=413347 pressure_ticks=49720 map_read_ticks=54429308 cow_read_ticks=72702330 cleanup_ticks=63226250 isolation=1 reclaimed=1
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=40960 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=106496 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=41213 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=106496 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=106496 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=1 sample=0 enabled=0 input_hash=0x5840638caf9fa325 logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=0 attempts=0 rejected=0 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=758483 pressure_ticks=788 map_read_ticks=48741364 cow_read_ticks=77944358 cleanup_ticks=70748319 isolation=1 reclaimed=1
+M5TASK task=0 root=0x5a000 code=0x5b000 stack=0x5f000 attack=0
+M5TASK task=1 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M5USER task=0 phase=0 checksum=40960 cs=3 root=0x5a000
+M5USER task=1 phase=0 checksum=106496 cs=3 root=0x62000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=41213 cs=3 root=0x5a000
+M5USER task=1 phase=1 checksum=106496 cs=3 root=0x62000
+M5USER task=1 phase=2 checksum=106496 cs=3 root=0x62000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=1 sample=0 enabled=1 input_hash=0x5840638caf9fa325 logical_pages=16 created=16 cold=0 compressed_pages=16 compressed_bytes=48 mapped=8 mappings=8 cow=9 hits=0 probes=0 bypasses=8 attempts=16 rejected=0 restored=8 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=116 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=682076 pressure_ticks=644853 map_read_ticks=55134751 cow_read_ticks=86644524 cleanup_ticks=77887708 isolation=1 reclaimed=1
+M5TASK task=0 root=0x5a000 code=0x5b000 stack=0x5f000 attack=0
+M5TASK task=1 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M5USER task=0 phase=0 checksum=40960 cs=3 root=0x5a000
+M5USER task=1 phase=0 checksum=106496 cs=3 root=0x62000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=41213 cs=3 root=0x5a000
+M5USER task=1 phase=1 checksum=106496 cs=3 root=0x62000
+M5USER task=1 phase=2 checksum=106496 cs=3 root=0x62000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=1 sample=1 enabled=1 input_hash=0x5840638caf9fa325 logical_pages=16 created=16 cold=0 compressed_pages=16 compressed_bytes=48 mapped=8 mappings=8 cow=9 hits=0 probes=0 bypasses=8 attempts=16 rejected=0 restored=8 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=116 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=555722 pressure_ticks=648546 map_read_ticks=59235036 cow_read_ticks=76615476 cleanup_ticks=61635697 isolation=1 reclaimed=1
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=40960 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=106496 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=41213 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=106496 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=106496 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=1 sample=1 enabled=0 input_hash=0x5840638caf9fa325 logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=0 attempts=0 rejected=0 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=496267 pressure_ticks=900 map_read_ticks=48347917 cow_read_ticks=74149252 cleanup_ticks=67909738 isolation=1 reclaimed=1
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=40960 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=106496 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=41213 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=106496 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=106496 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=1 sample=2 enabled=0 input_hash=0x5840638caf9fa325 logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=0 attempts=0 rejected=0 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=495436 pressure_ticks=786 map_read_ticks=49701266 cow_read_ticks=73965970 cleanup_ticks=70755294 isolation=1 reclaimed=1
+M5TASK task=0 root=0x5a000 code=0x5b000 stack=0x5f000 attack=0
+M5TASK task=1 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M5USER task=0 phase=0 checksum=40960 cs=3 root=0x5a000
+M5USER task=1 phase=0 checksum=106496 cs=3 root=0x62000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=41213 cs=3 root=0x5a000
+M5USER task=1 phase=1 checksum=106496 cs=3 root=0x62000
+M5USER task=1 phase=2 checksum=106496 cs=3 root=0x62000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=1 sample=2 enabled=1 input_hash=0x5840638caf9fa325 logical_pages=16 created=16 cold=0 compressed_pages=16 compressed_bytes=48 mapped=8 mappings=8 cow=9 hits=0 probes=0 bypasses=8 attempts=16 rejected=0 restored=8 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=116 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=569600 pressure_ticks=646356 map_read_ticks=43365363 cow_read_ticks=73829293 cleanup_ticks=63431521 isolation=1 reclaimed=1
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=2101802 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=2079332 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=2101707 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=2079332 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=2079332 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=2 sample=0 enabled=0 input_hash=0xb8258411ef7e8cab logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=0 attempts=0 rejected=0 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=902984 pressure_ticks=819 map_read_ticks=52776056 cow_read_ticks=78507672 cleanup_ticks=65627646 isolation=1 reclaimed=1
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=2101802 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=2079332 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=2101707 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=2079332 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=2079332 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=2 sample=0 enabled=1 input_hash=0xb8258411ef7e8cab logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=8 attempts=16 rejected=16 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=654269 pressure_ticks=306935 map_read_ticks=68330645 cow_read_ticks=94326065 cleanup_ticks=78417659 isolation=1 reclaimed=1
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=2101802 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=2079332 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=2101707 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=2079332 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=2079332 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=2 sample=1 enabled=1 input_hash=0xb8258411ef7e8cab logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=8 attempts=16 rejected=16 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=744820 pressure_ticks=177510 map_read_ticks=60520892 cow_read_ticks=80367892 cleanup_ticks=68929119 isolation=1 reclaimed=1
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=2101802 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=2079332 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=2101707 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=2079332 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=2079332 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=2 sample=1 enabled=0 input_hash=0xb8258411ef7e8cab logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=0 attempts=0 rejected=0 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=593711 pressure_ticks=1377 map_read_ticks=61894462 cow_read_ticks=92557679 cleanup_ticks=76893325 isolation=1 reclaimed=1
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=2101802 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=2079332 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=2101707 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=2079332 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=2079332 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=2 sample=2 enabled=0 input_hash=0xb8258411ef7e8cab logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=0 attempts=0 rejected=0 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=592749 pressure_ticks=778 map_read_ticks=50617032 cow_read_ticks=74717646 cleanup_ticks=72101568 isolation=1 reclaimed=1
+M5TASK task=0 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M5TASK task=1 root=0x72000 code=0x73000 stack=0x77000 attack=0
+M5USER task=0 phase=0 checksum=2101802 cs=3 root=0x6a000
+M5USER task=1 phase=0 checksum=2079332 cs=3 root=0x72000
+M5COW task=0 address=0x40000000 error=7 cs=3 copies=1
+M5USER task=0 phase=1 checksum=2101707 cs=3 root=0x6a000
+M5USER task=1 phase=1 checksum=2079332 cs=3 root=0x72000
+M5USER task=1 phase=2 checksum=2079332 cs=3 root=0x72000
+M5FAULT task=0 vector=14 error=4 address=0x40000000 cs=3 killed=1
+M5EXIT task=1 status=0 cs=3
+M5RUN workload=2 sample=2 enabled=1 input_hash=0xb8258411ef7e8cab logical_pages=16 created=16 cold=16 compressed_pages=0 compressed_bytes=0 mapped=16 mappings=8 cow=17 hits=0 probes=0 bypasses=8 attempts=16 rejected=16 restored=0 metadata=3448 arena=4096 object_metadata=5184 free_before=29502 watermark=29534 before=89 after=89 mapped_allocated=124 extra_tables=14 task_frames=5 final_tables=73 final_mappings=31410 create_ticks=648525 pressure_ticks=169954 map_read_ticks=46121208 cow_read_ticks=70227964 cleanup_ticks=64727497 isolation=1 reclaimed=1
+M5CHECK workloads=3 samples=3 runs=18 ring3=1 independent_revoke=1 pinned=1 cow=1 cleanup=1
+M5 PASS
+M6CONFIG samples=8 warmups=1 sizes=2 conditions=22 runs=198 kernel_image_bytes=946176 raw_metadata=1024 object_metadata=24384 reserved_bench_bytes=25408 task_context_bytes=400 fence_min=38 file_pages=0 compressed_bytes=0 timed_serial=0
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=0 mode=0 round=0 order=0 warmup=1 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=484774 map_ticks=467399 read_ticks=918034 write_read_ticks=200096 handler_ticks=0 handler_max=0 unmap_ticks=378832 release_ticks=187266 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=1 round=0 order=1 warmup=1 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=114304 map_ticks=54248 read_ticks=370382 write_read_ticks=161325 handler_ticks=0 handler_max=0 unmap_ticks=163430 release_ticks=52219 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=2 round=0 order=2 warmup=1 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=105877 map_ticks=94056 read_ticks=601710 write_read_ticks=293946 handler_ticks=0 handler_max=0 unmap_ticks=239294 release_ticks=102746 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=3 round=0 order=3 warmup=1 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1069848 map_ticks=522396 read_ticks=276864 write_read_ticks=156207 handler_ticks=0 handler_max=0 unmap_ticks=541640 release_ticks=306340 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=4 round=0 order=4 warmup=1 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=217366 map_ticks=137836 read_ticks=316525 write_read_ticks=159033 handler_ticks=0 handler_max=0 unmap_ticks=144098 release_ticks=56363 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=1 round=1 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=100546 map_ticks=55776 read_ticks=370661 write_read_ticks=179461 handler_ticks=0 handler_max=0 unmap_ticks=136980 release_ticks=52169 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=2 round=1 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=100379 map_ticks=117571 read_ticks=364929 write_read_ticks=163014 handler_ticks=0 handler_max=0 unmap_ticks=137469 release_ticks=52373 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=3 round=1 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=127028 map_ticks=49284 read_ticks=358710 write_read_ticks=158516 handler_ticks=0 handler_max=0 unmap_ticks=141682 release_ticks=55046 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=4 round=1 order=3 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=181272 map_ticks=58636 read_ticks=363795 write_read_ticks=255137 handler_ticks=0 handler_max=0 unmap_ticks=141651 release_ticks=56457 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=0 mode=0 round=1 order=4 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=187821 map_ticks=55161 read_ticks=370091 write_read_ticks=158768 handler_ticks=0 handler_max=0 unmap_ticks=190314 release_ticks=42054 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=2 round=2 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=102403 map_ticks=103005 read_ticks=355390 write_read_ticks=159903 handler_ticks=0 handler_max=0 unmap_ticks=222428 release_ticks=52370 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=3 round=2 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=123665 map_ticks=63430 read_ticks=383165 write_read_ticks=177291 handler_ticks=0 handler_max=0 unmap_ticks=143198 release_ticks=58483 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=4 round=2 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=120839 map_ticks=60958 read_ticks=366237 write_read_ticks=158785 handler_ticks=0 handler_max=0 unmap_ticks=140829 release_ticks=55943 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=0 mode=0 round=2 order=3 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=240309 map_ticks=132018 read_ticks=354933 write_read_ticks=159245 handler_ticks=0 handler_max=0 unmap_ticks=190135 release_ticks=41942 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=1 round=2 order=4 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=100485 map_ticks=49396 read_ticks=358824 write_read_ticks=176169 handler_ticks=0 handler_max=0 unmap_ticks=136162 release_ticks=52279 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=3 round=3 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=120654 map_ticks=144868 read_ticks=399452 write_read_ticks=429882 handler_ticks=0 handler_max=0 unmap_ticks=142448 release_ticks=56249 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=4 round=3 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=190479 map_ticks=141117 read_ticks=367541 write_read_ticks=159017 handler_ticks=0 handler_max=0 unmap_ticks=142963 release_ticks=57242 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=0 mode=0 round=3 order=2 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=188289 map_ticks=129319 read_ticks=355854 write_read_ticks=158693 handler_ticks=0 handler_max=0 unmap_ticks=189013 release_ticks=41912 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=1 round=3 order=3 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=167477 map_ticks=121588 read_ticks=362281 write_read_ticks=161945 handler_ticks=0 handler_max=0 unmap_ticks=136836 release_ticks=51895 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=2 round=3 order=4 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=103125 map_ticks=115437 read_ticks=353498 write_read_ticks=158201 handler_ticks=0 handler_max=0 unmap_ticks=135708 release_ticks=50954 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=4 round=4 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=118745 map_ticks=106327 read_ticks=361209 write_read_ticks=160113 handler_ticks=0 handler_max=0 unmap_ticks=141272 release_ticks=55948 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=0 mode=0 round=4 order=1 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=188090 map_ticks=133343 read_ticks=364279 write_read_ticks=162452 handler_ticks=0 handler_max=0 unmap_ticks=286965 release_ticks=43312 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=1 round=4 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=102117 map_ticks=141289 read_ticks=368920 write_read_ticks=159348 handler_ticks=0 handler_max=0 unmap_ticks=135663 release_ticks=53032 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=2 round=4 order=3 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=103701 map_ticks=56027 read_ticks=381590 write_read_ticks=159282 handler_ticks=0 handler_max=0 unmap_ticks=137963 release_ticks=52445 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=3 round=4 order=4 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=123112 map_ticks=135210 read_ticks=369215 write_read_ticks=158824 handler_ticks=0 handler_max=0 unmap_ticks=140541 release_ticks=56082 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=0 mode=0 round=5 order=0 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=190555 map_ticks=120420 read_ticks=353715 write_read_ticks=159549 handler_ticks=0 handler_max=0 unmap_ticks=190826 release_ticks=41924 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=1 round=5 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=100448 map_ticks=53590 read_ticks=380278 write_read_ticks=165723 handler_ticks=0 handler_max=0 unmap_ticks=136853 release_ticks=51965 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=2 round=5 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=120560 map_ticks=126571 read_ticks=356496 write_read_ticks=157952 handler_ticks=0 handler_max=0 unmap_ticks=137810 release_ticks=52653 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=3 round=5 order=3 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=125305 map_ticks=116677 read_ticks=361802 write_read_ticks=159630 handler_ticks=0 handler_max=0 unmap_ticks=140941 release_ticks=56607 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=4 round=5 order=4 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=126807 map_ticks=127358 read_ticks=367378 write_read_ticks=175768 handler_ticks=0 handler_max=0 unmap_ticks=143798 release_ticks=55868 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=1 round=6 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=100656 map_ticks=123265 read_ticks=375381 write_read_ticks=162354 handler_ticks=0 handler_max=0 unmap_ticks=136902 release_ticks=53252 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=2 round=6 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=101695 map_ticks=125595 read_ticks=363361 write_read_ticks=162470 handler_ticks=0 handler_max=0 unmap_ticks=138836 release_ticks=53093 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=3 round=6 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=119150 map_ticks=126322 read_ticks=373827 write_read_ticks=159952 handler_ticks=0 handler_max=0 unmap_ticks=142299 release_ticks=56131 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=4 round=6 order=3 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=124094 map_ticks=57547 read_ticks=374187 write_read_ticks=163083 handler_ticks=0 handler_max=0 unmap_ticks=143774 release_ticks=56611 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=0 mode=0 round=6 order=4 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=187363 map_ticks=55425 read_ticks=365551 write_read_ticks=160524 handler_ticks=0 handler_max=0 unmap_ticks=191540 release_ticks=41782 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=2 round=7 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=103537 map_ticks=107926 read_ticks=371093 write_read_ticks=159751 handler_ticks=0 handler_max=0 unmap_ticks=137542 release_ticks=52329 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=3 round=7 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=128635 map_ticks=57497 read_ticks=371515 write_read_ticks=161706 handler_ticks=0 handler_max=0 unmap_ticks=148141 release_ticks=57805 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=4 round=7 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=124133 map_ticks=126026 read_ticks=362320 write_read_ticks=160956 handler_ticks=0 handler_max=0 unmap_ticks=145428 release_ticks=57406 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=0 mode=0 round=7 order=3 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=192191 map_ticks=123876 read_ticks=361482 write_read_ticks=163305 handler_ticks=0 handler_max=0 unmap_ticks=190319 release_ticks=41993 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=1 round=7 order=4 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=100162 map_ticks=48732 read_ticks=359635 write_read_ticks=160360 handler_ticks=0 handler_max=0 unmap_ticks=136685 release_ticks=50861 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=3 round=8 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=122885 map_ticks=123026 read_ticks=367337 write_read_ticks=184451 handler_ticks=0 handler_max=0 unmap_ticks=142523 release_ticks=55894 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=4 round=8 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=122375 map_ticks=61089 read_ticks=440185 write_read_ticks=160400 handler_ticks=0 handler_max=0 unmap_ticks=141809 release_ticks=56615 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=0 mode=0 round=8 order=2 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=217493 map_ticks=60649 read_ticks=381584 write_read_ticks=235049 handler_ticks=0 handler_max=0 unmap_ticks=200292 release_ticks=44399 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=1 round=8 order=3 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=107971 map_ticks=130542 read_ticks=369400 write_read_ticks=163584 handler_ticks=0 handler_max=0 unmap_ticks=137398 release_ticks=52533 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=0 mode=2 round=8 order=4 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=40960 reader_sum=40960 payload_peak=4 pool_peak=112 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=99924 map_ticks=125820 read_ticks=372951 write_read_ticks=160482 handler_ticks=0 handler_max=0 unmap_ticks=136948 release_ticks=52321 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=1 mode=0 round=0 order=0 warmup=1 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=187041 map_ticks=119672 read_ticks=375489 write_read_ticks=174753 handler_ticks=0 handler_max=0 unmap_ticks=191683 release_ticks=41684 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=2 round=0 order=1 warmup=1 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=102783 map_ticks=110496 read_ticks=370912 write_read_ticks=453795 handler_ticks=154287 handler_max=154287 unmap_ticks=153105 release_ticks=43648 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=4 round=0 order=2 warmup=1 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=121326 map_ticks=123143 read_ticks=358400 write_read_ticks=645299 handler_ticks=438786 handler_max=438786 unmap_ticks=225435 release_ticks=48139 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=2 round=1 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=100815 map_ticks=124789 read_ticks=362988 write_read_ticks=235094 handler_ticks=33774 handler_max=33774 unmap_ticks=152778 release_ticks=43448 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=4 round=1 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=124198 map_ticks=60747 read_ticks=365487 write_read_ticks=241173 handler_ticks=41798 handler_max=41798 unmap_ticks=158520 release_ticks=48944 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=1 mode=0 round=1 order=2 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=190123 map_ticks=61808 read_ticks=369204 write_read_ticks=193498 handler_ticks=0 handler_max=0 unmap_ticks=191921 release_ticks=42126 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=4 round=2 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=121888 map_ticks=62435 read_ticks=371901 write_read_ticks=243709 handler_ticks=41947 handler_max=41947 unmap_ticks=157530 release_ticks=48294 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=1 mode=0 round=2 order=1 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=224402 map_ticks=140800 read_ticks=403370 write_read_ticks=191259 handler_ticks=0 handler_max=0 unmap_ticks=201907 release_ticks=43885 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=2 round=2 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=101644 map_ticks=57711 read_ticks=375214 write_read_ticks=244775 handler_ticks=36528 handler_max=36528 unmap_ticks=158532 release_ticks=45603 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=1 mode=0 round=3 order=0 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=186595 map_ticks=71271 read_ticks=368441 write_read_ticks=180467 handler_ticks=0 handler_max=0 unmap_ticks=194070 release_ticks=42999 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=2 round=3 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=103424 map_ticks=128195 read_ticks=435215 write_read_ticks=238205 handler_ticks=35803 handler_max=35803 unmap_ticks=155086 release_ticks=43499 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=4 round=3 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=123930 map_ticks=62484 read_ticks=371934 write_read_ticks=244015 handler_ticks=41246 handler_max=41246 unmap_ticks=159441 release_ticks=49765 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=2 round=4 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=105138 map_ticks=125335 read_ticks=372696 write_read_ticks=247708 handler_ticks=36491 handler_max=36491 unmap_ticks=158979 release_ticks=45071 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=4 round=4 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=123499 map_ticks=125479 read_ticks=392079 write_read_ticks=253379 handler_ticks=42471 handler_max=42471 unmap_ticks=167674 release_ticks=51378 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=1 mode=0 round=4 order=2 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=197138 map_ticks=57785 read_ticks=383142 write_read_ticks=231411 handler_ticks=0 handler_max=0 unmap_ticks=203528 release_ticks=44980 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=4 round=5 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=126058 map_ticks=116700 read_ticks=367404 write_read_ticks=252081 handler_ticks=42472 handler_max=42472 unmap_ticks=162959 release_ticks=50467 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=1 mode=0 round=5 order=1 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=196287 map_ticks=59760 read_ticks=384342 write_read_ticks=189221 handler_ticks=0 handler_max=0 unmap_ticks=201718 release_ticks=44373 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=2 round=5 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=102837 map_ticks=55421 read_ticks=393372 write_read_ticks=244229 handler_ticks=35909 handler_max=35909 unmap_ticks=165748 release_ticks=45809 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=1 mode=0 round=6 order=0 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=197061 map_ticks=70363 read_ticks=376511 write_read_ticks=188595 handler_ticks=0 handler_max=0 unmap_ticks=204775 release_ticks=45587 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=2 round=6 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=185620 map_ticks=130020 read_ticks=379461 write_read_ticks=253354 handler_ticks=37866 handler_max=37866 unmap_ticks=204901 release_ticks=47215 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=4 round=6 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=183867 map_ticks=139884 read_ticks=382845 write_read_ticks=261649 handler_ticks=44350 handler_max=44350 unmap_ticks=168876 release_ticks=52690 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=2 round=7 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=104164 map_ticks=56837 read_ticks=405935 write_read_ticks=246745 handler_ticks=35805 handler_max=35805 unmap_ticks=156030 release_ticks=44336 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=4 round=7 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=125084 map_ticks=114575 read_ticks=378744 write_read_ticks=252355 handler_ticks=43716 handler_max=43716 unmap_ticks=163515 release_ticks=50583 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=1 mode=0 round=7 order=2 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=202178 map_ticks=65185 read_ticks=389860 write_read_ticks=182553 handler_ticks=0 handler_max=0 unmap_ticks=198699 release_ticks=44055 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=4 round=8 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=130168 map_ticks=63729 read_ticks=375071 write_read_ticks=306048 handler_ticks=44821 handler_max=44821 unmap_ticks=166120 release_ticks=51658 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=1 mode=0 round=8 order=1 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=188363 map_ticks=64383 read_ticks=535743 write_read_ticks=182903 handler_ticks=0 handler_max=0 unmap_ticks=225419 release_ticks=42965 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=1 mode=2 round=8 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41213 reader_sum=40960 payload_peak=5 pool_peak=113 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=109071 map_ticks=131566 read_ticks=371239 write_read_ticks=1704473 handler_ticks=36795 handler_max=36795 unmap_ticks=171174 release_ticks=47674 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=4 mode=0 round=0 order=0 warmup=1 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=195880 map_ticks=60523 read_ticks=373369 write_read_ticks=201922 handler_ticks=0 handler_max=0 unmap_ticks=204025 release_ticks=45544 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=2 round=0 order=1 warmup=1 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=4 copies=4 calls=6 create_ticks=103274 map_ticks=54566 read_ticks=378477 write_read_ticks=366161 handler_ticks=114348 handler_max=36351 unmap_ticks=195419 release_ticks=45018 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=4 round=0 order=2 warmup=1 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=4 copies=4 calls=6 create_ticks=122283 map_ticks=120418 read_ticks=359655 write_read_ticks=371348 handler_ticks=121713 handler_max=42454 unmap_ticks=232920 release_ticks=48396 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=2 round=1 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=4 copies=4 calls=6 create_ticks=101909 map_ticks=54562 read_ticks=363503 write_read_ticks=344913 handler_ticks=108527 handler_max=35179 unmap_ticks=240623 release_ticks=145055 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=4 round=1 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=4 copies=4 calls=6 create_ticks=223487 map_ticks=58249 read_ticks=374108 write_read_ticks=352385 handler_ticks=120375 handler_max=41779 unmap_ticks=187909 release_ticks=47872 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=4 mode=0 round=1 order=2 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=223530 map_ticks=116614 read_ticks=372583 write_read_ticks=186285 handler_ticks=0 handler_max=0 unmap_ticks=189811 release_ticks=41680 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=4 round=2 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=4 copies=4 calls=6 create_ticks=122613 map_ticks=59927 read_ticks=370247 write_read_ticks=379663 handler_ticks=122007 handler_max=42692 unmap_ticks=188785 release_ticks=47956 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=4 mode=0 round=2 order=1 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=190708 map_ticks=47962 read_ticks=387337 write_read_ticks=216759 handler_ticks=0 handler_max=0 unmap_ticks=192479 release_ticks=41686 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=2 round=2 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=4 copies=4 calls=6 create_ticks=107001 map_ticks=56464 read_ticks=370989 write_read_ticks=347691 handler_ticks=109857 handler_max=36483 unmap_ticks=186515 release_ticks=42501 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=4 mode=0 round=3 order=0 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=191494 map_ticks=52360 read_ticks=398475 write_read_ticks=205078 handler_ticks=0 handler_max=0 unmap_ticks=208338 release_ticks=46442 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=2 round=3 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=4 copies=4 calls=6 create_ticks=111956 map_ticks=135285 read_ticks=525340 write_read_ticks=399634 handler_ticks=120940 handler_max=39673 unmap_ticks=254214 release_ticks=47284 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=4 round=3 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=4 copies=4 calls=6 create_ticks=125249 map_ticks=61217 read_ticks=379674 write_read_ticks=378449 handler_ticks=127221 handler_max=43126 unmap_ticks=199868 release_ticks=50513 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=2 round=4 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=4 copies=4 calls=6 create_ticks=105568 map_ticks=122786 read_ticks=364498 write_read_ticks=346115 handler_ticks=108434 handler_max=34754 unmap_ticks=185309 release_ticks=42326 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=4 round=4 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=4 copies=4 calls=6 create_ticks=121939 map_ticks=121472 read_ticks=355927 write_read_ticks=357967 handler_ticks=121128 handler_max=40850 unmap_ticks=189296 release_ticks=79044 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=4 mode=0 round=4 order=2 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=186527 map_ticks=113630 read_ticks=366199 write_read_ticks=200269 handler_ticks=0 handler_max=0 unmap_ticks=190170 release_ticks=41668 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=4 round=5 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=4 copies=4 calls=6 create_ticks=124001 map_ticks=85431 read_ticks=357574 write_read_ticks=354047 handler_ticks=120476 handler_max=40957 unmap_ticks=189312 release_ticks=47632 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=4 mode=0 round=5 order=1 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=187688 map_ticks=46923 read_ticks=367909 write_read_ticks=184182 handler_ticks=0 handler_max=0 unmap_ticks=190797 release_ticks=42148 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=2 round=5 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=4 copies=4 calls=6 create_ticks=101763 map_ticks=123797 read_ticks=362825 write_read_ticks=346087 handler_ticks=108499 handler_max=34725 unmap_ticks=184375 release_ticks=42120 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=4 mode=0 round=6 order=0 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=204194 map_ticks=112033 read_ticks=386367 write_read_ticks=219589 handler_ticks=0 handler_max=0 unmap_ticks=205983 release_ticks=45385 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=2 round=6 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=4 copies=4 calls=6 create_ticks=107454 map_ticks=56558 read_ticks=390828 write_read_ticks=356232 handler_ticks=112679 handler_max=36249 unmap_ticks=190679 release_ticks=43904 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=4 round=6 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=4 copies=4 calls=6 create_ticks=124679 map_ticks=55775 read_ticks=363844 write_read_ticks=354850 handler_ticks=119949 handler_max=40790 unmap_ticks=188405 release_ticks=47404 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=2 round=7 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=4 copies=4 calls=6 create_ticks=100890 map_ticks=49418 read_ticks=362866 write_read_ticks=344009 handler_ticks=109094 handler_max=34817 unmap_ticks=184917 release_ticks=102184 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=4 round=7 order=1 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=4 copies=4 calls=6 create_ticks=192064 map_ticks=62749 read_ticks=370329 write_read_ticks=380468 handler_ticks=122756 handler_max=43692 unmap_ticks=191108 release_ticks=48212 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=4 mode=0 round=7 order=2 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=195821 map_ticks=46121 read_ticks=379871 write_read_ticks=192235 handler_ticks=0 handler_max=0 unmap_ticks=227544 release_ticks=43087 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=4 round=8 order=0 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=24384 faults=4 copies=4 calls=6 create_ticks=128126 map_ticks=133540 read_ticks=379842 write_read_ticks=376746 handler_ticks=127902 handler_max=44299 unmap_ticks=200092 release_ticks=50205 isolation=1 cleanup=1
+M6TASK task=0 root=0x62000 code=0x63000 stack=0x67000 attack=0
+M6TASK task=1 root=0x6a000 code=0x6b000 stack=0x6f000 attack=0
+M6RUN pages=4 dirty=4 mode=0 round=8 order=1 warmup=0 root0=0x62000 root1=0x6a000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=4 calls=6 create_ticks=188638 map_ticks=114582 read_ticks=371975 write_read_ticks=186583 handler_ticks=0 handler_max=0 unmap_ticks=190292 release_ticks=42106 isolation=1 cleanup=1
+M6TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M6TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M6RUN pages=4 dirty=4 mode=2 round=8 order=2 warmup=0 root0=0x5e000 root1=0x66000 cs0=3 cs1=3 input_sum=40960 writer_sum=41960 reader_sum=40960 payload_peak=8 pool_peak=116 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=8 final_tables=73 final_mappings=31410 metadata=1024 faults=4 copies=4 calls=6 create_ticks=187786 map_ticks=47838 read_ticks=357449 write_read_ticks=342161 handler_ticks=109195 handler_max=35624 unmap_ticks=185060 release_ticks=42099 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=0 mode=0 round=0 order=0 warmup=1 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2757038 map_ticks=259959 read_ticks=1796728 write_read_ticks=1562149 handler_ticks=0 handler_max=0 unmap_ticks=1279518 release_ticks=636570 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=1 round=0 order=1 warmup=1 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1414779 map_ticks=202891 read_ticks=2047035 write_read_ticks=1844172 handler_ticks=0 handler_max=0 unmap_ticks=554813 release_ticks=1423897 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=2 round=0 order=2 warmup=1 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1241179 map_ticks=168736 read_ticks=1811653 write_read_ticks=1587496 handler_ticks=0 handler_max=0 unmap_ticks=471501 release_ticks=699942 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=3 round=0 order=3 warmup=1 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1367021 map_ticks=196796 read_ticks=2022380 write_read_ticks=1730715 handler_ticks=0 handler_max=0 unmap_ticks=272690 release_ticks=684414 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=4 round=0 order=4 warmup=1 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1529075 map_ticks=198892 read_ticks=1860202 write_read_ticks=1704952 handler_ticks=0 handler_max=0 unmap_ticks=272171 release_ticks=740540 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=1 round=1 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1671670 map_ticks=200500 read_ticks=1950565 write_read_ticks=1763664 handler_ticks=0 handler_max=0 unmap_ticks=500267 release_ticks=685482 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=2 round=1 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1638346 map_ticks=267278 read_ticks=1932362 write_read_ticks=1751498 handler_ticks=0 handler_max=0 unmap_ticks=509852 release_ticks=777341 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=3 round=1 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1667031 map_ticks=210289 read_ticks=1969408 write_read_ticks=1758648 handler_ticks=0 handler_max=0 unmap_ticks=281944 release_ticks=720121 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=4 round=1 order=3 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1558233 map_ticks=200035 read_ticks=1806864 write_read_ticks=1680546 handler_ticks=0 handler_max=0 unmap_ticks=260775 release_ticks=654282 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=0 mode=0 round=1 order=4 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=3071153 map_ticks=178122 read_ticks=1879878 write_read_ticks=1721850 handler_ticks=0 handler_max=0 unmap_ticks=1220513 release_ticks=703136 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=2 round=2 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1218637 map_ticks=235776 read_ticks=1878162 write_read_ticks=1637191 handler_ticks=0 handler_max=0 unmap_ticks=486012 release_ticks=664412 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=3 round=2 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1322933 map_ticks=246563 read_ticks=1853912 write_read_ticks=1616008 handler_ticks=0 handler_max=0 unmap_ticks=259085 release_ticks=652177 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=4 round=2 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1220978 map_ticks=261147 read_ticks=1754430 write_read_ticks=1592140 handler_ticks=0 handler_max=0 unmap_ticks=259708 release_ticks=650075 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=0 mode=0 round=2 order=3 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2747575 map_ticks=235883 read_ticks=1806438 write_read_ticks=1717067 handler_ticks=0 handler_max=0 unmap_ticks=1169033 release_ticks=649790 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=1 round=2 order=4 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1189018 map_ticks=169775 read_ticks=1765553 write_read_ticks=1738841 handler_ticks=0 handler_max=0 unmap_ticks=465656 release_ticks=645736 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=3 round=3 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1250386 map_ticks=177444 read_ticks=1784196 write_read_ticks=1589799 handler_ticks=0 handler_max=0 unmap_ticks=259364 release_ticks=657537 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=4 round=3 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1281661 map_ticks=181585 read_ticks=1794851 write_read_ticks=1561238 handler_ticks=0 handler_max=0 unmap_ticks=257706 release_ticks=646449 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=0 mode=0 round=3 order=2 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2909490 map_ticks=228370 read_ticks=1787975 write_read_ticks=1556883 handler_ticks=0 handler_max=0 unmap_ticks=1138178 release_ticks=658920 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=1 round=3 order=3 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1243145 map_ticks=183568 read_ticks=1979387 write_read_ticks=1635675 handler_ticks=0 handler_max=0 unmap_ticks=481073 release_ticks=670165 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=2 round=3 order=4 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1417322 map_ticks=243904 read_ticks=1901831 write_read_ticks=1826651 handler_ticks=0 handler_max=0 unmap_ticks=496943 release_ticks=695222 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=4 round=4 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1359349 map_ticks=194435 read_ticks=2198904 write_read_ticks=1777615 handler_ticks=0 handler_max=0 unmap_ticks=277654 release_ticks=693024 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=0 mode=0 round=4 order=1 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2893479 map_ticks=174018 read_ticks=2001240 write_read_ticks=1686765 handler_ticks=0 handler_max=0 unmap_ticks=1315410 release_ticks=695551 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=1 round=4 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1454892 map_ticks=293099 read_ticks=1905147 write_read_ticks=1823147 handler_ticks=0 handler_max=0 unmap_ticks=501427 release_ticks=765383 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=2 round=4 order=3 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1318134 map_ticks=176577 read_ticks=1871443 write_read_ticks=1674726 handler_ticks=0 handler_max=0 unmap_ticks=488111 release_ticks=694841 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=3 round=4 order=4 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1263433 map_ticks=181971 read_ticks=1866553 write_read_ticks=1567080 handler_ticks=0 handler_max=0 unmap_ticks=257741 release_ticks=651613 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=0 mode=0 round=5 order=0 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2734786 map_ticks=245389 read_ticks=1769228 write_read_ticks=1558647 handler_ticks=0 handler_max=0 unmap_ticks=1143136 release_ticks=631861 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=1 round=5 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1247311 map_ticks=254277 read_ticks=1870020 write_read_ticks=1726527 handler_ticks=0 handler_max=0 unmap_ticks=483904 release_ticks=682006 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=2 round=5 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1249539 map_ticks=175882 read_ticks=1869489 write_read_ticks=1719968 handler_ticks=0 handler_max=0 unmap_ticks=482191 release_ticks=686573 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=3 round=5 order=3 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1412936 map_ticks=263086 read_ticks=2051075 write_read_ticks=1684890 handler_ticks=0 handler_max=0 unmap_ticks=274313 release_ticks=758420 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=4 round=5 order=4 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1424574 map_ticks=273108 read_ticks=1794556 write_read_ticks=1590270 handler_ticks=0 handler_max=0 unmap_ticks=269704 release_ticks=667075 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=1 round=6 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1444469 map_ticks=180522 read_ticks=1840604 write_read_ticks=1665930 handler_ticks=0 handler_max=0 unmap_ticks=470668 release_ticks=660774 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=2 round=6 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1398314 map_ticks=238370 read_ticks=1754294 write_read_ticks=1719862 handler_ticks=0 handler_max=0 unmap_ticks=462529 release_ticks=645036 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=3 round=6 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1439825 map_ticks=263399 read_ticks=1791639 write_read_ticks=1588891 handler_ticks=0 handler_max=0 unmap_ticks=260476 release_ticks=726086 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=4 round=6 order=3 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1525829 map_ticks=255701 read_ticks=1805214 write_read_ticks=1596568 handler_ticks=0 handler_max=0 unmap_ticks=267002 release_ticks=648986 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=0 mode=0 round=6 order=4 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2839387 map_ticks=242450 read_ticks=1874647 write_read_ticks=1813322 handler_ticks=0 handler_max=0 unmap_ticks=1196335 release_ticks=672734 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=2 round=7 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1226559 map_ticks=172311 read_ticks=1832036 write_read_ticks=1774845 handler_ticks=0 handler_max=0 unmap_ticks=546376 release_ticks=672206 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=3 round=7 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1288597 map_ticks=183553 read_ticks=1810227 write_read_ticks=1638844 handler_ticks=0 handler_max=0 unmap_ticks=268997 release_ticks=662092 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=4 round=7 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1220104 map_ticks=203422 read_ticks=1812411 write_read_ticks=1564905 handler_ticks=0 handler_max=0 unmap_ticks=262399 release_ticks=645594 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=0 mode=0 round=7 order=3 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2823036 map_ticks=169013 read_ticks=1895284 write_read_ticks=1585165 handler_ticks=0 handler_max=0 unmap_ticks=1203109 release_ticks=635069 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=1 round=7 order=4 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1242114 map_ticks=247058 read_ticks=1867682 write_read_ticks=1832798 handler_ticks=0 handler_max=0 unmap_ticks=486989 release_ticks=674685 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=3 round=8 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1276421 map_ticks=189397 read_ticks=1917361 write_read_ticks=1905259 handler_ticks=0 handler_max=0 unmap_ticks=432760 release_ticks=774293 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=4 round=8 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=0 copies=0 calls=6 create_ticks=1373511 map_ticks=191178 read_ticks=2020939 write_read_ticks=1737545 handler_ticks=0 handler_max=0 unmap_ticks=276656 release_ticks=684339 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=0 mode=0 round=8 order=2 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2776083 map_ticks=164721 read_ticks=1784978 write_read_ticks=1560794 handler_ticks=0 handler_max=0 unmap_ticks=1130466 release_ticks=688977 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=1 round=8 order=3 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1235292 map_ticks=245646 read_ticks=1920506 write_read_ticks=1740941 handler_ticks=0 handler_max=0 unmap_ticks=495759 release_ticks=686256 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=0 mode=2 round=8 order=4 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519680 reader_sum=8519680 payload_peak=64 pool_peak=172 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=0 calls=6 create_ticks=1364542 map_ticks=257104 read_ticks=1905373 write_read_ticks=1784360 handler_ticks=0 handler_max=0 unmap_ticks=501099 release_ticks=708774 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=1 mode=0 round=0 order=0 warmup=1 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2762707 map_ticks=247709 read_ticks=1961486 write_read_ticks=1742210 handler_ticks=0 handler_max=0 unmap_ticks=1227374 release_ticks=687178 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=2 round=0 order=1 warmup=1 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=1338887 map_ticks=252048 read_ticks=1821579 write_read_ticks=1804599 handler_ticks=37298 handler_max=37298 unmap_ticks=498770 release_ticks=660750 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=4 round=0 order=2 warmup=1 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=1288524 map_ticks=187420 read_ticks=1823507 write_read_ticks=1731147 handler_ticks=41787 handler_max=41787 unmap_ticks=276395 release_ticks=649177 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=2 round=1 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=1251134 map_ticks=171111 read_ticks=1800491 write_read_ticks=1690262 handler_ticks=35524 handler_max=35524 unmap_ticks=570271 release_ticks=654294 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=4 round=1 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=1489510 map_ticks=195814 read_ticks=1848493 write_read_ticks=1678690 handler_ticks=42175 handler_max=42175 unmap_ticks=273688 release_ticks=639432 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=1 mode=0 round=1 order=2 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2812459 map_ticks=160029 read_ticks=1863746 write_read_ticks=1712673 handler_ticks=0 handler_max=0 unmap_ticks=1151979 release_ticks=646368 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=4 round=2 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=1274122 map_ticks=192785 read_ticks=1809706 write_read_ticks=1724898 handler_ticks=41281 handler_max=41281 unmap_ticks=319308 release_ticks=650340 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=1 mode=0 round=2 order=1 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2608135 map_ticks=162870 read_ticks=1784485 write_read_ticks=1633184 handler_ticks=0 handler_max=0 unmap_ticks=1121190 release_ticks=627489 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=2 round=2 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=1185087 map_ticks=168210 read_ticks=1837189 write_read_ticks=1659103 handler_ticks=35410 handler_max=35410 unmap_ticks=473529 release_ticks=634554 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=1 mode=0 round=3 order=0 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2562051 map_ticks=185298 read_ticks=1809516 write_read_ticks=1579231 handler_ticks=0 handler_max=0 unmap_ticks=1170557 release_ticks=631100 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=2 round=3 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=1187077 map_ticks=163368 read_ticks=1767403 write_read_ticks=1768557 handler_ticks=33770 handler_max=33770 unmap_ticks=479852 release_ticks=634983 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=4 round=3 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=1228647 map_ticks=177741 read_ticks=1929695 write_read_ticks=1670609 handler_ticks=44923 handler_max=44923 unmap_ticks=295054 release_ticks=659158 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=2 round=4 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=1261734 map_ticks=242888 read_ticks=1762650 write_read_ticks=1751308 handler_ticks=33805 handler_max=33805 unmap_ticks=479132 release_ticks=636770 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=4 round=4 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=1440075 map_ticks=194618 read_ticks=2245609 write_read_ticks=1674936 handler_ticks=47186 handler_max=47186 unmap_ticks=284136 release_ticks=644280 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=1 mode=0 round=4 order=2 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2813042 map_ticks=218368 read_ticks=1887425 write_read_ticks=1742838 handler_ticks=0 handler_max=0 unmap_ticks=1217002 release_ticks=743352 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=4 round=5 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=1323155 map_ticks=192522 read_ticks=2046787 write_read_ticks=1812028 handler_ticks=49983 handler_max=49983 unmap_ticks=295855 release_ticks=683622 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=1 mode=0 round=5 order=1 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2575830 map_ticks=165793 read_ticks=1794295 write_read_ticks=1583538 handler_ticks=0 handler_max=0 unmap_ticks=1130727 release_ticks=631253 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=2 round=5 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=1192670 map_ticks=163456 read_ticks=1769592 write_read_ticks=1871094 handler_ticks=33021 handler_max=33021 unmap_ticks=492508 release_ticks=640326 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=1 mode=0 round=6 order=0 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2610207 map_ticks=228442 read_ticks=1777960 write_read_ticks=1621064 handler_ticks=0 handler_max=0 unmap_ticks=1133971 release_ticks=633197 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=2 round=6 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=1405619 map_ticks=242250 read_ticks=1955028 write_read_ticks=1846202 handler_ticks=37662 handler_max=37662 unmap_ticks=485884 release_ticks=649334 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=4 round=6 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=1271153 map_ticks=260134 read_ticks=1838669 write_read_ticks=1824268 handler_ticks=41731 handler_max=41731 unmap_ticks=327637 release_ticks=669063 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=2 round=7 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=1227461 map_ticks=186407 read_ticks=1988900 write_read_ticks=1838448 handler_ticks=39514 handler_max=39514 unmap_ticks=529711 release_ticks=675049 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=4 round=7 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=1549013 map_ticks=277836 read_ticks=1949060 write_read_ticks=1769202 handler_ticks=43709 handler_max=43709 unmap_ticks=288571 release_ticks=676296 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=1 mode=0 round=7 order=2 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2787443 map_ticks=174325 read_ticks=1873082 write_read_ticks=1637262 handler_ticks=0 handler_max=0 unmap_ticks=1142419 release_ticks=641068 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=4 round=8 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=1 copies=1 calls=6 create_ticks=1322394 map_ticks=186550 read_ticks=1862995 write_read_ticks=1698640 handler_ticks=42148 handler_max=42148 unmap_ticks=277343 release_ticks=647973 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=1 mode=0 round=8 order=1 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2724237 map_ticks=244129 read_ticks=1867767 write_read_ticks=1702513 handler_ticks=0 handler_max=0 unmap_ticks=1294431 release_ticks=677433 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=1 mode=2 round=8 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8519933 reader_sum=8519680 payload_peak=65 pool_peak=173 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=1 copies=1 calls=6 create_ticks=1186809 map_ticks=248003 read_ticks=1798488 write_read_ticks=1820990 handler_ticks=35650 handler_max=35650 unmap_ticks=481006 release_ticks=639134 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=64 mode=0 round=0 order=0 warmup=1 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2658705 map_ticks=173607 read_ticks=1856382 write_read_ticks=1718668 handler_ticks=0 handler_max=0 unmap_ticks=1151337 release_ticks=646426 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=2 round=0 order=1 warmup=1 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=64 copies=64 calls=6 create_ticks=1548089 map_ticks=230212 read_ticks=1776953 write_read_ticks=3951508 handler_ticks=1602208 handler_max=48846 unmap_ticks=1144138 release_ticks=639964 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=4 round=0 order=2 warmup=1 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=64 copies=64 calls=6 create_ticks=1228439 map_ticks=186214 read_ticks=1853288 write_read_ticks=4055993 handler_ticks=1726305 handler_max=50900 unmap_ticks=915785 release_ticks=634130 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=2 round=1 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=64 copies=64 calls=6 create_ticks=1245830 map_ticks=244926 read_ticks=1898896 write_read_ticks=3928872 handler_ticks=1607782 handler_max=49414 unmap_ticks=1131319 release_ticks=647641 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=4 round=1 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=64 copies=64 calls=6 create_ticks=1305916 map_ticks=245704 read_ticks=1817530 write_read_ticks=4102383 handler_ticks=1765481 handler_max=73034 unmap_ticks=923370 release_ticks=641797 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=64 mode=0 round=1 order=2 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2698931 map_ticks=168438 read_ticks=1797078 write_read_ticks=1690602 handler_ticks=0 handler_max=0 unmap_ticks=1123109 release_ticks=629608 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=4 round=2 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=64 copies=64 calls=6 create_ticks=1299444 map_ticks=266339 read_ticks=1867627 write_read_ticks=4272785 handler_ticks=1799032 handler_max=53902 unmap_ticks=980450 release_ticks=692204 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=64 mode=0 round=2 order=1 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2702243 map_ticks=229671 read_ticks=1775797 write_read_ticks=1634885 handler_ticks=0 handler_max=0 unmap_ticks=1176180 release_ticks=645723 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=2 round=2 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=64 copies=64 calls=6 create_ticks=1212681 map_ticks=261434 read_ticks=1774196 write_read_ticks=4350217 handler_ticks=1595715 handler_max=48934 unmap_ticks=1173920 release_ticks=636829 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=64 mode=0 round=3 order=0 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2648050 map_ticks=229551 read_ticks=1825880 write_read_ticks=1615967 handler_ticks=0 handler_max=0 unmap_ticks=1528401 release_ticks=641418 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=2 round=3 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=64 copies=64 calls=6 create_ticks=1195765 map_ticks=233966 read_ticks=1839846 write_read_ticks=3940816 handler_ticks=1590134 handler_max=49278 unmap_ticks=1130967 release_ticks=629050 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=4 round=3 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=64 copies=64 calls=6 create_ticks=1243572 map_ticks=217537 read_ticks=1799973 write_read_ticks=4129451 handler_ticks=1749185 handler_max=66549 unmap_ticks=920325 release_ticks=661975 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=2 round=4 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=64 copies=64 calls=6 create_ticks=1186483 map_ticks=230919 read_ticks=1765528 write_read_ticks=4037381 handler_ticks=1657993 handler_max=71372 unmap_ticks=1161899 release_ticks=631799 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=4 round=4 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=64 copies=64 calls=6 create_ticks=1272595 map_ticks=183156 read_ticks=1788928 write_read_ticks=4210360 handler_ticks=1749708 handler_max=50790 unmap_ticks=919303 release_ticks=664560 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=64 mode=0 round=4 order=2 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2696199 map_ticks=163768 read_ticks=1816314 write_read_ticks=1662179 handler_ticks=0 handler_max=0 unmap_ticks=1132959 release_ticks=643423 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=4 round=5 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=64 copies=64 calls=6 create_ticks=1230800 map_ticks=222978 read_ticks=2103628 write_read_ticks=4155231 handler_ticks=1778393 handler_max=53392 unmap_ticks=1021867 release_ticks=709252 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=64 mode=0 round=5 order=1 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2735920 map_ticks=241715 read_ticks=1771471 write_read_ticks=1605448 handler_ticks=0 handler_max=0 unmap_ticks=1196955 release_ticks=631751 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=2 round=5 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=64 copies=64 calls=6 create_ticks=1282598 map_ticks=173240 read_ticks=1955729 write_read_ticks=4205864 handler_ticks=1691256 handler_max=71826 unmap_ticks=1290512 release_ticks=670238 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=64 mode=0 round=6 order=0 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2875759 map_ticks=162987 read_ticks=1788893 write_read_ticks=1960035 handler_ticks=0 handler_max=0 unmap_ticks=1155405 release_ticks=646025 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=2 round=6 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=64 copies=64 calls=6 create_ticks=1211328 map_ticks=165285 read_ticks=1770841 write_read_ticks=4320197 handler_ticks=1661304 handler_max=74897 unmap_ticks=1209687 release_ticks=649298 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=4 round=6 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=64 copies=64 calls=6 create_ticks=1326258 map_ticks=222275 read_ticks=1762712 write_read_ticks=4122963 handler_ticks=1721279 handler_max=51150 unmap_ticks=916952 release_ticks=634662 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=2 round=7 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=64 copies=64 calls=6 create_ticks=1238965 map_ticks=169429 read_ticks=1803299 write_read_ticks=3953800 handler_ticks=1604391 handler_max=48734 unmap_ticks=1236477 release_ticks=632191 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=4 round=7 order=1 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=64 copies=64 calls=6 create_ticks=1277804 map_ticks=177316 read_ticks=1821490 write_read_ticks=4190739 handler_ticks=1787755 handler_max=56703 unmap_ticks=943014 release_ticks=634089 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=64 mode=0 round=7 order=2 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2563181 map_ticks=208282 read_ticks=1838544 write_read_ticks=1674431 handler_ticks=0 handler_max=0 unmap_ticks=1117795 release_ticks=629218 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=4 round=8 order=0 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=24384 faults=64 copies=64 calls=6 create_ticks=1268571 map_ticks=198570 read_ticks=2102349 write_read_ticks=4408580 handler_ticks=1862665 handler_max=55094 unmap_ticks=1074551 release_ticks=692615 isolation=1 cleanup=1
+M6TASK task=0 root=0x13a000 code=0x13b000 stack=0x13f000 attack=0
+M6TASK task=1 root=0x142000 code=0x143000 stack=0x147000 attack=0
+M6RUN pages=64 dirty=64 mode=0 round=8 order=1 warmup=0 root0=0x13a000 root1=0x142000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=0 copies=64 calls=6 create_ticks=2711172 map_ticks=168660 read_ticks=1932162 write_read_ticks=1881474 handler_ticks=0 handler_max=0 unmap_ticks=1274837 release_ticks=668317 isolation=1 cleanup=1
+M6TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M6TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M6RUN pages=64 dirty=64 mode=2 round=8 order=2 warmup=0 root0=0x9a000 root1=0x102000 cs0=3 cs1=3 input_sum=8519680 writer_sum=8531840 reader_sum=8519680 payload_peak=128 pool_peak=236 before=89 after=89 extra_tables=14 task_frames=5 mapping_pages=128 final_tables=73 final_mappings=31410 metadata=1024 faults=64 copies=64 calls=6 create_ticks=1190648 map_ticks=263815 read_ticks=1890273 write_read_ticks=4235654 handler_ticks=1676062 handler_max=50939 unmap_ticks=1199495 release_ticks=690745 isolation=1 cleanup=1
+M6CHECK measured=176 warmups=22 peak_tracking=1 checksum=1 physical_identity=1 isolation=1 cleanup=1
+M6 PASS
+M7CONFIG conditions=4 samples=8 warmups=1 runs=36 attacks=22 kernel_image_bytes=946176 object_metadata=24384 trace_bytes=520 vm_context_bytes=272 native_context_bytes=400 bytecode_bytes=192 file_pages=0 compressed_bytes=0
+M7ATTACK name=unknown_opcode denied=1 unchanged=1
+M7ATTACK name=native_opcode denied=1 unchanged=1
+M7ATTACK name=object_write denied=1 unchanged=1
+M7ATTACK name=bad_register denied=1 unchanged=1
+M7ATTACK name=reserved_bits denied=1 unchanged=1
+M7ATTACK name=bad_jump denied=1 unchanged=1
+M7ATTACK name=truncated denied=1 unchanged=1
+M7ATTACK name=oversized denied=1 unchanged=1
+M7ATTACK name=local_read denied=1 unchanged=1
+M7ATTACK name=local_write denied=1 unchanged=1
+M7ATTACK name=local_overflow denied=1 unchanged=1
+M7ATTACK name=object_bounds denied=1 unchanged=1
+M7ATTACK name=object_overflow denied=1 unchanged=1
+M7ATTACK name=foreign_handle denied=1 unchanged=1
+M7ATTACK name=forged_generation denied=1 unchanged=1
+M7ATTACK name=missing_read denied=1 unchanged=1
+M7ATTACK name=malformed_handle denied=1 unchanged=1
+M7ATTACK name=loop_fuel denied=1 unchanged=1
+M7ATTACK name=bulk_fuel denied=1 unchanged=1
+M7ATTACK name=scratch_isolation denied=1 unchanged=1
+M7ATTACK name=revoked_resume denied=1 unchanged=1
+M7ATTACK name=stale_reuse denied=1 unchanged=1
+M7TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M7TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M7RUN pages=4 mode=0 round=0 warmup=1 root0=0x5e000 root1=0x66000 cpl=3 tables=14 task_frames=5 payload=4 pool_peak=112 before=89 after=89 maps=13 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=0 read_ticks=459957 repeat_ticks=187737 shared=1 cleanup=1
+M7RUN pages=4 mode=1 round=0 warmup=1 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=4 pool_peak=93 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=65548 read_ticks=107804 repeat_ticks=75026 shared=1 cleanup=1
+M7RUN pages=4 mode=1 round=1 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=4 pool_peak=93 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=65548 read_ticks=62737 repeat_ticks=46779 shared=1 cleanup=1
+M7TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M7TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M7RUN pages=4 mode=0 round=1 warmup=0 root0=0x5e000 root1=0x66000 cpl=3 tables=14 task_frames=5 payload=4 pool_peak=112 before=89 after=89 maps=13 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=0 read_ticks=363381 repeat_ticks=211141 shared=1 cleanup=1
+M7TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M7TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M7RUN pages=4 mode=0 round=2 warmup=0 root0=0x5e000 root1=0x66000 cpl=3 tables=14 task_frames=5 payload=4 pool_peak=112 before=89 after=89 maps=13 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=0 read_ticks=370050 repeat_ticks=157875 shared=1 cleanup=1
+M7RUN pages=4 mode=1 round=2 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=4 pool_peak=93 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=65548 read_ticks=61551 repeat_ticks=48239 shared=1 cleanup=1
+M7RUN pages=4 mode=1 round=3 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=4 pool_peak=93 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=65548 read_ticks=61520 repeat_ticks=46789 shared=1 cleanup=1
+M7TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M7TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M7RUN pages=4 mode=0 round=3 warmup=0 root0=0x5e000 root1=0x66000 cpl=3 tables=14 task_frames=5 payload=4 pool_peak=112 before=89 after=89 maps=13 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=0 read_ticks=383479 repeat_ticks=158141 shared=1 cleanup=1
+M7TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M7TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M7RUN pages=4 mode=0 round=4 warmup=0 root0=0x5e000 root1=0x66000 cpl=3 tables=14 task_frames=5 payload=4 pool_peak=112 before=89 after=89 maps=13 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=0 read_ticks=366897 repeat_ticks=164525 shared=1 cleanup=1
+M7RUN pages=4 mode=1 round=4 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=4 pool_peak=93 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=65548 read_ticks=61307 repeat_ticks=49573 shared=1 cleanup=1
+M7RUN pages=4 mode=1 round=5 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=4 pool_peak=93 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=65548 read_ticks=66753 repeat_ticks=49577 shared=1 cleanup=1
+M7TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M7TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M7RUN pages=4 mode=0 round=5 warmup=0 root0=0x5e000 root1=0x66000 cpl=3 tables=14 task_frames=5 payload=4 pool_peak=112 before=89 after=89 maps=13 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=0 read_ticks=384727 repeat_ticks=167167 shared=1 cleanup=1
+M7TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M7TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M7RUN pages=4 mode=0 round=6 warmup=0 root0=0x5e000 root1=0x66000 cpl=3 tables=14 task_frames=5 payload=4 pool_peak=112 before=89 after=89 maps=13 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=0 read_ticks=374935 repeat_ticks=167789 shared=1 cleanup=1
+M7RUN pages=4 mode=1 round=6 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=4 pool_peak=93 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=65548 read_ticks=60599 repeat_ticks=48584 shared=1 cleanup=1
+M7RUN pages=4 mode=1 round=7 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=4 pool_peak=93 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=65548 read_ticks=61797 repeat_ticks=47027 shared=1 cleanup=1
+M7TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M7TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M7RUN pages=4 mode=0 round=7 warmup=0 root0=0x5e000 root1=0x66000 cpl=3 tables=14 task_frames=5 payload=4 pool_peak=112 before=89 after=89 maps=13 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=0 read_ticks=356887 repeat_ticks=156935 shared=1 cleanup=1
+M7TASK task=0 root=0x5e000 code=0x5f000 stack=0x63000 attack=0
+M7TASK task=1 root=0x66000 code=0x67000 stack=0x6b000 attack=0
+M7RUN pages=4 mode=0 round=8 warmup=0 root0=0x5e000 root1=0x66000 cpl=3 tables=14 task_frames=5 payload=4 pool_peak=112 before=89 after=89 maps=13 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=0 read_ticks=361426 repeat_ticks=160999 shared=1 cleanup=1
+M7RUN pages=4 mode=1 round=8 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=4 pool_peak=93 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=40960 sum1=40960 repeat0=40960 repeat1=40960 fuel=65548 read_ticks=61916 repeat_ticks=48822 shared=1 cleanup=1
+M7TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M7TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M7RUN pages=64 mode=0 round=0 warmup=1 root0=0x9a000 root1=0x102000 cpl=3 tables=14 task_frames=5 payload=64 pool_peak=172 before=89 after=89 maps=133 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=0 read_ticks=2178682 repeat_ticks=1718496 shared=1 cleanup=1
+M7RUN pages=64 mode=1 round=0 warmup=1 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=64 pool_peak=153 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=1048588 read_ticks=779270 repeat_ticks=895107 shared=1 cleanup=1
+M7RUN pages=64 mode=1 round=1 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=64 pool_peak=153 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=1048588 read_ticks=809769 repeat_ticks=742613 shared=1 cleanup=1
+M7TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M7TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M7RUN pages=64 mode=0 round=1 warmup=0 root0=0x9a000 root1=0x102000 cpl=3 tables=14 task_frames=5 payload=64 pool_peak=172 before=89 after=89 maps=133 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=0 read_ticks=1784917 repeat_ticks=1587383 shared=1 cleanup=1
+M7TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M7TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M7RUN pages=64 mode=0 round=2 warmup=0 root0=0x9a000 root1=0x102000 cpl=3 tables=14 task_frames=5 payload=64 pool_peak=172 before=89 after=89 maps=133 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=0 read_ticks=1823726 repeat_ticks=1615968 shared=1 cleanup=1
+M7RUN pages=64 mode=1 round=2 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=64 pool_peak=153 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=1048588 read_ticks=781988 repeat_ticks=741589 shared=1 cleanup=1
+M7RUN pages=64 mode=1 round=3 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=64 pool_peak=153 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=1048588 read_ticks=759274 repeat_ticks=739546 shared=1 cleanup=1
+M7TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M7TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M7RUN pages=64 mode=0 round=3 warmup=0 root0=0x9a000 root1=0x102000 cpl=3 tables=14 task_frames=5 payload=64 pool_peak=172 before=89 after=89 maps=133 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=0 read_ticks=1813363 repeat_ticks=1555531 shared=1 cleanup=1
+M7TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M7TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M7RUN pages=64 mode=0 round=4 warmup=0 root0=0x9a000 root1=0x102000 cpl=3 tables=14 task_frames=5 payload=64 pool_peak=172 before=89 after=89 maps=133 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=0 read_ticks=1748605 repeat_ticks=1608845 shared=1 cleanup=1
+M7RUN pages=64 mode=1 round=4 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=64 pool_peak=153 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=1048588 read_ticks=756193 repeat_ticks=757196 shared=1 cleanup=1
+M7RUN pages=64 mode=1 round=5 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=64 pool_peak=153 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=1048588 read_ticks=789317 repeat_ticks=779383 shared=1 cleanup=1
+M7TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M7TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M7RUN pages=64 mode=0 round=5 warmup=0 root0=0x9a000 root1=0x102000 cpl=3 tables=14 task_frames=5 payload=64 pool_peak=172 before=89 after=89 maps=133 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=0 read_ticks=1762650 repeat_ticks=1558920 shared=1 cleanup=1
+M7TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M7TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M7RUN pages=64 mode=0 round=6 warmup=0 root0=0x9a000 root1=0x102000 cpl=3 tables=14 task_frames=5 payload=64 pool_peak=172 before=89 after=89 maps=133 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=0 read_ticks=1938854 repeat_ticks=1604038 shared=1 cleanup=1
+M7RUN pages=64 mode=1 round=6 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=64 pool_peak=153 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=1048588 read_ticks=759624 repeat_ticks=740301 shared=1 cleanup=1
+M7RUN pages=64 mode=1 round=7 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=64 pool_peak=153 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=1048588 read_ticks=763939 repeat_ticks=757563 shared=1 cleanup=1
+M7TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M7TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M7RUN pages=64 mode=0 round=7 warmup=0 root0=0x9a000 root1=0x102000 cpl=3 tables=14 task_frames=5 payload=64 pool_peak=172 before=89 after=89 maps=133 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=0 read_ticks=1757379 repeat_ticks=1560299 shared=1 cleanup=1
+M7TASK task=0 root=0x9a000 code=0x9b000 stack=0x9f000 attack=0
+M7TASK task=1 root=0x102000 code=0x103000 stack=0x107000 attack=0
+M7RUN pages=64 mode=0 round=8 warmup=0 root0=0x9a000 root1=0x102000 cpl=3 tables=14 task_frames=5 payload=64 pool_peak=172 before=89 after=89 maps=133 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=0 read_ticks=1768667 repeat_ticks=1616387 shared=1 cleanup=1
+M7RUN pages=64 mode=1 round=8 warmup=0 root0=0x1000 root1=0x1000 cpl=0 tables=0 task_frames=0 payload=64 pool_peak=153 before=89 after=89 maps=0 final_tables=73 final_maps=31410 sum0=8519680 sum1=8519680 repeat0=8519680 repeat1=8519680 fuel=1048588 read_ticks=761111 repeat_ticks=741156 shared=1 cleanup=1
+M7CHECK measured=32 warmups=4 attacks=22 shared=1 fuel=1 revocation=1 native_paging=1 cleanup=1
+M7 PASS
+M8CONFIG capacity=4 quantum=2 max_quantum=64 max_batch_fuel=2097152 scheduler_bytes=640 host_bytes=72
+M8DISPATCH scenario=0 task=0 result=0 value=0 before=5 after=3
+M8DISPATCH scenario=0 task=1 result=2 value=42 before=2 after=0
+M8DISPATCH scenario=0 task=2 result=1 value=0 before=3 after=2
+M8DISPATCH scenario=0 task=3 result=5 value=0 before=2 after=0
+M8DISPATCH scenario=0 task=0 result=0 value=0 before=3 after=1
+M8DISPATCH scenario=0 task=2 result=1 value=0 before=2 after=0
+M8DISPATCH scenario=0 task=0 result=3 value=0 before=1 after=0
+M8DISPATCH scenario=0 task=2 result=3 value=0 before=0 after=0
+M8DISPATCH scenario=1 task=0 result=0 value=0 before=5 after=3
+M8DISPATCH scenario=1 task=1 result=0 value=0 before=10000 after=5902
+M8DISPATCH scenario=1 task=2 result=0 value=0 before=10000 after=5902
+M8DISPATCH scenario=1 task=3 result=4 value=0 before=10000 after=5902
+M8SHARED frame1=0x5a000 frame2=0x5a000 payload=1 capabilities=3 mappings=0 sum1=28672 sum2=28672
+M8DISPATCH scenario=1 task=0 result=0 value=0 before=3 after=1
+M8DISPATCH scenario=1 task=1 result=4 value=0 before=5902 after=1805
+M8DISPATCH scenario=1 task=2 result=4 value=0 before=5902 after=1805
+M8DISPATCH scenario=1 task=0 result=3 value=0 before=1 after=0
+M8DISPATCH scenario=2 task=1 result=2 value=0 before=1 after=0
+M8QUOTAS zero=1 overflow=1 aggregate=1 capacity=1 quantum=1 no_refund=1 no_reuse=1 cancel=1 shutdown=1
+M8FRAMES before=89 after=89 tables_before=73 tables_after=73 mappings_before=31410 mappings_after=31410 payload=0 capabilities=0
+M8CHECK dispatches=17 fairness=1 fault_isolation=1 shared=1 revocation=1 cleanup=1
+M8 PASS
+M9MODULE bytes=224 physical=0x3b9b000 retained_pages=1 fingerprint=8312952697274562058
+M9LOAD tasks=3 code_bytes=160 fuel=17 batch_bytes=1096 scheduler_bytes=640
+M9TASK task=0 result=Ok(Event(Halt(42))) before=4 after=2
+M9TASK task=1 result=Ok(Expired) before=5 after=3
+M9TASK task=2 result=Err(Authority) before=8 after=5
+M9TASK task=1 result=Ok(Event(Yield(3))) before=3 after=1
+M9TASK task=1 result=Ok(Event(Halt(3))) before=1 after=0
+M9CLEAN turns=5 stops=3 code_bytes=0 tasks=0 before=89 after=89 tables=73 mappings=31410 capabilities=0 payload=0
+M9 PASS
+M10CASE case=0 turns=0 stops=3 calls=0 before=89 after=89 peak=90 tables=73 mappings=31410 payload=0 capabilities=0 code_bytes=0
+M10CASE case=1 turns=1 stops=3 calls=0 before=89 after=89 peak=90 tables=73 mappings=31410 payload=0 capabilities=0 code_bytes=0
+M10CASE case=2 turns=1 stops=3 calls=0 before=89 after=89 peak=90 tables=73 mappings=31410 payload=0 capabilities=0 code_bytes=0
+M10CASE case=3 turns=1 stops=3 calls=1 before=89 after=89 peak=90 tables=73 mappings=31410 payload=0 capabilities=0 code_bytes=0
+M10CHECK cases=4 session_bytes=648 host_bound=1 drop_cleanup=1 once=1 code_lifetime=1
+M10 PASS
+M11MODULE bytes=208 physical=0x3b95000 retained_pages=1 fingerprint=13430044594536863765
+M11REJECT format=Code(Opcode) admitted=0 grants=0
+M12MODULE bytes=256 physical=0x3b90000 retained_pages=1 fingerprint=8948043777090513935
+M12READ case=0 task=0 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M12TASK case=0 task=0 result=Ok(Event(Yield(28672))) before=8200 after=4102
+M12READ case=0 task=1 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M12TASK case=0 task=1 result=Ok(Event(Yield(28672))) before=8200 after=4102
+M12REVOKE case=0 changed=1 before=90 after=89 payload=0 capabilities=0
+M12REVOKE case=0 changed=0 before=89 after=89 payload=0 capabilities=0
+M12CONTROL case=0 ready=3 cancelled=0 repeat_cancel=0
+M12READ case=0 task=2 allowed=0 length=4096 value=0 frame=0x0 pages=0
+M12TASK case=0 task=2 result=Err(Authority) before=8200 after=4103
+M12READ case=0 task=0 allowed=0 length=4096 value=0 frame=0x0 pages=0
+M12TASK case=0 task=0 result=Err(Authority) before=4102 after=5
+M12READ case=0 task=1 allowed=0 length=4096 value=0 frame=0x0 pages=0
+M12TASK case=0 task=1 result=Err(Authority) before=4102 after=5
+M12STOP case=0 stops=3 owner_caps=0 reads=5
+M12FRAMES case=0 turns=5 before=89 after=89 peak=90 tables=73 mappings=31410 payload=0 capabilities=0
+M12READ case=1 task=0 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M12TASK case=1 task=0 result=Ok(Event(Yield(28672))) before=8200 after=4102
+M12READ case=1 task=1 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M12TASK case=1 task=1 result=Ok(Event(Yield(28672))) before=8200 after=4102
+M12REVOKE case=1 changed=1 before=90 after=89 payload=0 capabilities=0
+M12REVOKE case=1 changed=0 before=89 after=89 payload=0 capabilities=0
+M12CONTROL case=1 ready=2 cancelled=1 repeat_cancel=0
+M12READ case=1 task=2 allowed=0 length=4096 value=0 frame=0x0 pages=0
+M12TASK case=1 task=2 result=Err(Authority) before=8200 after=4103
+M12READ case=1 task=1 allowed=0 length=4096 value=0 frame=0x0 pages=0
+M12TASK case=1 task=1 result=Err(Authority) before=4102 after=5
+M12STOP case=1 stops=3 owner_caps=0 reads=4
+M12FRAMES case=1 turns=4 before=89 after=89 peak=90 tables=73 mappings=31410 payload=0 capabilities=0
+M12RESTART old=2949120 new=3080192 foreign=3014656
+M12READ case=2 task=0 allowed=0 length=4096 value=0 frame=0x0 pages=0
+M12TASK case=2 task=0 result=Err(Authority) before=8200 after=4103
+M12READ case=2 task=1 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M12TASK case=2 task=1 result=Ok(Event(Yield(28672))) before=8200 after=4102
+M12READ case=2 task=2 allowed=0 length=4096 value=0 frame=0x0 pages=0
+M12TASK case=2 task=2 result=Err(Authority) before=8200 after=4103
+M12READ case=2 task=1 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M12TASK case=2 task=1 result=Ok(Event(Halt(28672))) before=4102 after=4
+M12STOP case=2 stops=3 owner_caps=1 reads=4
+M12FRAMES case=2 turns=4 before=89 after=89 peak=90 tables=73 mappings=31410 payload=0 capabilities=0
+M12CLEAN cases=3 code_bytes=0 tasks=0
+M12 PASS
+M13SNAP case=0 step=0 action=initial admitted=3 ready=3 granted=24600 remaining=24600 objects=1 payload=1 capabilities=3 mappings=0 revoked=0
+M13STATE case=0 step=0 task=0 state=Ready fuel=8200
+M13STATE case=0 step=0 task=1 state=Ready fuel=8200
+M13STATE case=0 step=0 task=2 state=Ready fuel=8200
+M13STATE case=0 step=0 task=3 state=Empty fuel=0
+M13READ case=0 task=0 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M13EVENT case=0 step=1 task=0 result=Ok(Expired) before=8200 after=4103
+M13SNAP case=0 step=1 action=dispatch admitted=3 ready=3 granted=24600 remaining=20503 objects=1 payload=1 capabilities=3 mappings=0 revoked=0
+M13STATE case=0 step=1 task=0 state=Ready fuel=4103
+M13STATE case=0 step=1 task=1 state=Ready fuel=8200
+M13STATE case=0 step=1 task=2 state=Ready fuel=8200
+M13STATE case=0 step=1 task=3 state=Empty fuel=0
+M13READ case=0 task=1 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M13EVENT case=0 step=2 task=1 result=Ok(Expired) before=8200 after=4103
+M13SNAP case=0 step=2 action=dispatch admitted=3 ready=3 granted=24600 remaining=16406 objects=1 payload=1 capabilities=3 mappings=0 revoked=0
+M13STATE case=0 step=2 task=0 state=Ready fuel=4103
+M13STATE case=0 step=2 task=1 state=Ready fuel=4103
+M13STATE case=0 step=2 task=2 state=Ready fuel=8200
+M13STATE case=0 step=2 task=3 state=Empty fuel=0
+M13READ case=0 task=2 allowed=0 length=4096 value=0 frame=0x0 pages=0
+M13EVENT case=0 step=3 task=2 result=Err(Authority) before=8200 after=4103
+M13SNAP case=0 step=3 action=dispatch admitted=3 ready=2 granted=24600 remaining=12309 objects=1 payload=1 capabilities=3 mappings=0 revoked=0
+M13STATE case=0 step=3 task=0 state=Ready fuel=4103
+M13STATE case=0 step=3 task=1 state=Ready fuel=4103
+M13STATE case=0 step=3 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=0 step=3 task=3 state=Empty fuel=0
+M13EVENT case=0 step=4 task=0 result=Ok(Event(Yield(28672))) before=4103 after=4102
+M13SNAP case=0 step=4 action=dispatch admitted=3 ready=2 granted=24600 remaining=12308 objects=1 payload=1 capabilities=3 mappings=0 revoked=0
+M13STATE case=0 step=4 task=0 state=Ready fuel=4102
+M13STATE case=0 step=4 task=1 state=Ready fuel=4103
+M13STATE case=0 step=4 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=0 step=4 task=3 state=Empty fuel=0
+M13EVENT case=0 step=5 task=1 result=Ok(Event(Yield(28672))) before=4103 after=4102
+M13SNAP case=0 step=5 action=dispatch admitted=3 ready=2 granted=24600 remaining=12307 objects=1 payload=1 capabilities=3 mappings=0 revoked=0
+M13STATE case=0 step=5 task=0 state=Ready fuel=4102
+M13STATE case=0 step=5 task=1 state=Ready fuel=4102
+M13STATE case=0 step=5 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=0 step=5 task=3 state=Empty fuel=0
+M13READ case=0 task=0 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M13EVENT case=0 step=6 task=0 result=Ok(Expired) before=4102 after=5
+M13SNAP case=0 step=6 action=dispatch admitted=3 ready=2 granted=24600 remaining=8210 objects=1 payload=1 capabilities=3 mappings=0 revoked=0
+M13STATE case=0 step=6 task=0 state=Ready fuel=5
+M13STATE case=0 step=6 task=1 state=Ready fuel=4102
+M13STATE case=0 step=6 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=0 step=6 task=3 state=Empty fuel=0
+M13READ case=0 task=1 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M13EVENT case=0 step=7 task=1 result=Ok(Expired) before=4102 after=5
+M13SNAP case=0 step=7 action=dispatch admitted=3 ready=2 granted=24600 remaining=4113 objects=1 payload=1 capabilities=3 mappings=0 revoked=0
+M13STATE case=0 step=7 task=0 state=Ready fuel=5
+M13STATE case=0 step=7 task=1 state=Ready fuel=5
+M13STATE case=0 step=7 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=0 step=7 task=3 state=Empty fuel=0
+M13EVENT case=0 step=8 task=0 result=Ok(Event(Halt(28672))) before=5 after=4
+M13SNAP case=0 step=8 action=dispatch admitted=3 ready=1 granted=24600 remaining=4112 objects=1 payload=1 capabilities=2 mappings=0 revoked=0
+M13STATE case=0 step=8 task=0 state=Halted(28672) fuel=4
+M13STATE case=0 step=8 task=1 state=Ready fuel=5
+M13STATE case=0 step=8 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=0 step=8 task=3 state=Empty fuel=0
+M13EVENT case=0 step=9 task=1 result=Ok(Event(Halt(28672))) before=5 after=4
+M13SNAP case=0 step=9 action=dispatch admitted=3 ready=0 granted=24600 remaining=4111 objects=1 payload=1 capabilities=1 mappings=0 revoked=0
+M13STATE case=0 step=9 task=0 state=Halted(28672) fuel=4
+M13STATE case=0 step=9 task=1 state=Halted(28672) fuel=4
+M13STATE case=0 step=9 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=0 step=9 task=3 state=Empty fuel=0
+M13SNAP case=0 step=10 action=stable admitted=3 ready=0 granted=24600 remaining=4111 objects=1 payload=1 capabilities=1 mappings=0 revoked=0
+M13STATE case=0 step=10 task=0 state=Halted(28672) fuel=4
+M13STATE case=0 step=10 task=1 state=Halted(28672) fuel=4
+M13STATE case=0 step=10 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=0 step=10 task=3 state=Empty fuel=0
+M13CLEAN case=0 stops=3 before=89 after=89 peak=90 tables=73 mappings=31410 payload=0 capabilities=0
+M13SNAP case=1 step=0 action=initial admitted=3 ready=3 granted=24600 remaining=24600 objects=1 payload=1 capabilities=3 mappings=0 revoked=0
+M13STATE case=1 step=0 task=0 state=Ready fuel=8200
+M13STATE case=1 step=0 task=1 state=Ready fuel=8200
+M13STATE case=1 step=0 task=2 state=Ready fuel=8200
+M13STATE case=1 step=0 task=3 state=Empty fuel=0
+M13READ case=1 task=0 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M13EVENT case=1 step=1 task=0 result=Ok(Expired) before=8200 after=4103
+M13SNAP case=1 step=1 action=dispatch admitted=3 ready=3 granted=24600 remaining=20503 objects=1 payload=1 capabilities=3 mappings=0 revoked=0
+M13STATE case=1 step=1 task=0 state=Ready fuel=4103
+M13STATE case=1 step=1 task=1 state=Ready fuel=8200
+M13STATE case=1 step=1 task=2 state=Ready fuel=8200
+M13STATE case=1 step=1 task=3 state=Empty fuel=0
+M13READ case=1 task=1 allowed=1 length=4096 value=28672 frame=0x5a000 pages=1
+M13EVENT case=1 step=2 task=1 result=Ok(Expired) before=8200 after=4103
+M13SNAP case=1 step=2 action=dispatch admitted=3 ready=3 granted=24600 remaining=16406 objects=1 payload=1 capabilities=3 mappings=0 revoked=0
+M13STATE case=1 step=2 task=0 state=Ready fuel=4103
+M13STATE case=1 step=2 task=1 state=Ready fuel=4103
+M13STATE case=1 step=2 task=2 state=Ready fuel=8200
+M13STATE case=1 step=2 task=3 state=Empty fuel=0
+M13SNAP case=1 step=3 action=cancel admitted=3 ready=2 granted=24600 remaining=16406 objects=1 payload=1 capabilities=2 mappings=0 revoked=0
+M13STATE case=1 step=3 task=0 state=Cancelled fuel=4103
+M13STATE case=1 step=3 task=1 state=Ready fuel=4103
+M13STATE case=1 step=3 task=2 state=Ready fuel=8200
+M13STATE case=1 step=3 task=3 state=Empty fuel=0
+M13SNAP case=1 step=4 action=revoke admitted=3 ready=2 granted=24600 remaining=16406 objects=0 payload=0 capabilities=0 mappings=0 revoked=1
+M13STATE case=1 step=4 task=0 state=Cancelled fuel=4103
+M13STATE case=1 step=4 task=1 state=Ready fuel=4103
+M13STATE case=1 step=4 task=2 state=Ready fuel=8200
+M13STATE case=1 step=4 task=3 state=Empty fuel=0
+M13READ case=1 task=2 allowed=0 length=4096 value=0 frame=0x0 pages=0
+M13EVENT case=1 step=5 task=2 result=Err(Authority) before=8200 after=4103
+M13SNAP case=1 step=5 action=dispatch admitted=3 ready=1 granted=24600 remaining=12309 objects=0 payload=0 capabilities=0 mappings=0 revoked=1
+M13STATE case=1 step=5 task=0 state=Cancelled fuel=4103
+M13STATE case=1 step=5 task=1 state=Ready fuel=4103
+M13STATE case=1 step=5 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=1 step=5 task=3 state=Empty fuel=0
+M13EVENT case=1 step=6 task=1 result=Ok(Event(Yield(28672))) before=4103 after=4102
+M13SNAP case=1 step=6 action=dispatch admitted=3 ready=1 granted=24600 remaining=12308 objects=0 payload=0 capabilities=0 mappings=0 revoked=1
+M13STATE case=1 step=6 task=0 state=Cancelled fuel=4103
+M13STATE case=1 step=6 task=1 state=Ready fuel=4102
+M13STATE case=1 step=6 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=1 step=6 task=3 state=Empty fuel=0
+M13READ case=1 task=1 allowed=0 length=4096 value=0 frame=0x0 pages=0
+M13EVENT case=1 step=7 task=1 result=Err(Authority) before=4102 after=5
+M13SNAP case=1 step=7 action=dispatch admitted=3 ready=0 granted=24600 remaining=8211 objects=0 payload=0 capabilities=0 mappings=0 revoked=1
+M13STATE case=1 step=7 task=0 state=Cancelled fuel=4103
+M13STATE case=1 step=7 task=1 state=Faulted(Authority) fuel=5
+M13STATE case=1 step=7 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=1 step=7 task=3 state=Empty fuel=0
+M13SNAP case=1 step=8 action=stable admitted=3 ready=0 granted=24600 remaining=8211 objects=0 payload=0 capabilities=0 mappings=0 revoked=1
+M13STATE case=1 step=8 task=0 state=Cancelled fuel=4103
+M13STATE case=1 step=8 task=1 state=Faulted(Authority) fuel=5
+M13STATE case=1 step=8 task=2 state=Faulted(Authority) fuel=4103
+M13STATE case=1 step=8 task=3 state=Empty fuel=0
+M13CLEAN case=1 stops=3 before=89 after=89 peak=90 tables=73 mappings=31410 payload=0 capabilities=0
+M13CHECK cases=2 scheduler_bytes=640 session_bytes=648 snapshot_bytes=128 inspection_bytes=168 code_bytes=0
+M13 PASS
+M14DONE case=0 dispatches=9 limited=0 ready=0 granted=24600 remaining=4111 stops=3
+M14STATE case=0 task=0 state=Halted(28672) fuel=4
+M14STATE case=0 task=1 state=Halted(28672) fuel=4
+M14STATE case=0 task=2 state=Faulted(Authority) fuel=4103
+M14STATE case=0 task=3 state=Empty fuel=0
+M14ACCOUNT case=0 objects=0 payload=0 capabilities=0 private=0 mappings=0 preserved=1
+M14CLEAN case=0 before=89 after=89 peak=90 tables=73 mappings=31410 reads=4 frame=0x5a000 kept=0
+M14DONE case=1 dispatches=9 limited=0 ready=0 granted=24600 remaining=4111 stops=3
+M14STATE case=1 task=0 state=Halted(28672) fuel=4
+M14STATE case=1 task=1 state=Halted(28672) fuel=4
+M14STATE case=1 task=2 state=Faulted(Authority) fuel=4103
+M14STATE case=1 task=3 state=Empty fuel=0
+M14ACCOUNT case=1 objects=0 payload=0 capabilities=0 private=0 mappings=0 preserved=1
+M14CLEAN case=1 before=89 after=89 peak=90 tables=73 mappings=31410 reads=4 frame=0x5a000 kept=0
+M14DONE case=2 dispatches=2 limited=1 ready=0 granted=24600 remaining=16406 stops=3
+M14STATE case=2 task=0 state=Cancelled fuel=4103
+M14STATE case=2 task=1 state=Cancelled fuel=4103
+M14STATE case=2 task=2 state=Cancelled fuel=8200
+M14STATE case=2 task=3 state=Empty fuel=0
+M14ACCOUNT case=2 objects=0 payload=0 capabilities=0 private=0 mappings=0 preserved=1
+M14CLEAN case=2 before=89 after=89 peak=90 tables=73 mappings=31410 reads=2 frame=0x5a000 kept=0
+M14DONE case=3 dispatches=0 limited=1 ready=0 granted=24600 remaining=24600 stops=3
+M14STATE case=3 task=0 state=Cancelled fuel=8200
+M14STATE case=3 task=1 state=Cancelled fuel=8200
+M14STATE case=3 task=2 state=Cancelled fuel=8200
+M14STATE case=3 task=3 state=Empty fuel=0
+M14ACCOUNT case=3 objects=0 payload=0 capabilities=0 private=0 mappings=0 preserved=1
+M14CLEAN case=3 before=89 after=89 peak=90 tables=73 mappings=31410 reads=0 frame=0x0 kept=0
+M14START case=4 error=Configuration
+M14ACCOUNT case=4 objects=0 payload=0 capabilities=0 private=0 mappings=0 preserved=1
+M14CLEAN case=4 before=89 after=89 peak=89 tables=73 mappings=31410 reads=0 frame=0x0 kept=0
+M14START case=5 error=Launch(Busy)
+M14ACCOUNT case=5 objects=1 payload=1 capabilities=1 private=0 mappings=0 preserved=1
+M14CLEAN case=5 before=89 after=89 peak=90 tables=73 mappings=31410 reads=0 frame=0x0 kept=36864
+M14START case=6 error=Load(Version)
+M14ACCOUNT case=6 objects=0 payload=0 capabilities=0 private=0 mappings=0 preserved=1
+M14CLEAN case=6 before=89 after=89 peak=89 tables=73 mappings=31410 reads=0 frame=0x0 kept=0
+M14START case=7 error=Launch(Count)
+M14ACCOUNT case=7 objects=0 payload=0 capabilities=0 private=0 mappings=0 preserved=1
+M14CLEAN case=7 before=89 after=89 peak=89 tables=73 mappings=31410 reads=0 frame=0x0 kept=0
+M14CHECK cases=8 max_dispatches=1024 report_bytes=272 completion_bytes=176
+M14 PASS
+LAUNCHRESULT generated=240 rejected=264 digest=1494677361 reads=66 before=89 after=89 peak=90 reject_peak=89 tables=73 mappings=31410 payload=0 capabilities=0
+LAUNCHMODEL PASS

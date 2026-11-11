@@ -1,73 +1,60 @@
 # Shared-First OS
 
-**A bootable Rust research kernel for capability-controlled shared memory.**
+**An open-source research operating system exploring capability-controlled shared memory.**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Research prototype](https://img.shields.io/badge/status-research%20prototype-orange)](docs/ROADMAP.md)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Checks](https://github.com/Madoa5561/shared-first-os/actions/workflows/check.yml/badge.svg)](https://github.com/Madoa5561/shared-first-os/actions/workflows/check.yml)
 
-Shared-First OS explores immutable memory objects and copy-on-write across isolated
-tasks. It runs a real `no_std` x86-64 kernel under QEMU, with hardware paging,
-task-local capabilities, and reproducible tests backed by serial logs.
+Shared-First OS is a small Rust `no_std` kernel for x86-64. It investigates
+object-centric memory ownership, immutable sharing and copy-on-write while
+preserving hardware isolation for native tasks.
 
-This is an early research preview. The current system executes finite test
-workloads, including restricted bytecode loaded from separate boot modules,
-and exits automatically. There is no desktop, interactive shell,
-filesystem, network stack, general application loader, or physical-machine installer.
+The project runs reproducible experiments in QEMU and publishes their source,
+serial logs and resource accounting. It is an experimental research system:
+the image boots, runs finite workloads and exits. It has no desktop, interactive
+shell, filesystem, network stack or physical-machine installer.
 
-**[Download the M14 research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/m14-preview)**
-· **[Build instructions](docs/BUILD.md)**
-· **[Architecture](docs/ARCHITECTURE.md)**
-· **[Verification report](docs/M14-VERIFICATION.md)**
+[Download the research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/v0.2.0)
+· [Build instructions](docs/BUILD.md)
+· [Architecture](docs/ARCHITECTURE.md)
+· [Verification](docs/VERIFICATION.md)
 
-## What works
+## Research focus
 
-- **UEFI boot:** pinned Limine bootloader, serial diagnostics, parsed memory map.
-- **Memory management:** usable-frame allocator, peak tracking, four-level page
-  tables, W^X protections, guarded kernel stack, explicit TLB handling.
-- **Capabilities:** per-task slot + generation handles, rights attenuation,
-  immutable objects, mapping, release, and revocation of existing mappings.
-- **Real userspace:** CPL3 tasks with independent page-table roots and an
-  `int 0x80` boundary. Two tasks share the same 4 MiB of physical backing.
-- **Copy-on-write:** an authorized write fault copies only the affected 4 KiB
-  page, preserving the reader's data and reclaiming copies on teardown.
-- **Optional policies:** bounded deduplication and pressure-triggered compression
-  experiments, including metadata accounting and incompressible-data tests.
-- **Comparisons:** private, ordinary shared, ordinary COW, object shared, and
-  object COW modes with saved samples and descriptive statistics.
-- **Restricted interpreter:** eight validated bytecode instructions, private
-  scratch memory, checked object reads, persistent fuel limits, and attack tests.
-- **Bounded bytecode scheduling:** four fixed task slots, instruction quanta,
-  round-robin dispatch, cumulative fuel quotas, and task-local cleanup.
-- **External bytecode packages:** a versioned boot-module format, full-package
-  validation, owned code storage, and explicit code/fuel quotas. No initial
-  capabilities are granted by the package itself.
-- **Scoped execution:** code and the authority host stay borrowed by one session;
-  leaving the scope cancels remaining tasks and releases their object references.
-- **Initial read capabilities:** a trusted kernel manifest gives two external
-  programs access to the same immutable 4 KiB object. A third program has no grant
-  and is denied. Launch arguments carry task-local handles, not global authority.
-- **Scoped revocation:** trusted control can revoke a suspended session's object.
-  Subsequent reads are denied; restart tests reject old handles while new grants work.
-- **Execution inspection:** owned snapshots retain task stop reasons and remaining
-  fuel; a restricted host interface reports resource counts and revocation state.
-  Queries preserve scheduling and do not expose the authority host.
-- **Bounded launch API:** validate an external package, prepare trusted READ grants,
-  execute within a dispatch limit and reclaim acquired resources before returning
-  an owned result. Startup errors and task faults remain distinct.
+- How should shared objects and task-local authority interact with memory lifetime?
+- What are the physical payload, metadata and mapping costs of sharing and COW?
+- Which costs change when a restricted interpreter executes a bounded workload
+  instead of native tasks with separate address spaces?
 
-Native tasks retain hardware isolation. The restricted interpreter is trusted
-kernel code; it accepts a small custom language, not arbitrary native code or WASM.
+Ordinary shared memory and COW already provide payload savings. This project
+does not claim to invent those techniques or outperform general-purpose systems.
+Measurements separate actual physical frames from virtual mappings and metadata.
 
-## Try the prebuilt image
+## Implemented capabilities
 
-Download `shared-first-os-m14-preview.zip` from the
-[M14 release](https://github.com/Madoa5561/shared-first-os/releases/tag/m14-preview).
-The ZIP contains the bootable ISO, kernel ELF, checksums, and license notices.
-The ISO is also available as a separate asset.
+- UEFI boot through a pinned Limine build, serial diagnostics and memory-map parsing.
+- Physical frame allocation, protected page tables, W^X checks and guarded stacks.
+- Task-local capabilities with generations, rights attenuation and mapping revocation.
+- Native CPL3 tasks with independent page-table roots and shared physical backing.
+- Immutable objects and page-granular copy-on-write with teardown accounting.
+- Experimental deduplication and compression policies with enabled/disabled comparisons.
+- A restricted bytecode interpreter with validation, private scratch space and fuel limits.
+- External bytecode packages, bounded scheduling, scoped execution and trusted READ grants.
+- Revocation, cancellation, execution snapshots and a bounded launch API that returns
+  startup errors or task results after reclaiming acquired resources.
+- Generated launch cases checked against independent Rust and Python reference models.
 
-Run it in QEMU with OVMF. The tested environment is QEMU 10.2.1, q35, qemu64,
-TCG, one CPU, and 128 or 256 MiB RAM. The following command is for Linux/WSL
-with Ubuntu's OVMF paths; see [BUILD.md](docs/BUILD.md) for exact package versions.
+The interpreter is trusted kernel code. It accepts a small custom language,
+not arbitrary native code or WebAssembly.
+
+## Run a preview
+
+Download the ISO or ZIP from the [releases](https://github.com/Madoa5561/shared-first-os/releases).
+The ZIP includes the kernel ELF, external program modules, examples, checksums
+and license notices. Verify the files with `SHA256SUMS.txt`.
+
+The tested setup uses QEMU 10.2.1, OVMF, q35, TCG, one CPU and 128 or 256 MiB RAM.
+On Linux/WSL with Ubuntu's OVMF paths:
 
 ```sh
 cp /usr/share/OVMF/OVMF_VARS_4M.fd ./OVMF_VARS.fd
@@ -80,181 +67,63 @@ qemu-system-x86_64 \
   -device isa-debug-exit,iobase=0xf4,iosize=0x04
 ```
 
-Expect `Shared-First OS booted`, followed by `M1 PASS` through `M14 PASS`.
-The full benchmark suite can take over 90 seconds under TCG; the test runner allows
-up to 180 seconds per boot. QEMU exits with
-**code 33 on success** through `isa-debug-exit`; this nonzero code is intentional.
-Code 35 indicates a kernel panic. Use QEMU only; physical-machine boot is untested.
+The serial console starts with `Shared-First OS booted` and prints the experiment
+results. **QEMU exit code 33 means success**; code 35 indicates a kernel panic.
+The test runner allows 180 seconds per normal boot. Individual PASS markers
+alone do not establish success: the runner also checks results and resource accounting.
 
-## Build from source
+## Build and test
 
-The verified build path uses Windows PowerShell 7, Rust 1.96.0, and WSL2 Ubuntu
-26.04. The kernel has no external Rust crate dependencies. Setup commands are
-explicit; normal build scripts do not install host packages.
+The verified build path uses PowerShell 7, Rust 1.96.0 and WSL2 Ubuntu 26.04.
+There are no external Rust crate dependencies. Follow [the setup guide](docs/BUILD.md)
+before running these commands:
 
 ```powershell
 git clone https://github.com/Madoa5561/shared-first-os.git
 cd shared-first-os
-
-# First follow docs/BUILD.md to prepare Rust, WSL, QEMU, OVMF and xorriso.
-./tools/fetch-limine.ps1       # Fetch and verify the pinned bootloader
-./tools/project.ps1 build     # Build ELF and UEFI ISO
-./tools/project.ps1 test-boot # Boot, validate evidence and exit
-./tools/project.ps1 verify    # All static, unit, boot and failure-path checks
+./tools/fetch-limine.ps1
+./tools/project.ps1 check
+./tools/project.ps1 build
+./tools/project.ps1 test-boot
+./tools/project.ps1 verify
 ```
 
-Outputs:
+The normal ISO is written to `build/normal/shared-first.iso`. Exact commands,
+serial logs and machine-readable results are saved under `artifacts/`.
+Tool versions and bootloader hashes are pinned; ISO timestamp metadata is not,
+so byte-for-byte identical ISO builds are not claimed.
 
-| Path | Contents |
-| --- | --- |
-| `build/normal/shared-first.iso` | Normal bootable UEFI image |
-| `target/x86_64-unknown-none/release/shared-first-kernel` | Rust kernel ELF |
-| `artifacts/commands-*/` | Exact commands, exit status, stdout/stderr |
-| `artifacts/boot-*/` | Serial logs, machine-readable results, benchmark tables |
+## Evidence and limits
 
-The scripts enforce locked versions. An ISO's timestamp metadata is not fixed,
-so byte-for-byte reproducible ISO builds are not claimed.
+[The verification report](docs/VERIFICATION.md) records tested behavior and
+unverified scope. QEMU checks run locally on Windows/WSL; GitHub CI runs portable
+Rust tests, compile-time borrowing checks, Clippy and Python validator tests.
 
-## Verified results
+The native sharing experiment checks the same 1,024 physical pages in two
+isolated tasks. A write to one COW page produces one private 4 KiB copy.
+These are controlled workloads, not general application performance claims.
+Benchmark values are guest TSC ticks, not calibrated CPU time.
 
-M14 adds a synchronous bounded launch entry point. Verification passed **74 Rust
-unit tests**, **3 documentation compile tests**, **63 Python tests**, and all **33
-commands** covering QEMU at 128/256 MiB, seven module variants and failure paths.
-Eight launch cases check terminal state, dispatch bounds, startup rejection,
-preservation of pre-existing resources and actual physical cleanup.
-See [M14 verification](docs/M14-VERIFICATION.md) and [raw evidence](docs/evidence/m14).
+Execution uses one CPU with interrupts disabled. Tables and workloads are bounded;
+there is no native preemption, SMP, general native application loader or dynamic
+task-slot reuse. The kernel manifest and boot module order are trusted.
+Revocation blocks subsequent reads but cannot erase data already read.
+Cleanup on normal scope exit does not cover aborts, power loss or deliberate
+`mem::forget`. Physical hardware, KVM, Secure Boot, DMA isolation, side-channel
+resistance and formal security proofs are outside the verified scope.
 
-M13 adds read-only execution and resource inspection. Verification passed **70 Rust
-unit tests**, **3 documentation compile tests**, **60 Python tests**, and all **33
-commands** covering QEMU at 128/256 MiB, seven module variants and failure paths.
-Two external execution cases validate 20 snapshots and 80 task observations with
-actual shared physical backing. See [M13 verification](docs/M13-VERIFICATION.md)
-and [raw evidence](docs/evidence/m13).
+## Documentation
 
-M12 adds scoped revocation, partial cancellation and generation-safe restart of
-external bytecode. Its verification passed **66 Rust unit tests**, **3 documentation
-compile tests**, **57 Python tests**, and all **33 commands** covering QEMU at 128/256 MiB,
-seven module variants and failure paths. See [M12 verification](docs/M12-VERIFICATION.md)
-and [raw evidence](docs/evidence/m12).
+- [Architecture and ownership](docs/ARCHITECTURE.md)
+- [Bytecode format and packaging](docs/BYTECODE.md)
+- [Security model](docs/SECURITY-MODEL.md)
+- [Build and test environment](docs/BUILD.md)
+- [Verification and raw evidence](docs/VERIFICATION.md)
+- [Contributing](CONTRIBUTING.md) · [Security reporting](SECURITY.md)
 
-M11 adds trusted initial READ grants, argument delivery and launch cleanup.
-The final verification passed **63 Rust unit tests**, **3 documentation compile
-tests**, **54 Python tests**, and all **31 commands** covering static checks, QEMU
-at 128/256 MiB, six external-input variants, and failure paths. An initial 90-second
-timeout is recorded separately as a failure; the final run uses a 180-second limit.
-See [M11 verification](docs/M11-VERIFICATION.md) and [raw evidence](docs/evidence/m11).
+## License
 
-The M10 verification run includes **58 Rust unit tests**, **3 documentation compile tests**,
-and **51 Python tests**. QEMU tests cover 128/256 MiB,
-external-module changes and rejection, and four session cleanup cases using real
-shared physical backing. Each task stops exactly once, with no payload or
-capability references left. See [M10 verification](docs/M10-VERIFICATION.md)
-and [raw evidence](docs/evidence/m10) for exact commands and results.
-All **25 final verification commands** passed, including panic, unexpected page
-fault and timeout detection.
-
-The M9 checkpoint passed **54 Rust tests**, **49 Python tests**, format and Clippy,
-normal QEMU boots at **128 and 256 MiB**, and three external-module variants.
-The same kernel ELF returned **42 or 99 depending on the external file**; a bad
-version or a bad final opcode was rejected before admitting any program.
-Panic, unexpected page fault and timeout paths also passed: **24 recorded commands**.
-See [M9 verification](docs/M9-VERIFICATION.md) and [raw evidence](docs/evidence/m9).
-
-The M8 checkpoint passed **49 Rust tests**, **42 Python validator tests**, format
-and Clippy checks, normal QEMU boots at **128 and 256 MiB**, and the intentional
-panic, unexpected page fault and timeout paths. All 18 verification commands passed.
-Each normal boot validates 17 M8 dispatches, non-yielding loop isolation, shared
-physical backing, revocation during suspension, admission quotas and cleanup.
-See [M8 verification](docs/M8-VERIFICATION.md) and [raw evidence](docs/evidence/m8).
-QEMU checks are local Windows/WSL results; portable checks also run in GitHub CI.
-
-The M7 checkpoint passed **43 Rust tests**, **38 Python validator tests**, format
-and Clippy checks, normal QEMU boots at **128 and 256 MiB**, intentional panic,
-unexpected page fault, and timeout cleanup. All 18 verification commands passed.
-CI checks portable code and validators; QEMU evidence comes from the recorded
-Windows/WSL runs. Full logs and hashes are in [docs/evidence/m7](docs/evidence/m7).
-
-| Experiment | Observed result | Interpretation |
-| --- | --- | --- |
-| Two CPL3 tasks read a 4 MiB object | Same 1,024 physical payload pages | True sharing, with independent address spaces |
-| Writer changes one page | One private 4 KiB COW copy | Reader retains the original data |
-| M6 ordinary vs. object sharing/COW | Equal payload frame counts | Existing shared-memory techniques provide the same payload savings |
-| M7 restricted bytecode vs. native control | 19 fewer pool frames (77,824 bytes) | Limited read workload; native control includes an unused fixture page |
-| M7 checkpoint vs. M6 checkpoint | Larger kernel and retained bootloader regions | Overall boot-time free RAM did not improve |
-
-Benchmark times are **QEMU guest TSC ticks**, not calibrated seconds or physical
-CPU cycles. M7 bulk host reads and native byte loops use different execution
-mechanisms. These results do not establish general application speedups or
-superiority over Linux, seL4, WASM runtimes, or other operating systems.
-
-## Current boundaries
-
-- One CPU, interrupts disabled, finite workloads; no native preemption/SMP.
-  Bytecode can be suspended at instruction boundaries; host reads remain synchronous.
-- Usable physical memory must end at or below 1 GiB.
-- Fixed-capacity tables, built-in native fixtures, and a bounded external bytecode
-  loader. No general native application loader or dynamic loading.
-- Compression and deduplication are opt-in experiments in a small policy domain.
-- The interpreter and its host adapter are part of the trusted computing base.
-- The initial read manifest is compiled into the kernel. Module order is trusted;
-  there is no signature check or code-identity authentication.
-- Revocation denies future object reads; it cannot erase values already read.
-- Inspection is a trusted kernel API between synchronous operations on one CPU.
-  Snapshots do not update automatically; unused fuel of stopped tasks is not reusable.
-- Session cleanup covers normal scope exit and early returns. It is not guaranteed
-  on `panic=abort`, power loss, or deliberate `mem::forget` in trusted kernel code.
-- Physical hardware, KVM, Secure Boot, DMA isolation, side channels, and formal
-  security proofs are outside the verified scope.
-
-## Project map
-
-| Location | Purpose |
-| --- | --- |
-| `src/` | Kernel, portable memory/capability logic, restricted interpreter |
-| `tools/` | Pinned build, QEMU runner, evidence validators and tests |
-| `docs/ARCHITECTURE.md` | Invariants, permission/lifetime rules and implementation |
-| `docs/ROADMAP.md` | Milestones and remaining research questions |
-| `docs/M7-THREAT-MODEL.md` | Restricted-language trust boundary and test plan |
-| `docs/M9-FORMAT.md` | External package format, quotas and trust boundary |
-| `examples/bytecode/demo.json` | Editable external bytecode example |
-| `docs/M10-DESIGN.md` | Code/authority lifetime and automatic cleanup |
-| `docs/M11-DESIGN.md` | Trusted initial grants and external shared reads |
-| `examples/bytecode/shared.json` | External shared-object readers and denied task |
-| `docs/M12-DESIGN.md` | Scoped revocation and restart boundaries |
-| `examples/bytecode/revocation.json` | External read/yield/read lifecycle fixture |
-| `docs/M13-DESIGN.md` | Read-only execution and resource snapshots |
-| `src/runner.rs` / `docs/M14-DESIGN.md` | Bounded launch, result and cleanup contract |
-| `docs/M1-VERIFICATION.md` … `docs/M14-VERIFICATION.md` | Checkpoint reports |
-| `docs/evidence/` | Historical raw results, commands and source hashes |
-
-Detailed engineering documents are currently written in Japanese. Historical
-evidence includes the original machine's local paths; those paths describe the
-recorded environment and are not prerequisites for building your checkout.
-M8 adds bounded bytecode scheduling; see its [design and limits](docs/M8-DESIGN.md).
-M9 loads externally packaged programs; see the [format and packer instructions](docs/M9-FORMAT.md).
-M10 binds external execution to one authority host and cleans up on scope exit.
-M11 adds a trusted read manifest and proves physical sharing by external programs.
-M12 revokes through the bound host and tests resumed and restarted readers.
-M13 exposes bounded snapshots without releasing the host or code borrow.
-M14 combines package validation, trusted launch, bounded execution and cleanup.
-The historical v0.1.0 release remains the M7 checkpoint.
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md). Small changes with a clear invariant,
-reproducible commands, and honest verification evidence are welcome. Preserve
-hardware isolation for native code, and include metadata and mapping costs in
-memory claims. Report security concerns using [SECURITY.md](SECURITY.md).
-
-## License and acknowledgements
-
-Original project code is available under the [MIT License](LICENSE).
-Limine-derived ABI definitions and bootloader binaries retain their respective
-upstream terms; see [THIRD_PARTY.md](THIRD_PARTY.md) and
-[LICENSES/Limine.txt](LICENSES/Limine.txt). QEMU/OVMF are external execution tools
-and are not bundled in the release.
-
-Related work: [seL4 shared-memory mapping](https://docs.sel4.systems/Tutorials/mapping.html),
-[Singularity](https://www.microsoft.com/en-us/research/project/singularity/),
-[WebAssembly's security model](https://webassembly.org/docs/security/), and
-[CHERI](https://www.cl.cam.ac.uk/research/security/ctsrd/cheri/).
+Original code is licensed under the [MIT License](LICENSE). Limine-derived
+definitions and bundled bootloader files retain their upstream terms; see
+[third-party notices](THIRD_PARTY.md) and [the Limine license](LICENSES/Limine.txt).
+QEMU and OVMF are external tools and are not bundled.

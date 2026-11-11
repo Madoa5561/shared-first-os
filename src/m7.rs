@@ -1,6 +1,8 @@
 //! Restricted bytecode shares kernel CR3, never native execution privilege.
-//! See docs/M7-THREAT-MODEL.md. Native controls retain the M4 hardware boundary.
+//! See docs/SECURITY-MODEL.md. Native controls retain hardware paging isolation.
 use super::*;
+#[path = "launch_checks.rs"]
+mod launch_checks;
 #[path = "m10.rs"]
 mod m10;
 #[path = "m11.rs"]
@@ -428,4 +430,5 @@ pub(super) fn run() {
     m12::run(store);
     m13::run(store);
     m14::run(store);
+    launch_checks::run(store);
 }

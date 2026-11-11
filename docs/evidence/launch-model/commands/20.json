@@ -1,0 +1,17 @@
+{
+  "exit_code": 0,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "C:\\Users\\shout\\OneDrive\\ドキュメント\\RAMOS",
+    "--exec",
+    "python3",
+    "tools/qemu.py",
+    "image",
+    "--variant",
+    "shared-bad-opcode"
+  ],
+  "cwd": "C:\\Users\\shout\\OneDrive\\ドキュメント\\RAMOS"
+}

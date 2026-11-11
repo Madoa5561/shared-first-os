@@ -363,6 +363,25 @@ mod tests {
         }
     }
     #[test]
+    fn generated_launches_match_independent_execution_model() {
+        let mut store = ObjectStore::<_, 1>::new(Memory::default());
+        for index in 0..crate::launch_model::GENERATED_CASES {
+            crate::launch_model::check_generated(&mut store, index);
+            assert!(!store.backend().live);
+        }
+    }
+    #[test]
+    fn malformed_corpus_is_rejected_before_backend_allocation() {
+        let mut store = ObjectStore::<_, 1>::new(Memory {
+            fail: true,
+            ..Memory::default()
+        });
+        for index in 0..crate::launch_model::REJECTED_CASES {
+            crate::launch_model::check_rejected(&mut store, index);
+            assert!(!store.backend().live);
+        }
+    }
+    #[test]
     fn runner_returns_terminal_state_after_all_owned_resources_are_released() {
         use crate::{runner::execute, scheduler::TaskState};
         let mut store = ObjectStore::<_, 1>::new(Memory::default());
