@@ -1,5 +1,14 @@
 # 技術判断記録
 
+## M14: 同期の起動入口と所有結果
+
+1. 外部codeを所有Batchへ検証してからLaunchを作り、Session終了後にBatchをclearする。
+   自己参照構造・callback・heapを避け、借用scopeで資源寿命を保証する。
+2. dispatch上限を0..1024に制限。0回の取消と、ちょうど完了した実行を区別する。
+   同期host呼出しを途中中断しないため、実時間上限とは呼ばない。
+3. 起動段階のエラーと実行taskのfaultを分け、before/after Statsをreturn時点で取得する。
+   busy拒否は既存資源を残し、準備失敗は取得分だけを解放する。世代の巻戻しはしない。
+
 ## M13: 有界の状態照会を実行管理の第一段階にする
 
 1. Schedulerのready boolを終了理由付きTaskStateへ置換。停止後も情報を保持し、取消で上書きしない。

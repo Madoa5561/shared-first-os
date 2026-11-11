@@ -1,0 +1,19 @@
+{
+  "cwd": "C:\\Users\\shout\\OneDrive\\ドキュメント\\RAMOS",
+  "exit_code": 0,
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu",
+    "--cd",
+    "C:\\Users\\shout\\OneDrive\\ドキュメント\\RAMOS",
+    "--exec",
+    "python3",
+    "tools/qemu.py",
+    "test",
+    "--variant",
+    "shared-bad-count",
+    "--memory",
+    "128"
+  ]
+}

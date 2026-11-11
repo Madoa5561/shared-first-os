@@ -328,7 +328,7 @@ mod tests {
         assert_eq!(launch.sum(1, args[1], 0, 1), Ok(5));
         assert_eq!(launch.sum(2, args[2], 0, 1), Ok(5));
     }
-    fn read_batch() -> Batch {
+    fn read_image() -> [u8; 256] {
         let mut bytes = [0; 256];
         bytes[..8].copy_from_slice(&MAGIC);
         bytes[8] = 1;
@@ -349,7 +349,116 @@ mod tests {
                 bytes[at + 16 + index * 16..at + 32 + index * 16].copy_from_slice(&word);
             }
         }
-        Batch::load(&bytes).unwrap()
+        bytes
+    }
+    fn read_batch() -> Batch {
+        Batch::load(&read_image()).unwrap()
+    }
+    fn run_options(dispatch_limit: usize) -> crate::runner::RunOptions {
+        crate::runner::RunOptions {
+            quantum: 1,
+            dispatch_limit,
+            manifest: DEMO,
+            fill: 7,
+        }
+    }
+    #[test]
+    fn runner_returns_terminal_state_after_all_owned_resources_are_released() {
+        use crate::{runner::execute, scheduler::TaskState};
+        let mut store = ObjectStore::<_, 1>::new(Memory::default());
+        for limit in [16, 9, 2, 0] {
+            let report = execute(&mut store, &read_image(), run_options(limit));
+            assert_eq!(report.before, report.after);
+            assert!(!store.backend().live);
+            let result = report.result.unwrap();
+            assert_eq!(result.dispatches, limit.min(9));
+            assert_eq!(result.limited, limit < 9);
+            assert_eq!(result.stops, [1, 1, 1, 0]);
+            assert_eq!(
+                (result.execution.ready, result.execution.granted_fuel),
+                (0, 24)
+            );
+            for task in 0..3 {
+                let state = result.execution.tasks[task].unwrap();
+                let (expected_state, fuel) = if limit >= 9 {
+                    if task == 2 {
+                        (TaskState::Faulted(Fault::Authority), 6)
+                    } else {
+                        (TaskState::Halted(7), 2)
+                    }
+                } else {
+                    (
+                        TaskState::Cancelled,
+                        if limit == 2 && task < 2 { 6 } else { 8 },
+                    )
+                };
+                assert_eq!((state.state, state.remaining_fuel), (expected_state, fuel));
+            }
+        }
+    }
+    #[test]
+    fn runner_rejects_configuration_code_and_count_before_execution() {
+        use crate::{
+            loader::LoadError,
+            runner::{MAX_DISPATCHES, StartError, execute},
+        };
+        let mut store = ObjectStore::<_, 1>::new(Memory::default());
+        for (quantum, limit) in [(0, 1), (65, 1), (1, MAX_DISPATCHES + 1)] {
+            let mut options = run_options(limit);
+            options.quantum = quantum;
+            let report = execute(&mut store, &[], options);
+            assert_eq!(report.result, Err(StartError::Configuration));
+            assert_eq!(report.before, report.after);
+        }
+        let mut image = read_image();
+        image[240] = 255;
+        let report = execute(&mut store, &image, run_options(16));
+        assert_eq!(
+            report.result,
+            Err(StartError::Load(LoadError::Code(Fault::Opcode)))
+        );
+        assert_eq!(report.before, report.after);
+        image[10] = 2;
+        let report = execute(&mut store, &image[..176], run_options(16));
+        assert_eq!(report.result, Err(StartError::Launch(LaunchError::Count)));
+        assert_eq!(report.before, report.after);
+        assert!(!store.backend().live);
+    }
+    #[test]
+    fn runner_busy_rejection_preserves_existing_authority_and_data() {
+        use crate::runner::{StartError, execute};
+        let mut store = ObjectStore::<_, 1>::new(Memory::default());
+        let owner = store.create_filled(0, 4096, 9).unwrap();
+        let report = execute(&mut store, &read_image(), run_options(16));
+        assert_eq!(report.result, Err(StartError::Launch(LaunchError::Busy)));
+        assert_eq!(report.before, report.after);
+        assert_eq!(report.after.capabilities, 1);
+        assert_eq!(store.read_sum(0, owner, 0, 4096), Ok(36864));
+        store.release_task(0).unwrap();
+    }
+    #[test]
+    fn runner_preparation_failures_release_partial_backing_and_allow_retry() {
+        use crate::runner::{StartError, execute};
+        let mut store = ObjectStore::<_, 1>::new(Memory::default());
+        for seal_failure in [false, true] {
+            store.backend_mut().fail = !seal_failure;
+            store.backend_mut().seal_fail = seal_failure;
+            let report = execute(&mut store, &read_image(), run_options(16));
+            assert!(matches!(
+                report.result,
+                Err(StartError::Launch(LaunchError::Object(_)))
+            ));
+            assert_eq!(report.before, report.after);
+            assert!(!store.backend().live);
+        }
+        store.backend_mut().fail = false;
+        store.backend_mut().seal_fail = false;
+        assert!(
+            execute(&mut store, &read_image(), run_options(16))
+                .result
+                .is_ok()
+        );
+        assert_eq!(store.stats().payload_frames, 0);
     }
     #[test]
     fn inspection_observes_cancel_and_revoke_without_exposing_authority() {

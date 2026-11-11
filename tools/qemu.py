@@ -17,6 +17,7 @@ from m10_validation import validate_m10
 from m11_validation import validate_m11
 from m12_validation import validate_m12
 from m13_validation import validate_m13
+from m14_validation import validate_m14
 from pack_bytecode import encode
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -217,6 +218,7 @@ def run_qemu(options):
                     revocation = (ROOT / 'build' / options.variant / 'iso-root/boot/revocation.sfbc').read_bytes()
                     record['m12'] = validate_m12(serial, record['m2'], revocation, options.variant)
                     record['m13'] = validate_m13(serial, record['m2'], options.variant)
+                    record['m14'] = validate_m14(serial, record['m2'], options.variant)
         record['passed'] = True
         # Keep the raw firmware escape sequences in serial.log, but make the
         # command transcript readable. This does not affect validation.

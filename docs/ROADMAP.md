@@ -1,14 +1,14 @@
 # Roadmap and gates
 
-## 現在の状態（M13）
+## 現在の状態（M14）
 
-M1〜M13のゲートを通過しました。M13の読み取り専用の実行状態・資源照会と、QEMUの全回帰を検証しました。
+M1〜M14のゲートを通過しました。M14の有界起動入口と、QEMUの全回帰を実装・検証しました。
 M7は脅威モデルに限定した言語隔離の研究試作です。
 実ring-3の共有・隔離・COW、任意の重複排除と圧力時圧縮、5方式のベースラインに加え、
 制限付きバイトコードの検証・燃料・Capability読取り・失効を実装しました。
 検証コマンドは `./tools/project.ps1 verify`、証跡と正確な結果は
-[M13-VERIFICATION.md](M13-VERIFICATION.md) に記録します。
-M13も固定容量の有限試作です。汎用OSや安全性証明の完成ではありません。
+[M14-VERIFICATION.md](M14-VERIFICATION.md) に記録します。
+M14も固定容量の有限試作です。汎用OSや安全性証明の完成ではありません。
 
 M4ではGDT/TSS・ring-3移行・int 0x80・独立CR3を実装しました。呼び出し元はカーネルが決定し、
 ユーザー引数で他タスクのCapability表を選べません。4 MiBの全1,024ページの物理アドレス一致、
@@ -135,10 +135,18 @@ nativeのpaging保護を維持し、bytecodeだけが信頼されたインタプ
   QEMU全snapshotと実物理backing/回収の独立照合、不正moduleの拒否、M1〜M12回帰。
 - [M13-DESIGN.md](M13-DESIGN.md)。状態を返す基盤APIの段階で、汎用実行managerは含まない。
 
-## M13後の未着手候補
+## M14: Bounded launch entry point
 
-- 次の優先候補: 検証済みBatch・Launch準備・Session実行のエラーをまとめる有界の起動入口。
-  失敗箇所と資源回収を同じ結果型で扱い、固定fixture外から安全に呼べるようにする。
+- 設定・外部code検証・権限準備・実行・取消・回収を同期APIへ集約。
+- 起動失敗と実行中faultを区別し、最終状態と実行前後の資源会計を所有copyで返す。
+- Gate: 正常/正確な上限/途中取消/実行前取消、設定・code・件数拒否、busy store保持、
+  allocate/seal失敗、実QEMUの8caseと実frame/回収、全入力variant、M1〜M13回帰。
+- [M14-DESIGN.md](M14-DESIGN.md)。信頼されたkernel向けの固定3program READ policyを維持。
+
+## M14後の未着手候補
+
+- 次の優先候補: 起動APIの入力境界を体系的に検査し、生成した外部package・異常入力・実行予算の
+  組合せを独立モデルと照合する。汎用化する前に検証漏れと回収保証を強化する。
 - native preemptionと動的task slot再利用には別の設計・検証が必要。
 - 検証器の体系的なfuzz・モデル検査、より強い証明、信頼基盤の縮小とruntime自身の隔離。
 - 未使用秘密ページ除外・RXコード共有などを行ったnative対照群、複数task数・入力・書込み負荷での比較。

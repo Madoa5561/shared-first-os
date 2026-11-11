@@ -141,7 +141,10 @@ M12は`examples/bytecode/revocation.json`を3個目のmoduleにし、3caseの失
 M13は同じ3個目のmoduleで、1命令quantumの通常終了と取消+失効を検査します。
 20回のsnapshot・80件のtask状態・実read/frame/回収を`result.json`の`m13`へ保存します。
 新しいmodule/variantは不要で、verifyは33コマンドのままです。
-パニック版はM1途中、想定外fault版はM2途中で意図的に停止するため、M3〜M13を実行しません。
+M14は同じ外部moduleを有界起動APIへ渡し、通常/正確な上限/途中取消/0回/設定拒否/busy/版拒否/件数拒否の
+8caseを`result.json`の`m14`に保存します。不正外部codeでは4実行caseもLoad拒否となり、
+M14 PASSは起動APIの拒否・回収試験の合格を意味します。新moduleはなくverifyは33コマンドです。
+パニック版はM1途中、想定外fault版はM2途中で意図的に停止するため、M3〜M14を実行しません。
 128 MiB・256 MiBが検証対象で、usable領域の終端が1 GiBを超える構成は明示的に拒否します。
 各試験は新しい証跡フォルダを使い、過去のシリアルログを流用しません。
 QEMUはネットワークなし、ホストの物理ディスク接続なしで実行します。

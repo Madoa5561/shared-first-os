@@ -1,6 +1,17 @@
 # Architecture: Object-Centric Memory (OCM)
 
-## M13の実行状態照会（現在）
+## M14の有界起動入口（現在）
+
+runner::executeは外部byte列、専用ObjectStore、信頼されたRunOptionsから起動する同期kernel API。
+設定→全code検証→Launch→Session→残task取消→Launch回収→code clearをまとめる。
+quantum1..64、dispatch_limit0..1024。0は準備後に実行せず取消する。上限時にReadyが残った場合だけlimited。
+StartErrorはConfiguration/Load/Launch/Sessionを区別し、実行中faultはCompletionの最終Snapshotに残す。
+Reportのbefore/after Statsはscopeの外で取得し、通常return時に今回取得した資源は回収済み。
+busy拒否は既存の権限とデータを保持する。世代の巻戻しやsecure eraseは行わない。
+任意callback・host参照・heap・unsafeは追加せず、既存の借用とDropを使う。
+詳細は [M14-DESIGN.md](M14-DESIGN.md)。非同期job、外部からの途中制御、実時間保証は含まない。
+
+## M13の実行状態照会
 
 SchedulerはReady/Halted(value)/Faulted(reason)/Cancelledを固定slotに保存する。
 Session::snapshotは4slotと累積付与燃料・残燃料合計・ready数をコピーで返す。

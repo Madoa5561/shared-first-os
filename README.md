@@ -14,10 +14,10 @@ workloads, including restricted bytecode loaded from separate boot modules,
 and exits automatically. There is no desktop, interactive shell,
 filesystem, network stack, general application loader, or physical-machine installer.
 
-**[Download the M13 research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/m13-preview)**
+**[Download the M14 research preview](https://github.com/Madoa5561/shared-first-os/releases/tag/m14-preview)**
 · **[Build instructions](docs/BUILD.md)**
 · **[Architecture](docs/ARCHITECTURE.md)**
-· **[Verification report](docs/M13-VERIFICATION.md)**
+· **[Verification report](docs/M14-VERIFICATION.md)**
 
 ## What works
 
@@ -51,14 +51,17 @@ filesystem, network stack, general application loader, or physical-machine insta
 - **Execution inspection:** owned snapshots retain task stop reasons and remaining
   fuel; a restricted host interface reports resource counts and revocation state.
   Queries preserve scheduling and do not expose the authority host.
+- **Bounded launch API:** validate an external package, prepare trusted READ grants,
+  execute within a dispatch limit and reclaim acquired resources before returning
+  an owned result. Startup errors and task faults remain distinct.
 
 Native tasks retain hardware isolation. The restricted interpreter is trusted
 kernel code; it accepts a small custom language, not arbitrary native code or WASM.
 
 ## Try the prebuilt image
 
-Download `shared-first-os-m13-preview.zip` from the
-[M13 release](https://github.com/Madoa5561/shared-first-os/releases/tag/m13-preview).
+Download `shared-first-os-m14-preview.zip` from the
+[M14 release](https://github.com/Madoa5561/shared-first-os/releases/tag/m14-preview).
 The ZIP contains the bootable ISO, kernel ELF, checksums, and license notices.
 The ISO is also available as a separate asset.
 
@@ -77,7 +80,7 @@ qemu-system-x86_64 \
   -device isa-debug-exit,iobase=0xf4,iosize=0x04
 ```
 
-Expect `Shared-First OS booted`, followed by `M1 PASS` through `M13 PASS`.
+Expect `Shared-First OS booted`, followed by `M1 PASS` through `M14 PASS`.
 The full benchmark suite can take over 90 seconds under TCG; the test runner allows
 up to 180 seconds per boot. QEMU exits with
 **code 33 on success** through `isa-debug-exit`; this nonzero code is intentional.
@@ -113,6 +116,13 @@ The scripts enforce locked versions. An ISO's timestamp metadata is not fixed,
 so byte-for-byte reproducible ISO builds are not claimed.
 
 ## Verified results
+
+M14 adds a synchronous bounded launch entry point. Verification passed **74 Rust
+unit tests**, **3 documentation compile tests**, **63 Python tests**, and all **33
+commands** covering QEMU at 128/256 MiB, seven module variants and failure paths.
+Eight launch cases check terminal state, dispatch bounds, startup rejection,
+preservation of pre-existing resources and actual physical cleanup.
+See [M14 verification](docs/M14-VERIFICATION.md) and [raw evidence](docs/evidence/m14).
 
 M13 adds read-only execution and resource inspection. Verification passed **70 Rust
 unit tests**, **3 documentation compile tests**, **60 Python tests**, and all **33
@@ -213,7 +223,8 @@ superiority over Linux, seL4, WASM runtimes, or other operating systems.
 | `docs/M12-DESIGN.md` | Scoped revocation and restart boundaries |
 | `examples/bytecode/revocation.json` | External read/yield/read lifecycle fixture |
 | `docs/M13-DESIGN.md` | Read-only execution and resource snapshots |
-| `docs/M1-VERIFICATION.md` … `docs/M13-VERIFICATION.md` | Checkpoint reports |
+| `src/runner.rs` / `docs/M14-DESIGN.md` | Bounded launch, result and cleanup contract |
+| `docs/M1-VERIFICATION.md` … `docs/M14-VERIFICATION.md` | Checkpoint reports |
 | `docs/evidence/` | Historical raw results, commands and source hashes |
 
 Detailed engineering documents are currently written in Japanese. Historical
@@ -225,6 +236,7 @@ M10 binds external execution to one authority host and cleans up on scope exit.
 M11 adds a trusted read manifest and proves physical sharing by external programs.
 M12 revokes through the bound host and tests resumed and restarted readers.
 M13 exposes bounded snapshots without releasing the host or code borrow.
+M14 combines package validation, trusted launch, bounded execution and cleanup.
 The historical v0.1.0 release remains the M7 checkpoint.
 
 ## Contributing
